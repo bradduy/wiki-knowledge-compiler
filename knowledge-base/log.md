@@ -12,4 +12,4 @@ All structural changes to the knowledge base are logged here in reverse chronolo
 ## 2026-04-05 Knowledge base initialized
 - Created directory structure
 - Added templates and placeholder indexes
-- Plugin: memory-compiler v0.1.0
+- Plugin: wiki-knowledge-compiler v0.1.0

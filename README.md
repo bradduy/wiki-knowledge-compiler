@@ -1,4 +1,4 @@
-# memory-compiler
+# wiki-knowledge-compiler
 
 A local-first LLM Wiki / Knowledge Compiler plugin for Claude Code.
 
@@ -6,7 +6,7 @@ Inspired by [Karpathy's "LLM Wiki" concept](https://gist.github.com/karpathy/442
 
 ## What it does
 
-**memory-compiler** turns Claude Code into an AI-powered knowledge management system that:
+**wiki-knowledge-compiler** turns Claude Code into an AI-powered knowledge management system that:
 
 - **Ingests** raw sources (PDFs, markdown, notes, URL stubs) into an immutable archive
 - **Extracts** atomic concepts, creates summaries, and builds topic pages — all with provenance
@@ -21,8 +21,8 @@ Everything is plain markdown with YAML frontmatter. No databases, no cloud servi
 ### Option 1: Clone into your project
 
 ```bash
-git clone https://github.com/bradduy/memory-compiler.git
-cd memory-compiler
+git clone https://github.com/bradduy/wiki-knowledge-compiler.git
+cd wiki-knowledge-compiler
 ```
 
 Claude Code will automatically detect the `CLAUDE.md` and `.claude/` configuration.
@@ -32,10 +32,10 @@ Claude Code will automatically detect the `CLAUDE.md` and `.claude/` configurati
 Copy the plugin files into your project:
 
 ```bash
-cp -r memory-compiler/.claude/ your-project/.claude/
-cp -r memory-compiler/{agents,skills,templates} your-project/
-cp memory-compiler/CLAUDE.md your-project/CLAUDE.md
-bash memory-compiler/scripts/init-kb.sh your-project/knowledge-base
+cp -r wiki-knowledge-compiler/.claude/ your-project/.claude/
+cp -r wiki-knowledge-compiler/{agents,skills,templates} your-project/
+cp wiki-knowledge-compiler/CLAUDE.md your-project/CLAUDE.md
+bash wiki-knowledge-compiler/scripts/init-kb.sh your-project/knowledge-base
 ```
 
 ## Commands
@@ -152,7 +152,7 @@ The index files in `knowledge-base/index/` serve as both human-readable navigati
 # Future marketplace structure
 marketplace/
   plugins/
-    memory-compiler/
+    wiki-knowledge-compiler/
       plugin.json      # Already exists
       CLAUDE.md        # Already exists
       .claude/         # Commands and hooks

@@ -1,6 +1,6 @@
 # Memory Compiler — LLM Wiki Plugin
 
-You are operating inside the **memory-compiler** plugin, a local-first knowledge compiler for Claude Code.
+You are operating inside the **wiki-knowledge-compiler** plugin, a local-first knowledge compiler for Claude Code.
 
 ## Core Principles
 
