@@ -1,10 +1,14 @@
 {
   "hooks": {
-    "post_tool_use": [
+    "PostToolUse": [
       {
-        "description": "Warn if a tool modifies files in knowledge-base/raw/",
-        "command": "if echo \"$TOOL_INPUT\" | grep -q 'knowledge-base/raw/' && [ \"$TOOL_NAME\" != \"Read\" ] && [ \"$TOOL_NAME\" != \"Glob\" ] && [ \"$TOOL_NAME\" != \"Grep\" ]; then echo 'WARNING: raw/ is immutable. Do not modify source files in knowledge-base/raw/. Only read operations are permitted.'; exit 1; fi",
-        "enabled": true
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$TOOL_INPUT\" | grep -q 'knowledge-base/raw/'; then echo 'WARNING: raw/ is immutable. Do not modify source files in knowledge-base/raw/. Only read operations are permitted.'; exit 1; fi"
+          }
+        ]
       }
     ]
   },
