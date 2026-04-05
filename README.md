@@ -18,25 +18,67 @@ Everything is plain markdown with YAML frontmatter. No databases, no cloud servi
 
 ## Install
 
-### Option 1: Clone into your project
+### Option 1: Claude Code Marketplace (recommended)
+
+The easiest way to install. Open Claude Code and run:
+
+```
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+```
+
+Or use the **Add Marketplace** dialog in Claude Code settings:
+1. Open Claude Code
+2. Go to **Settings** → **Plugins** → **Add Marketplace**
+3. Enter: `bradduy/wiki-knowledge-compiler`
+4. Browse the marketplace and install **wiki-knowledge-compiler**
+
+Then install the plugin:
+
+```
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
+```
+
+Once installed, run `/setup-wiki` to configure your project size and search backend.
+
+### Option 2: Clone as a standalone knowledge base
 
 ```bash
 git clone https://github.com/bradduy/wiki-knowledge-compiler.git
 cd wiki-knowledge-compiler
 ```
 
-Claude Code will automatically detect the `CLAUDE.md` and `.claude/` configuration.
+Open the folder in Claude Code — it will automatically detect `CLAUDE.md` and `.claude/` configuration. All commands are immediately available.
 
-### Option 2: Add to an existing repo
+### Option 3: Add to an existing project
 
-Copy the plugin files into your project:
+Copy the plugin files into your repo:
 
 ```bash
-cp -r wiki-knowledge-compiler/.claude/ your-project/.claude/
-cp -r wiki-knowledge-compiler/{agents,skills,templates} your-project/
-cp wiki-knowledge-compiler/CLAUDE.md your-project/CLAUDE.md
-bash wiki-knowledge-compiler/scripts/init-kb.sh your-project/knowledge-base
+git clone https://github.com/bradduy/wiki-knowledge-compiler.git /tmp/wkc
+
+# Copy plugin structure
+cp -r /tmp/wkc/.claude/ your-project/.claude/
+cp -r /tmp/wkc/.claude-plugin/ your-project/.claude-plugin/
+cp -r /tmp/wkc/{agents,skills,templates} your-project/
+cp /tmp/wkc/CLAUDE.md your-project/CLAUDE.md
+cp /tmp/wkc/wiki.config.md your-project/wiki.config.md
+
+# Initialize the knowledge base
+bash /tmp/wkc/scripts/init-kb.sh your-project/knowledge-base
+
+# Clean up
+rm -rf /tmp/wkc
 ```
+
+### Verify installation
+
+After any install method, open Claude Code in the project directory and run:
+
+```
+/setup-wiki
+```
+
+This walks you through project size configuration and confirms everything is working.
 
 ## Commands
 
