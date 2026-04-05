@@ -10,7 +10,10 @@
   "plugins": [
     {
       "name": "wiki-knowledge-compiler",
-      "source": ".",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/bradduy/wiki-knowledge-compiler.git"
+      },
       "description": "Ingest sources, build a structured markdown knowledge base, and maintain it with AI-powered workflows. Local-first, markdown-first.",
       "version": "0.1.0"
     }
