@@ -1,4 +1,4 @@
-# Memory Compiler — LLM Wiki Plugin
+# Wiki Knowledge Compiler — LLM Wiki Plugin
 
 You are operating inside the **wiki-knowledge-compiler** plugin, a local-first knowledge compiler for Claude Code.
 
@@ -33,6 +33,7 @@ knowledge-base/
 - `/update-index` — Rebuild all indexes
 - `/health-check` — Audit the wiki for structural problems
 - `/generate-insights` — Synthesize new insights from existing knowledge
+- `/setup-wiki` — Configure project size and search backend
 
 ## File Conventions
 
@@ -41,9 +42,23 @@ knowledge-base/
 - Links: Use relative markdown links between wiki pages (e.g., `[Attention](../concepts/attention-mechanism.md)`)
 - Dates: ISO 8601 format (`YYYY-MM-DD`)
 
+## Search Configuration
+
+The wiki supports multiple search backends based on project size. Configuration lives in `wiki.config.md` at the project root.
+
+| Size | Pages | Backend | Setup |
+|------|-------|---------|-------|
+| Small | <100 | Grep + index files | None (default) |
+| Medium | 100–500 | [qmd](https://github.com/tobi/qmd) CLI | `brew install tobi/tap/qmd` |
+| Large | 500+ | qmd MCP server | qmd + MCP config |
+
+Run `/setup-wiki` to configure. The search skill (`skills/search-strategy.md`) governs which backend to use. **Always read `wiki.config.md` before performing search** to use the correct tier.
+
 ## When in Doubt
 
+- Read `wiki.config.md` to know the active search backend
 - Check `knowledge-base/index/master-index.md` before creating new pages
-- Search existing pages with Grep before assuming a concept doesn't exist
+- Search existing pages with the configured backend before assuming a concept doesn't exist
 - Append to `knowledge-base/log.md` after any structural change
 - Prefer updating existing pages over creating new ones
+- If search results feel inadequate, suggest `/setup-wiki` to upgrade the search tier

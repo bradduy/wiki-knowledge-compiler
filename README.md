@@ -42,6 +42,7 @@ bash wiki-knowledge-compiler/scripts/init-kb.sh your-project/knowledge-base
 
 | Command | Description |
 |---------|-------------|
+| `/setup-wiki` | **Start here.** Interactive setup — choose project size, configure search backend |
 | `/ingest-source <path-or-url>` | Add a raw source and extract knowledge from it |
 | `/query-wiki <question>` | Search the wiki, answer with citations, write back if useful |
 | `/update-index` | Rebuild all knowledge base indexes from the file system |
@@ -118,6 +119,7 @@ Reads across all sources related to scaling, identifies cross-cutting patterns, 
 | `wiki-linking` | Rules for cross-linking between pages |
 | `wiki-health-check` | Full audit checklist |
 | `write-back-discipline` | When and how to persist outputs to the wiki |
+| `search-strategy` | Search tier selection based on project size and backend |
 
 ### Non-negotiable Rules
 
@@ -127,24 +129,48 @@ Reads across all sources related to scaling, identifies cross-cutting patterns, 
 4. Useful outputs are written back — conversation is ephemeral, the wiki is persistent
 5. No hallucinated citations — if it's not in a source, don't cite it
 
+## Search Tiers
+
+The plugin adapts its search strategy based on your project size. Run `/setup-wiki` to configure.
+
+| Tier | Project Size | Backend | How it works |
+|------|-------------|---------|--------------|
+| **Small** | <100 pages | Grep + index files | Built-in, no setup. Keyword search across markdown files. |
+| **Medium** | 100–500 pages | [qmd](https://github.com/tobi/qmd) CLI | Hybrid BM25/vector search, all on-device. Shell out to `qmd search`. |
+| **Large** | 500+ pages | qmd MCP server | Native tool integration with LLM re-ranking. Best quality, lowest latency. |
+| **Custom** | Any | `scripts/search.sh` | Bring your own search script. |
+
+### Installing qmd (for medium/large projects)
+
+```bash
+# macOS
+brew install tobi/tap/qmd
+
+# or build from source
+git clone https://github.com/tobi/qmd && cd qmd && make install
+```
+
+For MCP mode, add to your Claude Code config:
+```json
+{
+  "mcpServers": {
+    "qmd": {
+      "command": "qmd",
+      "args": ["mcp", "--root", "knowledge-base/"]
+    }
+  }
+}
+```
+
+The plugin **always falls back gracefully**: qmd MCP → qmd CLI → Grep. Index files remain human-readable navigation regardless of backend.
+
 ## Limitations (v0.1)
 
-- **Search is file-based.** Uses Grep/Glob and index files. No vector search or semantic ranking.
 - **No PDF text extraction.** PDFs are stored in `raw/` but you need to paste or provide markdown content for ingestion. Claude Code can read PDFs directly, but complex layouts may not extract perfectly.
 - **Single-user.** No conflict resolution for concurrent edits.
 - **No version history.** Relies on git for page history. Run `git init` in your knowledge-base if you want versioning.
 
 ## Future Upgrade Path
-
-### Search / MCP Integration
-
-The plugin is designed so search can be upgraded without changing the UX:
-
-1. **v1 (current):** Grep + index files. Works for <500 pages.
-2. **v2:** Add a local MCP search server that indexes markdown files. Commands stay the same — the librarian agent just calls the MCP tool instead of Grep.
-3. **v3:** Add embedding-based semantic search via a local model. Still local-first, still markdown-first.
-
-The index files in `knowledge-base/index/` serve as both human-readable navigation and a fallback when search tools are unavailable.
 
 ### Packaging for Marketplace
 

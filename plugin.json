@@ -4,7 +4,7 @@
   "description": "Karpathy-style local-first LLM Wiki / Knowledge Compiler for Claude Code. Ingest sources, build a structured markdown knowledge base, and maintain it with AI-powered workflows.",
   "author": "wiki-knowledge-compiler contributors",
   "license": "MIT",
-  "homepage": "https://github.com/bradduy/memory-compiler",
+  "homepage": "https://github.com/bradduy/wiki-knowledge-compiler",
   "keywords": [
     "knowledge-base",
     "wiki",
@@ -47,6 +47,10 @@
     "generate-insights": {
       "description": "Synthesize new insights from existing knowledge",
       "file": ".claude/commands/generate-insights.md"
+    },
+    "setup-wiki": {
+      "description": "Interactive setup — configure project size and search backend",
+      "file": ".claude/commands/setup-wiki.md"
     }
   }
 }
