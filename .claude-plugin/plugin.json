@@ -2,7 +2,7 @@
   "name": "wiki-knowledge-compiler",
   "version": "0.1.0",
   "description": "Karpathy-style local-first LLM Wiki / Knowledge Compiler for Claude Code. Ingest sources, build a structured markdown knowledge base, and maintain it with AI-powered workflows.",
-  "author": "bradduy",
+  "author": {"name": "Brad Duy"},
   "license": "MIT",
   "homepage": "https://github.com/bradduy/wiki-knowledge-compiler"
 }
