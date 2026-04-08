@@ -1,6 +1,10 @@
-# wiki-knowledge-compiler
+<p align="center">
+  <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="200" />
+</p>
 
-A local-first LLM Wiki / Knowledge Compiler plugin for Claude Code.
+<h1 align="center">Wiki Knowledge Compiler</h1>
+
+<p align="center">A local-first LLM Wiki / Knowledge Compiler plugin for Claude Code.</p>
 
 Inspired by [Karpathy's "LLM Wiki" concept](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): raw sources are immutable, the wiki is derived knowledge, and useful outputs are always written back.
 
