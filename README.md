@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="600" />
+  <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="100%" />
 </p>
 
 <h1 align="center">Wiki Knowledge Compiler</h1>
