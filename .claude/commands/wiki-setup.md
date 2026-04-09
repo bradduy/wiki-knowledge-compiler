@@ -233,9 +233,11 @@ Would you like to ingest them now? This will create summaries, extract key ideas
 1. Run `/wiki-update` to ensure indexes are current
 2. If qmd backend is active and the collection was set up in Step 2, run `qmd embed` to ensure embeddings are current
 
-### Step 6: Offer Obsidian for visual browsing
+### Step 6: Offer Obsidian for visual browsing (MUST ASK)
 
-After the wiki is set up, ask the user if they want a visual way to browse their knowledge base:
+**You MUST ask this question. Do NOT skip this step. Do NOT assume the user's answer.**
+
+After the wiki is set up, ask the user if they want a visual way to browse their knowledge base. Present this prompt and WAIT for their response:
 
 ```
 Would you like to browse your wiki visually?
