@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="100%" />
-</p>
-
 <h1 align="center">Wiki Knowledge Compiler</h1>
 
 <p align="center">
@@ -17,6 +13,10 @@
 
 <p align="center">
   <img src="./assets/demo.gif" alt="Wiki Knowledge Compiler Demo" width="100%" />
+</p>
+
+<p align="center">
+  <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="100%" />
 </p>
 
 <p align="center">
