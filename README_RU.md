@@ -9,6 +9,27 @@
   🇷🇺 <strong>Русский</strong>
 </p>
 
+<h1 align="center">Wiki Knowledge Compiler</h1>
+
+<p align="center">
+  <em>Превратите ваши документы в персональную базу знаний — на основе ИИ, хранится в простых файлах.</em>
+</p>
+
+<p align="center">
+  <a href="https://github.com/bradduy/wiki-knowledge-compiler/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
+  <a href="https://github.com/bradduy/wiki-knowledge-compiler"><img src="https://img.shields.io/badge/platform-Claude%20Code-blueviolet.svg" alt="Claude Code" /></a>
+  <a href="https://obsidian.md"><img src="https://img.shields.io/badge/works%20with-Obsidian-7C3AED.svg" alt="Works with Obsidian" /></a>
+  <img src="https://img.shields.io/badge/offline-100%25-brightgreen.svg" alt="100% Offline" />
+</p>
+
+<p align="center">
+  <img src="./assets/demo.gif" alt="Wiki Knowledge Compiler Demo" width="100%" />
+</p>
+
+<p align="center">
+  <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="100%" />
+</p>
+
 ---
 
 # 🇷🇺 Русский
