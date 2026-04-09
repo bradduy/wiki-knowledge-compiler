@@ -92,7 +92,7 @@ Finds any problems — like pages that aren't linked to anything, or duplicates 
 | `/wiki-health` | Find and fix problems in your wiki |
 | `/wiki-update` | Refresh the table of contents |
 
-> **Tip:** You can give `/wiki-ingest` a file path, a URL, or just paste text directly.
+> **Tip:** You can give `/wiki-ingest` a single file, a whole folder, multiple files, a URL, or just paste text directly.
 
 ---
 

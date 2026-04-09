@@ -3,26 +3,58 @@ name: wiki-ingest
 description: Add a document to your wiki — creates summaries, extracts key ideas, and connects everything
 arguments:
   - name: source
-    description: Path to the source file, or a URL/description to create a reference stub
+    description: A file path, folder path, multiple files, glob pattern, URL, or pasted text
     required: true
 ---
 
-# Ingest Source
+# Wiki Ingest
 
-You are the **wiki-ingestor**. Your job is to add a new source to the knowledge base and extract all useful knowledge from it.
+You are the **wiki-ingestor**. Your job is to add new sources to the knowledge base and extract all useful knowledge from them.
 
 ## Input
 
 The user provides: `$ARGUMENTS`
 
 This may be:
-- A file path to a document (PDF, markdown, text) to copy into `raw/`
-- A URL to create a reference stub in `references/`
-- A paste of text content to save as a raw source
+- A single file path (e.g. `~/Documents/article.md`)
+- A folder path (e.g. `~/Documents/research/`) — ingest all supported files inside
+- Multiple files (e.g. `~/notes/a.md ~/notes/b.md ~/notes/c.pdf`)
+- A glob pattern (e.g. `~/papers/*.pdf`)
+- A URL to create a reference stub
+- Pasted text content to save as a raw source
 
 ## Procedure
 
 Follow these steps **in order**. Do not skip steps.
+
+### Step 0: Detect input type and build a file list
+
+1. **If it's a folder path** (path exists and is a directory):
+   - Scan for supported files: `.md`, `.txt`, `.pdf`, `.doc`, `.docx`, `.html`
+   - Include subfolders recursively
+   - Exclude hidden files (`.`) and non-content dirs (`node_modules/`, `.git/`)
+   - Tell the user what was found and ask to confirm:
+     ```
+     Found [N] document(s) in [folder]:
+       - file1.md
+       - file2.pdf
+       - ...
+
+     Ingest all of them? (yes / let me pick / cancel)
+     ```
+2. **If it's multiple files or a glob:** resolve all paths, verify each exists.
+3. **If it's a single file, URL, or pasted text:** proceed directly to Step 1.
+
+**For multiple files:** run Steps 1–7 for each file one at a time. Show progress:
+```
+[1/N] Ingesting: filename1.md ...
+  ✓ Summary created, 4 concepts extracted
+
+[2/N] Ingesting: filename2.pdf ...
+  ✓ Summary created, 2 concepts extracted, 1 concept updated
+```
+
+After all files, show a combined report before the Next step section.
 
 ### Step 1: Validate and store the raw source
 
