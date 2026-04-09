@@ -45,7 +45,8 @@ Three steps. Everything installs automatically — you don't need to set up anyt
 
 **Step 1 — Install the plugin:**
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 **Step 2 — Run setup:**
@@ -196,7 +197,8 @@ The plugin detects your operating system (macOS, Linux, Windows) and installs ev
 ### From the Claude Code Marketplace (easiest)
 
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 ### Clone as a standalone project
@@ -269,7 +271,8 @@ Ba bước. Mọi thứ được cài đặt tự động — bạn không cần
 
 **Bước 1 — Cài plugin:**
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 **Bước 2 — Chạy thiết lập:**
@@ -420,7 +423,8 @@ Plugin nhận diện hệ điều hành của bạn (macOS, Linux, Windows) và 
 ### Từ Claude Code Marketplace (dễ nhất)
 
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 ### Clone như một dự án độc lập
@@ -493,7 +497,8 @@ MIT
 
 **第 1 步——安装插件：**
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 **第 2 步——运行设置：**
@@ -644,7 +649,8 @@ knowledge-base/
 ### 从 Claude Code 市场安装（最简单）
 
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 ### 克隆为独立项目
@@ -717,7 +723,8 @@ MIT
 
 **1단계 — 플러그인 설치:**
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 **2단계 — 설정 실행:**
@@ -868,7 +875,8 @@ knowledge-base/
 ### Claude Code 마켓플레이스에서 (가장 쉬움)
 
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 ### 독립 프로젝트로 클론
@@ -941,7 +949,8 @@ MIT
 
 **ステップ 1 — プラグインをインストール：**
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 **ステップ 2 — セットアップを実行：**
@@ -1092,7 +1101,8 @@ knowledge-base/
 ### Claude Code マーケットプレイスから（最も簡単）
 
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 ### スタンドアロンプロジェクトとしてクローン
@@ -1165,7 +1175,8 @@ Drei Schritte. Alles wird automatisch installiert — Sie müssen nichts selbst 
 
 **Schritt 1 — Plugin installieren:**
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 **Schritt 2 — Setup ausführen:**
@@ -1314,7 +1325,8 @@ Das Plugin erkennt Ihr Betriebssystem (macOS, Linux, Windows) und installiert al
 ### Aus dem Claude Code Marketplace (am einfachsten)
 
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 ### Als eigenständiges Projekt klonen
@@ -1387,7 +1399,8 @@ Trois étapes. Tout s'installe automatiquement — vous n'avez rien à configure
 
 **Étape 1 — Installer le plugin :**
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 **Étape 2 — Lancer la configuration :**
@@ -1536,7 +1549,8 @@ Le plugin détecte votre système d'exploitation (macOS, Linux, Windows) et inst
 ### Depuis le marketplace Claude Code (le plus simple)
 
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 ### Cloner comme projet autonome
@@ -1609,7 +1623,8 @@ MIT
 
 **Шаг 1 — Установить плагин:**
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 **Шаг 2 — Запустить настройку:**
@@ -1758,7 +1773,8 @@ knowledge-base/
 ### Из маркетплейса Claude Code (проще всего)
 
 ```
-/install bradduy/wiki-knowledge-compiler
+/plugin marketplace add bradduy/wiki-knowledge-compiler
+/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
 
 ### Клонировать как отдельный проект
