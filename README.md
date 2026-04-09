@@ -4,254 +4,252 @@
 
 <h1 align="center">Wiki Knowledge Compiler</h1>
 
-<p align="center">A local-first LLM Wiki / Knowledge Compiler plugin for Claude Code.</p>
+<p align="center">
+  Turn your documents into a personal knowledge base — powered by AI, stored as simple files.
+</p>
 
-Inspired by [Karpathy's "LLM Wiki" concept](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): raw sources are immutable, the wiki is derived knowledge, and useful outputs are always written back.
+---
 
-## What it does
+## What is this?
 
-**wiki-knowledge-compiler** turns Claude Code into an AI-powered knowledge management system that:
+Wiki Knowledge Compiler is a plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that helps you **collect, organize, and search your knowledge**.
 
-- **Ingests** raw sources (PDFs, markdown, notes, URL stubs) into an immutable archive
-- **Extracts** atomic concepts, creates summaries, and builds topic pages — all with provenance
-- **Queries** the knowledge base with citations and writes back reusable answers
-- **Maintains** structural health: detects orphans, duplicates, stale pages, and broken links
-- **Synthesizes** cross-cutting insights with explicit confidence ratings and uncertainty markers
+Give it any document — an article, notes, a PDF — and it will:
 
-Everything is plain markdown with YAML frontmatter. No databases, no cloud services, no proprietary formats.
+1. **Save** the original (your sources are never changed)
+2. **Summarize** the key points
+3. **Extract** the important ideas into their own pages
+4. **Connect** related ideas across all your sources
+5. **Answer** your questions using only what's in your knowledge base
+
+Everything is saved as plain text files on your computer. No cloud. No database. No lock-in.
+
+---
+
+## Quick Start
+
+### 1. Install the plugin
+
+Open Claude Code and run:
+
+```
+/install bradduy/wiki-knowledge-compiler
+```
+
+### 2. Set up your wiki
+
+```
+/wiki-setup
+```
+
+This creates your knowledge base folder and walks you through a few simple choices. The defaults work great for most people.
+
+### 3. Add your first source
+
+```
+/wiki-ingest ~/Documents/my-article.md
+```
+
+That's it! The plugin reads your document and builds out your wiki automatically.
+
+---
+
+## Your First 5 Minutes
+
+Here's what a typical session looks like:
+
+**Add a source:**
+```
+/wiki-ingest ~/Notes/meeting-notes-april.md
+```
+
+The plugin saves your file, writes a summary, pulls out key ideas, and links everything together. You'll see a report of what was created.
+
+**Ask a question:**
+```
+/wiki-query What decisions were made about the project timeline?
+```
+
+The plugin searches your wiki and gives you an answer with links back to the original sources. If the answer is useful, it saves it for next time.
+
+**Check on your wiki:**
+```
+/wiki-health
+```
+
+Finds any problems — like pages that aren't linked to anything, or duplicates — and offers to fix them.
+
+---
+
+## All Commands
+
+| Command | What it does |
+|---------|-------------|
+| `/wiki-setup` | Set up your wiki (run this first) |
+| `/wiki-ingest <file>` | Add a document to your wiki |
+| `/wiki-query <question>` | Ask a question about your knowledge |
+| `/wiki-insights` | Discover connections across your sources |
+| `/wiki-health` | Find and fix problems in your wiki |
+| `/wiki-update` | Refresh the table of contents |
+
+> **Tip:** You can give `/wiki-ingest` a file path, a URL, or just paste text directly.
+
+---
+
+## What Gets Created
+
+When you add a source, the plugin creates a set of files:
+
+```
+knowledge-base/
+  raw/           Your original documents (never modified)
+  summaries/     One-page summaries of each source
+  concepts/      Key ideas, one per page
+  topics/        Bigger-picture pages grouping related ideas
+  insights/      Connections discovered across sources
+  index/         Table of contents (auto-generated)
+  references/    Links to external resources
+  log.md         A record of everything that happened
+```
+
+All files are plain Markdown — you can open, read, and edit them with any text editor.
+
+---
+
+## Example: From Document to Knowledge
+
+Say you add an article about climate change:
+
+```
+/wiki-ingest ~/Articles/ipcc-summary-2023.md
+```
+
+Here's what the plugin creates:
+
+| File | What it contains |
+|------|-----------------|
+| `raw/ipcc-summary-2023.md` | Your original article (untouched) |
+| `summaries/ipcc-summary-2023.md` | A summary with the key takeaways |
+| `concepts/carbon-budget.md` | A page explaining the "carbon budget" idea |
+| `concepts/climate-tipping-points.md` | A page on tipping points |
+| `topics/climate-science.md` | A topic page linking related concepts |
+
+Later, you add a second article about energy policy. The plugin notices connections — for example, both sources discuss carbon budgets — and links them together automatically.
+
+Now when you ask:
+```
+/wiki-query How do carbon budgets affect energy policy?
+```
+
+You get an answer that draws from **both** sources, with links to exactly where each fact came from.
+
+---
+
+## Tips for Getting the Most Out of It
+
+- **Start small.** Add 2-3 sources and try querying before adding more.
+- **Ask specific questions.** "What does source X say about Y?" works better than vague questions.
+- **Run `/wiki-health` occasionally.** It keeps your wiki tidy as it grows.
+- **Use `/wiki-insights`** after adding several sources on a topic — it finds patterns you might miss.
+- **Your sources are safe.** The `raw/` folder is read-only. The plugin will never change your originals.
+
+---
 
 ## Install
 
-### Option 1: Claude Code Marketplace (recommended)
+Three ways to install, from easiest to most flexible:
 
-The easiest way to install. Open Claude Code and run:
-
-```
-/plugin marketplace add bradduy/wiki-knowledge-compiler
-```
-
-Or use the **Add Marketplace** dialog in Claude Code settings:
-1. Open Claude Code
-2. Go to **Settings** → **Plugins** → **Add Marketplace**
-3. Enter: `bradduy/wiki-knowledge-compiler`
-4. Browse the marketplace and install **wiki-knowledge-compiler**
-
-Then install the plugin:
+### From the Claude Code Marketplace (easiest)
 
 ```
-/plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
+/install bradduy/wiki-knowledge-compiler
 ```
 
-Once installed, run `/setup-wiki` to configure your project size and search backend.
+Then run `/wiki-setup` to get started.
 
-### Option 2: Clone as a standalone knowledge base
+### As a standalone project
 
 ```bash
 git clone https://github.com/bradduy/wiki-knowledge-compiler.git
 cd wiki-knowledge-compiler
 ```
 
-Open the folder in Claude Code — it will automatically detect `CLAUDE.md` and `.claude/` configuration. All commands are immediately available.
+Open this folder in Claude Code. Everything is ready to go — just run `/wiki-setup`.
 
-### Option 3: Add to an existing project
-
-Copy the plugin files into your repo:
+### Inside an existing project
 
 ```bash
 git clone https://github.com/bradduy/wiki-knowledge-compiler.git /tmp/wkc
-
-# Copy plugin structure
 cp -r /tmp/wkc/.claude/ your-project/.claude/
 cp -r /tmp/wkc/.claude-plugin/ your-project/.claude-plugin/
 cp -r /tmp/wkc/{agents,skills,templates} your-project/
 cp /tmp/wkc/CLAUDE.md your-project/CLAUDE.md
 cp /tmp/wkc/wiki.config.md your-project/wiki.config.md
-
-# Initialize the knowledge base
 bash /tmp/wkc/scripts/init-kb.sh your-project/knowledge-base
-
-# Clean up
 rm -rf /tmp/wkc
 ```
 
-### Verify installation
+Then open your project in Claude Code and run `/wiki-setup`.
 
-After any install method, open Claude Code in the project directory and run:
+---
 
-```
-/setup-wiki
-```
+## How It Works (The Short Version)
 
-This walks you through project size configuration and confirms everything is working.
+The plugin uses four AI agents behind the scenes:
 
-## Commands
+| Agent | Job |
+|-------|-----|
+| **Ingestor** | Reads your documents and creates wiki pages |
+| **Librarian** | Searches your wiki and answers questions |
+| **Synthesizer** | Finds connections and patterns across sources |
+| **Auditor** | Checks for problems and keeps things tidy |
 
-| Command | Description |
-|---------|-------------|
-| `/setup-wiki` | **Start here.** Interactive setup — choose project size, configure search backend |
-| `/ingest-source <path-or-url>` | Add a raw source and extract knowledge from it |
-| `/query-wiki <question>` | Search the wiki, answer with citations, write back if useful |
-| `/update-index` | Rebuild all knowledge base indexes from the file system |
-| `/health-check` | Audit for orphans, duplicates, stale pages, weak links |
-| `/generate-insights [focus]` | Synthesize new insights from existing knowledge |
+You don't need to interact with these directly — the commands above handle everything.
 
-## Knowledge Base Structure
+---
 
-```
-knowledge-base/
-  raw/           # Immutable source documents
-  concepts/      # Atomic concept pages (one per file)
-  topics/        # Broader topic overviews
-  summaries/     # Per-source summaries with provenance
-  insights/      # Cross-cutting observations
-  index/         # Auto-generated indexes
-  drafts/        # Work-in-progress pages
-  references/    # External URL/resource stubs
-  log.md         # Append-only activity log
-```
+## As Your Wiki Grows
 
-## Usage Examples
+The plugin adapts to your wiki's size:
 
-### Ingest a paper
+| Wiki size | What happens | You need to do |
+|-----------|-------------|----------------|
+| **Under 100 pages** | Built-in search | Nothing (default) |
+| **100 – 500 pages** | Smarter search with [qmd](https://github.com/tobi/qmd) | Installed automatically |
+| **500+ pages** | Fastest search mode | Installed automatically |
 
-```
-/ingest-source ~/papers/vaswani-2017-attention-is-all-you-need.pdf
-```
+When you choose Medium or Large during `/wiki-setup`, qmd is installed automatically. The plugin always works — larger wikis just search faster with the upgrade.
 
-Creates: raw copy, summary, concept pages (attention, self-attention, multi-head attention, etc.), topic updates, index updates, log entry.
+---
 
-### Ask a question
+## Browse Your Wiki with Obsidian (Optional)
 
-```
-/query-wiki How does self-attention differ from cross-attention?
-```
+During `/wiki-setup`, you'll be asked if you want to install [Obsidian](https://obsidian.md) — a free app that lets you **see your wiki visually**.
 
-Searches the wiki, answers with citations to specific pages, identifies knowledge gaps, and writes back the synthesis as an insight if it's novel.
+Once installed, just open your `knowledge-base/` folder in Obsidian and you get:
 
-### Check wiki health
+- **Graph View** — an interactive map showing every page and how they connect
+- **Backlinks** — click any page and see everything that links to it
+- **Full-text search** — find anything across your entire wiki instantly
+- **Live sync** — add documents with `/wiki-ingest`, and they appear in Obsidian right away
 
-```
-/health-check
-```
+Obsidian is completely optional. Your wiki works perfectly fine with just the `/wiki-` commands. But if you're a visual thinker, it's the best way to explore your knowledge.
 
-Reports: 2 orphan pages, 1 suspected duplicate (attention.md vs attention-mechanism.md), 3 summaries with broken source links. Offers to auto-fix safe issues.
+---
 
-### Generate insights
+## Good to Know
 
-```
-/generate-insights scaling laws
-```
+- **Works offline.** Everything is on your computer.
+- **Plain text files.** No database, no special software needed to read your wiki.
+- **PDFs are supported** but complex layouts (tables, multi-column) may not extract perfectly.
+- **Single user.** Designed for personal use.
+- **Use git for history.** Run `git init` in your knowledge base folder if you want to track changes over time.
 
-Reads across all sources related to scaling, identifies cross-cutting patterns, generates insight pages with confidence ratings.
-
-## Architecture
-
-### Agents
-
-| Agent | Role |
-|-------|------|
-| `wiki-ingestor` | Processes raw sources into structured wiki content |
-| `wiki-librarian` | Searches, answers questions, decides write-backs |
-| `wiki-synthesizer` | Generates cross-cutting insights and finds gaps |
-| `wiki-auditor` | Structural health checks and link verification |
-
-### Skills
-
-| Skill | Purpose |
-|-------|---------|
-| `source-ingestion` | Rules for storing and deduplicating sources |
-| `concept-extraction` | Rules for identifying and writing atomic concepts |
-| `topic-synthesis` | Rules for creating and maintaining topic pages |
-| `wiki-linking` | Rules for cross-linking between pages |
-| `wiki-health-check` | Full audit checklist |
-| `write-back-discipline` | When and how to persist outputs to the wiki |
-| `search-strategy` | Search tier selection based on project size and backend |
-
-### Non-negotiable Rules
-
-1. `raw/` is immutable — never modified after ingestion
-2. Every derived page cites its sources
-3. Uncertainty is always marked explicitly: `[uncertainty: reason]`
-4. Useful outputs are written back — conversation is ephemeral, the wiki is persistent
-5. No hallucinated citations — if it's not in a source, don't cite it
-
-## Search Tiers
-
-The plugin adapts its search strategy based on your project size. Run `/setup-wiki` to configure.
-
-| Tier | Project Size | Backend | How it works |
-|------|-------------|---------|--------------|
-| **Small** | <100 pages | Grep + index files | Built-in, no setup. Keyword search across markdown files. |
-| **Medium** | 100–500 pages | [qmd](https://github.com/tobi/qmd) CLI | Hybrid BM25/vector search, all on-device. Shell out to `qmd search`. |
-| **Large** | 500+ pages | qmd MCP server | Native tool integration with LLM re-ranking. Best quality, lowest latency. |
-| **Custom** | Any | `scripts/search.sh` | Bring your own search script. |
-
-### Installing qmd (for medium/large projects)
-
-```bash
-# macOS
-brew install tobi/tap/qmd
-
-# or build from source
-git clone https://github.com/tobi/qmd && cd qmd && make install
-```
-
-For MCP mode, add to your Claude Code config:
-```json
-{
-  "mcpServers": {
-    "qmd": {
-      "command": "qmd",
-      "args": ["mcp", "--root", "knowledge-base/"]
-    }
-  }
-}
-```
-
-The plugin **always falls back gracefully**: qmd MCP → qmd CLI → Grep. Index files remain human-readable navigation regardless of backend.
-
-## Limitations (v0.1)
-
-- **No PDF text extraction.** PDFs are stored in `raw/` but you need to paste or provide markdown content for ingestion. Claude Code can read PDFs directly, but complex layouts may not extract perfectly.
-- **Single-user.** No conflict resolution for concurrent edits.
-- **No version history.** Relies on git for page history. Run `git init` in your knowledge-base if you want versioning.
-
-## Future Upgrade Path
-
-### Packaging for Marketplace
-
-```
-# Future marketplace structure
-marketplace/
-  plugins/
-    wiki-knowledge-compiler/
-      plugin.json      # Already exists
-      CLAUDE.md        # Already exists
-      .claude/         # Commands and hooks
-      agents/
-      skills/
-      templates/
-```
-
-The `plugin.json` manifest is already structured for marketplace discovery.
-
-### Paper-Writing Support
-
-Future versions may add:
-- `drafts/` → `papers/` promotion workflow
-- Citation management (BibTeX generation from wiki sources)
-- Outline generation from topic pages
-- Literature review synthesis from summaries
+---
 
 ## Contributing
 
-This plugin follows Claude Code plugin conventions. To add a new command:
-
-1. Create a `.md` file in `.claude/commands/`
-2. Add frontmatter with `name`, `description`, and `arguments`
-3. Write the command prompt following the existing command structure
-4. Add the command to `plugin.json`
-5. Test with Claude Code
+Want to add a command or improve the plugin? See the [contributing guide](.github/CONTRIBUTING.md) or open an issue.
 
 ## License
 

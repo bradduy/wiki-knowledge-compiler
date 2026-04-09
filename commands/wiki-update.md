@@ -1,6 +1,6 @@
 ---
-name: update-index
-description: Rebuild all knowledge base indexes by scanning the actual file system
+name: wiki-update
+description: Refresh your wiki's table of contents and indexes
 ---
 
 # Update Index

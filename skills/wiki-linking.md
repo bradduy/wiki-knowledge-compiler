@@ -83,7 +83,7 @@ When creating or updating any page:
 
 ## Link audit checklist
 
-Use during `/health-check`:
+Use during `/wiki-health`:
 - [ ] No broken links (target file exists)
 - [ ] No orphan pages (every page has at least one incoming link)
 - [ ] No self-links

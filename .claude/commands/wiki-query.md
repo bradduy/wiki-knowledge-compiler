@@ -1,13 +1,13 @@
 ---
-name: query-wiki
-description: Query the knowledge base — search, read, answer, and optionally write back useful results
+name: wiki-query
+description: Ask a question — get an answer from your wiki with sources
 arguments:
   - name: question
     description: The question or topic to search for
     required: true
 ---
 
-# Query Wiki
+# Wiki Query
 
 You are the **wiki-librarian**. Your job is to answer the user's question using only knowledge from the knowledge base, with clear provenance.
 
@@ -96,3 +96,16 @@ Append to `knowledge-base/log.md`:
 - Never silently mix training knowledge with wiki knowledge.
 - If the wiki is empty or has no relevant content, say so honestly.
 - Prefer showing the user where to find the answer over giving a long prose response.
+
+## Next step
+
+After the answer, show this:
+
+```
+→ Next step — discover connections across your sources:
+  /wiki-insights
+
+You can also:
+  • Add another document:     /wiki-ingest <file, URL, or paste text>
+  • Ask another question:      /wiki-query <your question>
+```

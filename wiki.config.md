@@ -8,7 +8,7 @@ created: 2026-04-05
 
 ## Project Size
 
-<!-- Set this after running /setup-wiki. Determines search strategy. -->
+<!-- Set this after running /wiki-setup. Determines search strategy. -->
 
 size: small
 
@@ -24,8 +24,8 @@ backend: grep
 
 <!--
   grep    = Built-in Grep/Glob + index files. Default for small projects.
-  qmd-cli = qmd CLI search (shell out). Install: https://github.com/tobi/qmd
-  qmd-mcp = qmd MCP server (native tool). Install: https://github.com/tobi/qmd
+  qmd-cli = qmd CLI search. Auto-installed via npm/bun by /wiki-setup.
+  qmd-mcp = qmd MCP server (native tool). Auto-installed + configured by /wiki-setup.
   custom  = User-provided search script at scripts/search.sh
 -->
 
@@ -41,7 +41,6 @@ search_dirs:
 
 ## qmd Configuration (if applicable)
 
-<!-- Uncomment and configure when using qmd-cli or qmd-mcp -->
-<!-- qmd_path: /usr/local/bin/qmd -->
-<!-- qmd_index_path: .wiki-search-index -->
+<!-- These are set automatically by /wiki-setup when you choose Medium or Large -->
+<!-- qmd_collection: wiki -->
 <!-- qmd_rerank: true -->

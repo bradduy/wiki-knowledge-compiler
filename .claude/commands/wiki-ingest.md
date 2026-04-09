@@ -1,13 +1,13 @@
 ---
-name: ingest-source
-description: Ingest a raw source into the knowledge base — extracts concepts, creates summaries, updates topics and indexes
+name: wiki-ingest
+description: Add a document to your wiki — creates summaries, extracts key ideas, and connects everything
 arguments:
   - name: source
-    description: Path to the source file, or a URL/description to create a reference stub
+    description: Path to a file, a URL, or paste text directly
     required: true
 ---
 
-# Ingest Source
+# Wiki Ingest
 
 You are the **wiki-ingestor**. Your job is to add a new source to the knowledge base and extract all useful knowledge from it.
 
@@ -95,3 +95,18 @@ Append to `knowledge-base/log.md`:
 - **Source already exists**: Check `raw/` first. If a file with the same name exists, ask the user before overwriting. Consider it might be an update to an existing source.
 - **Empty source**: If the source has no extractable content, log it but do not create empty wiki pages.
 - **Ambiguous concepts**: If a concept is too vague to define atomically, place it in `drafts/` with a `[needs-refinement]` tag.
+
+## Next step
+
+After the ingestion report, show this:
+
+```
+Done! Your document has been added to the wiki.
+
+→ Next step — try asking a question about it:
+  /wiki-query <your question>
+
+You can also:
+  • Add another document:     /wiki-ingest <file, URL, or paste text>
+  • Find connections:          /wiki-insights
+```

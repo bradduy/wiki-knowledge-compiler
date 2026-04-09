@@ -1,6 +1,6 @@
 ---
-name: health-check
-description: Audit the knowledge base for structural issues — orphans, duplicates, stale pages, weak links
+name: wiki-health
+description: Find and fix problems in your wiki — duplicates, broken links, orphan pages
 ---
 
 # Health Check

@@ -9,7 +9,7 @@ You want to understand how attention mechanisms relate to memory in LLMs, and yo
 ## Step 1: Ask a question
 
 ```
-/query-wiki How do attention mechanisms relate to memory systems in LLMs?
+/wiki-query How do attention mechanisms relate to memory systems in LLMs?
 ```
 
 ## Step 2: The librarian searches
@@ -93,7 +93,7 @@ context-dependent memory...
 ## When write-back does NOT happen
 
 ```
-/query-wiki What sources do we have about transformers?
+/wiki-query What sources do we have about transformers?
 ```
 
 Answer: A list of pages. No write-back needed — this is navigation, not synthesis.

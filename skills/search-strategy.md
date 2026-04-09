@@ -25,28 +25,35 @@ The search approach depends on the project size configured in `wiki.config.md`. 
 **Strengths:** Zero setup, works immediately, no external tools.
 **Limits:** No semantic search, no ranking. At 100+ pages, keyword searches return too many results and miss synonym matches.
 
-**When to upgrade:** If searches regularly return 20+ results, or you find yourself missing pages that use different terminology than your query, suggest the user run `/setup-wiki` to upgrade to qmd.
+**When to upgrade:** If searches regularly return 20+ results, or you find yourself missing pages that use different terminology than your query, suggest the user run `/wiki-setup` to upgrade to qmd.
 
 ---
 
 ### Tier 2: qmd CLI (medium projects, 100–500 pages)
 
 **Backend value:** `qmd-cli`
-**When:** User has installed [qmd](https://github.com/tobi/qmd) and configured it via `/setup-wiki`.
+**When:** User has installed [qmd](https://github.com/tobi/qmd) and configured it via `/wiki-setup`.
 
 **How to search:**
 
 1. **Primary search — qmd CLI.** Shell out to qmd for ranked results:
    ```bash
-   qmd search "your query here" --root knowledge-base/ --limit 10
+   qmd search "your query here"
    ```
-   This returns results ranked by hybrid BM25 + vector similarity.
+   For semantic/vector search:
+   ```bash
+   qmd vsearch "natural language query"
+   ```
+   For hybrid search with re-ranking:
+   ```bash
+   qmd query "your query here"
+   ```
 
 2. **Fallback — Grep.** If qmd is unavailable (not installed, index stale), fall back to Tier 1 Grep search. Note the fallback in your response.
 
 3. **Re-index after changes.** After ingesting new sources or creating pages, run:
    ```bash
-   qmd index knowledge-base/
+   qmd embed
    ```
 
 4. **Follow-up reads.** qmd returns file paths and snippets. Read the full pages for context before answering.
@@ -123,20 +130,20 @@ When you notice these, suggest upgrading:
 ```
 Note: This search returned many results and may have missed some relevant pages.
 Your wiki has grown beyond what simple keyword search handles well.
-Consider running /setup-wiki to upgrade to qmd for better search quality.
+Consider running /wiki-setup to upgrade to qmd for better search quality.
 ```
 
 ## Re-indexing discipline
 
 After any of these events, re-index:
-- `/ingest-source` completes (new pages created)
-- `/health-check` applies fixes (pages modified)
+- `/wiki-ingest` completes (new pages created)
+- `/wiki-health` applies fixes (pages modified)
 - Manual page creation or editing
-- `/update-index` runs (file index rebuilt)
+- `/wiki-update` runs (file index rebuilt)
 
 For qmd backends:
 ```bash
-qmd index knowledge-base/
+qmd embed
 ```
 
 For Grep backend: no action needed (Grep is always live).

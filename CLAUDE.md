@@ -28,12 +28,12 @@ knowledge-base/
 
 ## Commands
 
-- `/ingest-source` — Add a raw source and extract knowledge from it
-- `/query-wiki` — Search and answer questions from the knowledge base
-- `/update-index` — Rebuild all indexes
-- `/health-check` — Audit the wiki for structural problems
-- `/generate-insights` — Synthesize new insights from existing knowledge
-- `/setup-wiki` — Configure project size and search backend
+- `/wiki-setup` — Set up your wiki (run this first)
+- `/wiki-ingest` — Add a document to your wiki
+- `/wiki-query` — Ask a question, get an answer with sources
+- `/wiki-insights` — Discover connections across your sources
+- `/wiki-health` — Find and fix problems in your wiki
+- `/wiki-update` — Refresh the table of contents and indexes
 
 ## File Conventions
 
@@ -49,10 +49,10 @@ The wiki supports multiple search backends based on project size. Configuration 
 | Size | Pages | Backend | Setup |
 |------|-------|---------|-------|
 | Small | <100 | Grep + index files | None (default) |
-| Medium | 100–500 | [qmd](https://github.com/tobi/qmd) CLI | `brew install tobi/tap/qmd` |
-| Large | 500+ | qmd MCP server | qmd + MCP config |
+| Medium | 100–500 | [qmd](https://github.com/tobi/qmd) CLI | Auto-installed by `/wiki-setup` via npm/bun |
+| Large | 500+ | qmd MCP server | Auto-installed by `/wiki-setup` + MCP config |
 
-Run `/setup-wiki` to configure. The search skill (`skills/search-strategy.md`) governs which backend to use. **Always read `wiki.config.md` before performing search** to use the correct tier.
+Run `/wiki-setup` to configure. The search skill (`skills/search-strategy.md`) governs which backend to use. **Always read `wiki.config.md` before performing search** to use the correct tier.
 
 ## When in Doubt
 
@@ -61,4 +61,4 @@ Run `/setup-wiki` to configure. The search skill (`skills/search-strategy.md`) g
 - Search existing pages with the configured backend before assuming a concept doesn't exist
 - Append to `knowledge-base/log.md` after any structural change
 - Prefer updating existing pages over creating new ones
-- If search results feel inadequate, suggest `/setup-wiki` to upgrade the search tier
+- If search results feel inadequate, suggest `/wiki-setup` to upgrade the search tier

@@ -11,7 +11,7 @@ This is your local-first LLM Wiki. All knowledge is stored as plain markdown wit
 | `topics/` | Broader topic overviews grouping concepts | Derived — updated by ingestion |
 | `summaries/` | Per-source summaries with provenance | Derived — one per raw source |
 | `insights/` | Cross-cutting observations and synthesis | Derived — generated from analysis |
-| `index/` | Master index, concept index, source index | Auto-generated — rebuilt by `/update-index` |
+| `index/` | Master index, concept index, source index | Auto-generated — rebuilt by `/wiki-update` |
 | `drafts/` | Work-in-progress pages not yet promoted | Temporary — promote or delete |
 | `references/` | External URL/resource stubs | Reference — added during ingestion |
 | `log.md` | Append-only activity log | Append-only |
@@ -22,4 +22,4 @@ This is your local-first LLM Wiki. All knowledge is stored as plain markdown wit
 2. **Every derived page must cite its sources.** No orphaned claims.
 3. **Mark uncertainty explicitly.** Use `[uncertainty: reason]` inline.
 4. **Use templates.** All new pages follow templates in `../templates/`.
-5. **Update indexes after changes.** Run `/update-index` periodically.
+5. **Update indexes after changes.** Run `/wiki-update` periodically.

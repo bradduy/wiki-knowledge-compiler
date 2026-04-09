@@ -1,6 +1,6 @@
 ---
-name: generate-insights
-description: Synthesize new cross-cutting insights from existing knowledge base content
+name: wiki-insights
+description: Discover connections and patterns across your sources
 arguments:
   - name: focus
     description: Optional focus area or question to guide insight generation

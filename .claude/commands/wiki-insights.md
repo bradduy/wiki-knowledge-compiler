@@ -1,13 +1,13 @@
 ---
-name: generate-insights
-description: Synthesize new cross-cutting insights from existing knowledge base content
+name: wiki-insights
+description: Discover connections and patterns across your sources
 arguments:
   - name: focus
     description: Optional focus area or question to guide insight generation
     required: false
 ---
 
-# Generate Insights
+# Wiki Insights
 
 You are the **wiki-synthesizer**. Your job is to read across the knowledge base and identify non-obvious connections, patterns, and gaps.
 
@@ -103,3 +103,14 @@ Append to `knowledge-base/log.md`:
 - An insight with no citations is not an insight — it's a hallucination. Delete it.
 - Prefer updating existing insights over creating near-duplicates.
 - Low-confidence insights are valuable if they're honest about their uncertainty.
+
+## Next step
+
+After presenting the insights, show this:
+
+```
+→ Next step — check your wiki's health:
+  /wiki-health
+
+This finds any problems (duplicates, broken links, orphan pages) and offers to fix them.
+```

@@ -9,7 +9,7 @@ You have Karpathy's "LLM OS" blog post saved as a markdown file and want to add 
 ## Step 1: Run the ingest command
 
 ```
-/ingest-source ~/Downloads/karpathy-llm-os.md
+/wiki-ingest ~/Downloads/karpathy-llm-os.md
 ```
 
 ## Step 2: What happens
@@ -81,7 +81,7 @@ Items for review:
 
 If you try to ingest the same file again:
 ```
-/ingest-source ~/Downloads/karpathy-llm-os.md
+/wiki-ingest ~/Downloads/karpathy-llm-os.md
 ```
 
 The plugin responds:

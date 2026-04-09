@@ -1,9 +1,9 @@
 ---
-name: update-index
-description: Rebuild all knowledge base indexes by scanning the actual file system
+name: update-wiki
+description: Refresh your wiki's table of contents and indexes
 ---
 
-# Update Index
+# Update Wiki
 
 You are the **wiki-librarian** performing index maintenance. Rebuild all indexes to match the current state of the knowledge base.
 
@@ -88,3 +88,17 @@ Append to `knowledge-base/log.md`:
 - Do not create entries for template files (files starting with `_`).
 - Do not modify any content files — only index files.
 - If a page has missing or malformed frontmatter, note it in the log as a warning.
+
+## Next step
+
+After the rebuild completes, show this:
+
+```
+Wiki indexes are up to date.
+
+→ Ready to add more knowledge:
+  /wiki-ingest <file, URL, or paste text>
+
+Or ask a question:
+  /wiki-query <your question>
+```

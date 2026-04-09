@@ -1,6 +1,6 @@
 ---
-name: ingest-source
-description: Ingest a raw source into the knowledge base — extracts concepts, creates summaries, updates topics and indexes
+name: wiki-ingest
+description: Add a document to your wiki — creates summaries, extracts key ideas, and connects everything
 arguments:
   - name: source
     description: Path to the source file, or a URL/description to create a reference stub

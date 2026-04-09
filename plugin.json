@@ -28,29 +28,29 @@
     "hooks"
   ],
   "commands": {
-    "ingest-source": {
-      "description": "Ingest a raw source into the knowledge base",
-      "file": ".claude/commands/ingest-source.md"
+    "wiki-setup": {
+      "description": "Set up your wiki — choose your project size and get started",
+      "file": ".claude/commands/wiki-setup.md"
     },
-    "query-wiki": {
-      "description": "Query the knowledge base and get answers with provenance",
-      "file": ".claude/commands/query-wiki.md"
+    "wiki-ingest": {
+      "description": "Add a document to your wiki",
+      "file": ".claude/commands/wiki-ingest.md"
     },
-    "update-index": {
-      "description": "Rebuild and update all knowledge base indexes",
-      "file": ".claude/commands/update-index.md"
+    "wiki-query": {
+      "description": "Ask a question — get an answer from your wiki with sources",
+      "file": ".claude/commands/wiki-query.md"
     },
-    "health-check": {
-      "description": "Audit wiki health: orphans, duplicates, stale pages, weak links",
-      "file": ".claude/commands/health-check.md"
+    "wiki-insights": {
+      "description": "Discover connections and patterns across your sources",
+      "file": ".claude/commands/wiki-insights.md"
     },
-    "generate-insights": {
-      "description": "Synthesize new insights from existing knowledge",
-      "file": ".claude/commands/generate-insights.md"
+    "wiki-health": {
+      "description": "Find and fix problems in your wiki",
+      "file": ".claude/commands/wiki-health.md"
     },
-    "setup-wiki": {
-      "description": "Interactive setup — configure project size and search backend",
-      "file": ".claude/commands/setup-wiki.md"
+    "wiki-update": {
+      "description": "Refresh your wiki's table of contents and indexes",
+      "file": ".claude/commands/wiki-update.md"
     }
   }
 }

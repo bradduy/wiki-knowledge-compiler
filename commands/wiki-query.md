@@ -1,6 +1,6 @@
 ---
-name: query-wiki
-description: Query the knowledge base — search, read, answer, and optionally write back useful results
+name: wiki-query
+description: Ask a question — get an answer from your wiki with sources
 arguments:
   - name: question
     description: The question or topic to search for
