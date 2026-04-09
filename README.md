@@ -48,6 +48,7 @@ Three steps. Everything installs automatically — you don't need to set up anyt
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 **Step 2 — Run setup:**
 ```
@@ -200,6 +201,7 @@ The plugin detects your operating system (macOS, Linux, Windows) and installs ev
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 ### Clone as a standalone project
 
@@ -274,6 +276,7 @@ Ba bước. Mọi thứ được cài đặt tự động — bạn không cần
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 **Bước 2 — Chạy thiết lập:**
 ```
@@ -426,6 +429,7 @@ Plugin nhận diện hệ điều hành của bạn (macOS, Linux, Windows) và 
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 ### Clone như một dự án độc lập
 
@@ -500,6 +504,7 @@ MIT
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 **第 2 步——运行设置：**
 ```
@@ -652,6 +657,7 @@ knowledge-base/
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 ### 克隆为独立项目
 
@@ -726,6 +732,7 @@ MIT
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 **2단계 — 설정 실행:**
 ```
@@ -878,6 +885,7 @@ knowledge-base/
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 ### 독립 프로젝트로 클론
 
@@ -952,6 +960,7 @@ MIT
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 **ステップ 2 — セットアップを実行：**
 ```
@@ -1104,6 +1113,7 @@ knowledge-base/
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 ### スタンドアロンプロジェクトとしてクローン
 
@@ -1178,6 +1188,7 @@ Drei Schritte. Alles wird automatisch installiert — Sie müssen nichts selbst 
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 **Schritt 2 — Setup ausführen:**
 ```
@@ -1328,6 +1339,7 @@ Das Plugin erkennt Ihr Betriebssystem (macOS, Linux, Windows) und installiert al
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 ### Als eigenständiges Projekt klonen
 
@@ -1402,6 +1414,7 @@ Trois étapes. Tout s'installe automatiquement — vous n'avez rien à configure
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 **Étape 2 — Lancer la configuration :**
 ```
@@ -1552,6 +1565,7 @@ Le plugin détecte votre système d'exploitation (macOS, Linux, Windows) et inst
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 ### Cloner comme projet autonome
 
@@ -1626,6 +1640,7 @@ MIT
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 **Шаг 2 — Запустить настройку:**
 ```
@@ -1776,6 +1791,7 @@ knowledge-base/
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 /plugin install wiki-knowledge-compiler@wiki-knowledge-compiler
 ```
+When prompted, **enable the plugin scope** to activate the `/wiki-` commands.
 
 ### Клонировать как отдельный проект
 
