@@ -1,5 +1,5 @@
 <p align="center">
-  <video src="https://github.com/bradduy/wiki-knowledge-compiler/raw/main/assets/demo.mp4" autoplay loop muted playsinline width="100%"></video>
+  <img src="./assets/demo.gif" alt="Wiki Knowledge Compiler Demo" width="100%" />
 </p>
 
 <p align="center">
