@@ -12,107 +12,85 @@
 
 ## What is this?
 
-Wiki Knowledge Compiler is a plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that helps you **collect, organize, and search your knowledge**.
+A plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that turns your documents into an organized, searchable knowledge base.
 
-Give it any document — an article, notes, a PDF — and it will:
+Give it anything — articles, notes, PDFs, a whole folder — and it will:
 
-1. **Save** the original (your sources are never changed)
-2. **Summarize** the key points
-3. **Extract** the important ideas into their own pages
-4. **Connect** related ideas across all your sources
-5. **Answer** your questions using only what's in your knowledge base
+1. **Save** your originals (they're never changed)
+2. **Summarize** each source
+3. **Extract** key ideas into their own pages
+4. **Connect** related ideas across everything you've added
+5. **Answer** your questions with links back to the sources
 
-Everything is saved as plain text files on your computer. No cloud. No database. No lock-in.
+Everything stays on your computer as plain text files. No cloud. No database. No lock-in.
 
 ---
 
 ## Quick Start
 
-### 1. Install the plugin
+Three steps. Everything installs automatically — you don't need to set up anything yourself.
 
-Open Claude Code and run:
-
+**Step 1 — Install the plugin:**
 ```
 /install bradduy/wiki-knowledge-compiler
 ```
 
-### 2. Set up your wiki
-
+**Step 2 — Run setup:**
 ```
 /wiki-setup
 ```
+Pick your project size (small, medium, or large). The plugin handles the rest — it installs any tools you need, builds your wiki folder, and even offers to set up [Obsidian](https://obsidian.md) so you can browse your wiki visually.
 
-This creates your knowledge base folder and walks you through a few simple choices. The defaults work great for most people.
-
-### 3. Add your first source
-
+**Step 3 — Add your first document:**
 ```
 /wiki-ingest ~/Documents/my-article.md
 ```
 
-That's it! The plugin reads your document and builds out your wiki automatically.
+Done. Your wiki is live.
 
 ---
 
-## Your First 5 Minutes
+## What You Can Do
 
-Here's what a typical session looks like:
-
-**Add a source:**
-```
-/wiki-ingest ~/Notes/meeting-notes-april.md
-```
-
-The plugin saves your file, writes a summary, pulls out key ideas, and links everything together. You'll see a report of what was created.
-
-**Ask a question:**
-```
-/wiki-query What decisions were made about the project timeline?
-```
-
-The plugin searches your wiki and gives you an answer with links back to the original sources. If the answer is useful, it saves it for next time.
-
-**Check on your wiki:**
-```
-/wiki-health
-```
-
-Finds any problems — like pages that aren't linked to anything, or duplicates — and offers to fix them.
-
----
-
-## All Commands
+Each command tells you what to try next, so you always know the next step.
 
 | Command | What it does |
 |---------|-------------|
-| `/wiki-setup` | Set up your wiki (run this first) |
-| `/wiki-ingest <file>` | Add a document to your wiki |
-| `/wiki-query <question>` | Ask a question about your knowledge |
-| `/wiki-insights` | Discover connections across your sources |
-| `/wiki-health` | Find and fix problems in your wiki |
+| `/wiki-setup` | One-time setup (installs everything for you) |
+| `/wiki-ingest` | Add documents — one file, a whole folder, or a URL |
+| `/wiki-query` | Ask a question, get an answer with sources |
+| `/wiki-insights` | Find patterns and connections across your sources |
+| `/wiki-health` | Find and fix problems (duplicates, broken links) |
 | `/wiki-update` | Refresh the table of contents |
 
-> **Tip:** You can give `/wiki-ingest` a single file, a whole folder, multiple files, a URL, or just paste text directly.
+**Recommended order:** `/wiki-setup` → `/wiki-ingest` → `/wiki-query` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
 
 ---
 
-## What Gets Created
+## Adding Documents
 
-When you add a source, the plugin creates a set of files:
+You can add documents in many ways:
 
+```bash
+# One file
+/wiki-ingest ~/Documents/article.md
+
+# A whole folder (scans everything inside)
+/wiki-ingest ~/Documents/research/
+
+# Multiple files at once
+/wiki-ingest ~/notes/meeting1.md ~/notes/meeting2.md
+
+# All PDFs in a folder
+/wiki-ingest ~/papers/*.pdf
+
+# A URL
+/wiki-ingest https://example.com/interesting-article
+
+# Or just paste text directly after the command
 ```
-knowledge-base/
-  raw/           Your original documents (never modified)
-  summaries/     One-page summaries of each source
-  concepts/      Key ideas, one per page
-  topics/        Bigger-picture pages grouping related ideas
-  insights/      Connections discovered across sources
-  index/         Table of contents (auto-generated)
-  references/    Links to external resources
-  log.md         A record of everything that happened
-```
 
-All files are plain Markdown — you can open, read, and edit them with any text editor.
+For folders and multiple files, the plugin shows progress as it works through each one.
 
 ---
 
@@ -124,19 +102,17 @@ Say you add an article about climate change:
 /wiki-ingest ~/Articles/ipcc-summary-2023.md
 ```
 
-Here's what the plugin creates:
+The plugin creates:
 
-| File | What it contains |
-|------|-----------------|
-| `raw/ipcc-summary-2023.md` | Your original article (untouched) |
-| `summaries/ipcc-summary-2023.md` | A summary with the key takeaways |
-| `concepts/carbon-budget.md` | A page explaining the "carbon budget" idea |
-| `concepts/climate-tipping-points.md` | A page on tipping points |
-| `topics/climate-science.md` | A topic page linking related concepts |
+| What | Description |
+|------|------------|
+| **Summary** | A one-page overview of the article |
+| **Concepts** | Pages for key ideas like "carbon budget" and "tipping points" |
+| **Topic page** | A "climate science" page linking everything together |
 
-Later, you add a second article about energy policy. The plugin notices connections — for example, both sources discuss carbon budgets — and links them together automatically.
+Now add a second article about energy policy. The plugin notices both sources discuss carbon budgets and links them automatically.
 
-Now when you ask:
+When you ask:
 ```
 /wiki-query How do carbon budgets affect energy policy?
 ```
@@ -145,19 +121,64 @@ You get an answer that draws from **both** sources, with links to exactly where 
 
 ---
 
-## Tips for Getting the Most Out of It
+## Browse Your Wiki with Obsidian
 
-- **Start small.** Add 2-3 sources and try querying before adding more.
-- **Ask specific questions.** "What does source X say about Y?" works better than vague questions.
-- **Run `/wiki-health` occasionally.** It keeps your wiki tidy as it grows.
-- **Use `/wiki-insights`** after adding several sources on a topic — it finds patterns you might miss.
-- **Your sources are safe.** The `raw/` folder is read-only. The plugin will never change your originals.
+During setup, you'll be asked if you want [Obsidian](https://obsidian.md) — a free app for browsing your wiki visually. It's installed automatically if you say yes.
+
+Open your `knowledge-base/` folder in Obsidian and you get:
+
+- **Graph View** — a visual map of all your pages and how they connect
+- **Backlinks** — click any page to see everything that links to it
+- **Search** — find anything across your entire wiki
+- **Live sync** — new pages from `/wiki-ingest` appear in Obsidian right away
+
+This is optional. Your wiki works perfectly with just the commands.
 
 ---
 
-## Install
+## What Gets Created
 
-Three ways to install, from easiest to most flexible:
+```
+knowledge-base/
+  raw/           Your original documents (never modified)
+  summaries/     One-page summary of each source
+  concepts/      Key ideas, one per page
+  topics/        Bigger-picture pages grouping related ideas
+  insights/      Connections discovered across sources
+  index/         Table of contents (auto-generated)
+  references/    Links to external resources
+  log.md         A record of everything that happened
+```
+
+All files are plain Markdown. Open them with any text editor, Obsidian, or VS Code.
+
+---
+
+## Tips
+
+- **Start small.** Add 2–3 sources and try `/wiki-query` before adding more.
+- **Be specific.** "What does source X say about Y?" works better than vague questions.
+- **Run `/wiki-health` occasionally.** It keeps things tidy as your wiki grows.
+- **Try `/wiki-insights`** after adding several sources on a topic — it finds patterns you might miss.
+- **Your sources are safe.** The plugin never changes your original files.
+
+---
+
+## How Setup Works
+
+`/wiki-setup` handles everything automatically based on your project size:
+
+| Size | Search | What gets installed |
+|------|--------|-------------------|
+| **Small** | Built-in | Nothing extra needed |
+| **Medium** | Smart search ([qmd](https://github.com/tobi/qmd)) | Node.js + qmd (auto-installed) |
+| **Large** | Fastest search | Node.js + qmd + MCP server (auto-installed and configured) |
+
+The plugin detects your operating system (macOS, Linux, Windows) and installs everything using the right method for your machine. If anything fails, it falls back to built-in search — you're never stuck.
+
+---
+
+## Other Ways to Install
 
 ### From the Claude Code Marketplace (easiest)
 
@@ -165,18 +186,16 @@ Three ways to install, from easiest to most flexible:
 /install bradduy/wiki-knowledge-compiler
 ```
 
-Then run `/wiki-setup` to get started.
-
-### As a standalone project
+### Clone as a standalone project
 
 ```bash
 git clone https://github.com/bradduy/wiki-knowledge-compiler.git
 cd wiki-knowledge-compiler
 ```
 
-Open this folder in Claude Code. Everything is ready to go — just run `/wiki-setup`.
+Open in Claude Code and run `/wiki-setup`.
 
-### Inside an existing project
+### Add to an existing project
 
 ```bash
 git clone https://github.com/bradduy/wiki-knowledge-compiler.git /tmp/wkc
@@ -189,67 +208,23 @@ bash /tmp/wkc/scripts/init-kb.sh your-project/knowledge-base
 rm -rf /tmp/wkc
 ```
 
-Then open your project in Claude Code and run `/wiki-setup`.
-
----
-
-## How It Works (The Short Version)
-
-The plugin uses four AI agents behind the scenes:
-
-| Agent | Job |
-|-------|-----|
-| **Ingestor** | Reads your documents and creates wiki pages |
-| **Librarian** | Searches your wiki and answers questions |
-| **Synthesizer** | Finds connections and patterns across sources |
-| **Auditor** | Checks for problems and keeps things tidy |
-
-You don't need to interact with these directly — the commands above handle everything.
-
----
-
-## As Your Wiki Grows
-
-The plugin adapts to your wiki's size:
-
-| Wiki size | What happens | You need to do |
-|-----------|-------------|----------------|
-| **Under 100 pages** | Built-in search | Nothing (default) |
-| **100 – 500 pages** | Smarter search with [qmd](https://github.com/tobi/qmd) | Installed automatically |
-| **500+ pages** | Fastest search mode | Installed automatically |
-
-When you choose Medium or Large during `/wiki-setup`, qmd is installed automatically. The plugin always works — larger wikis just search faster with the upgrade.
-
----
-
-## Browse Your Wiki with Obsidian (Optional)
-
-During `/wiki-setup`, you'll be asked if you want to install [Obsidian](https://obsidian.md) — a free app that lets you **see your wiki visually**.
-
-Once installed, just open your `knowledge-base/` folder in Obsidian and you get:
-
-- **Graph View** — an interactive map showing every page and how they connect
-- **Backlinks** — click any page and see everything that links to it
-- **Full-text search** — find anything across your entire wiki instantly
-- **Live sync** — add documents with `/wiki-ingest`, and they appear in Obsidian right away
-
-Obsidian is completely optional. Your wiki works perfectly fine with just the `/wiki-` commands. But if you're a visual thinker, it's the best way to explore your knowledge.
+Then run `/wiki-setup`.
 
 ---
 
 ## Good to Know
 
 - **Works offline.** Everything is on your computer.
-- **Plain text files.** No database, no special software needed to read your wiki.
-- **PDFs are supported** but complex layouts (tables, multi-column) may not extract perfectly.
-- **Single user.** Designed for personal use.
-- **Use git for history.** Run `git init` in your knowledge base folder if you want to track changes over time.
+- **Plain text files.** No database or special software needed to read your wiki.
+- **PDFs supported.** Complex layouts (tables, multi-column) may not extract perfectly.
+- **Designed for personal use.** Single user.
+- **Want version history?** Run `git init` in your knowledge base folder.
 
 ---
 
 ## Contributing
 
-Want to add a command or improve the plugin? See the [contributing guide](.github/CONTRIBUTING.md) or open an issue.
+Want to improve the plugin? See the [contributing guide](.github/CONTRIBUTING.md) or open an issue.
 
 ## License
 
