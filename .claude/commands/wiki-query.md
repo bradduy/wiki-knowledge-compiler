@@ -31,14 +31,18 @@ The user asks: `$ARGUMENTS`
 4. Read the relevant pages in full.
 
 **If backend is `qmd-cli` (medium):**
-1. Run `qmd search "<question keywords>" --root knowledge-base/ --limit 10` to get ranked results.
+1. Try these qmd search commands in order for best results:
+   - `qmd query "<question>"` — hybrid search with re-ranking (best quality)
+   - `qmd vsearch "<question>"` — semantic/vector search (good for natural language)
+   - `qmd search "<keywords>"` — keyword search (fastest, good for exact terms)
 2. Read the top results in full.
-3. Fall back to Grep if qmd is unavailable.
+3. Fall back to Grep if qmd is unavailable or returns an error.
 
 **If backend is `qmd-mcp` (large):**
-1. Use the qmd MCP search tool for ranked, re-ranked results.
-2. Read the top results in full.
-3. Fall back to qmd CLI, then Grep, if MCP is unavailable.
+1. Use the qmd MCP tool directly — it appears as a tool in your available tools (no shell needed).
+2. Query with the user's question as natural language.
+3. Read the top results in full.
+4. Fall back to qmd CLI (`qmd query "<question>"`), then Grep, if MCP is unavailable.
 
 ### Step 3: Construct the answer
 
