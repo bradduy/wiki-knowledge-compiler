@@ -273,7 +273,7 @@ Ba bước. Mọi thứ được cài đặt tự động — bạn không cần
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+Sau đó vào `/plugin` → chọn marketplace **wiki-knowledge-compiler** → chọn plugin → **bật scope**. Bước này cấp quyền cho plugin chạy trên máy bạn — các lệnh `/wiki-` sẽ xuất hiện sau khi bật.
 
 **Bước 2 — Chạy thiết lập:**
 ```
@@ -425,7 +425,7 @@ Plugin nhận diện hệ điều hành của bạn (macOS, Linux, Windows) và 
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+Sau đó vào `/plugin` → chọn marketplace **wiki-knowledge-compiler** → chọn plugin → **bật scope**. Bước này cấp quyền cho plugin chạy trên máy bạn — các lệnh `/wiki-` sẽ xuất hiện sau khi bật.
 
 ### Clone như một dự án độc lập
 
@@ -499,7 +499,7 @@ MIT
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+然后进入 `/plugin` → 选择 **wiki-knowledge-compiler** 市场 → 选择该插件 → **启用 scope**。此步骤授权插件在你的机器上运行——启用后 `/wiki-` 命令将会出现。
 
 **第 2 步——运行设置：**
 ```
@@ -651,7 +651,7 @@ knowledge-base/
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+然后进入 `/plugin` → 选择 **wiki-knowledge-compiler** 市场 → 选择该插件 → **启用 scope**。此步骤授权插件在你的机器上运行——启用后 `/wiki-` 命令将会出现。
 
 ### 克隆为独立项目
 
@@ -725,7 +725,7 @@ MIT
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+그런 다음 `/plugin` → **wiki-knowledge-compiler** 마켓플레이스 선택 → 플러그인 선택 → **scope 활성화**. 이 단계에서 플러그인에 실행 권한을 부여합니다 — 활성화 후 `/wiki-` 명령어가 나타납니다.
 
 **2단계 — 설정 실행:**
 ```
@@ -877,7 +877,7 @@ knowledge-base/
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+그런 다음 `/plugin` → **wiki-knowledge-compiler** 마켓플레이스 선택 → 플러그인 선택 → **scope 활성화**. 이 단계에서 플러그인에 실행 권한을 부여합니다 — 활성화 후 `/wiki-` 명령어가 나타납니다.
 
 ### 독립 프로젝트로 클론
 
@@ -951,7 +951,7 @@ MIT
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+その後 `/plugin` → **wiki-knowledge-compiler** マーケットプレイスを選択 → プラグインを選択 → **scope を有効化**。このステップでプラグインに実行権限を付与します — 有効化後に `/wiki-` コマンドが表示されます。
 
 **ステップ 2 — セットアップを実行：**
 ```
@@ -1103,7 +1103,7 @@ knowledge-base/
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+その後 `/plugin` → **wiki-knowledge-compiler** マーケットプレイスを選択 → プラグインを選択 → **scope を有効化**。このステップでプラグインに実行権限を付与します — 有効化後に `/wiki-` コマンドが表示されます。
 
 ### スタンドアロンプロジェクトとしてクローン
 
@@ -1177,7 +1177,7 @@ Drei Schritte. Alles wird automatisch installiert — Sie müssen nichts selbst 
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+Dann gehen Sie zu `/plugin` → wählen Sie den **wiki-knowledge-compiler** Marketplace → wählen Sie das Plugin → **Scope aktivieren**. Dieser Schritt erteilt dem Plugin die Berechtigung, auf Ihrem Computer zu laufen — die `/wiki-` Befehle erscheinen danach.
 
 **Schritt 2 — Setup ausführen:**
 ```
@@ -1327,7 +1327,7 @@ Das Plugin erkennt Ihr Betriebssystem (macOS, Linux, Windows) und installiert al
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+Dann gehen Sie zu `/plugin` → wählen Sie den **wiki-knowledge-compiler** Marketplace → wählen Sie das Plugin → **Scope aktivieren**. Dieser Schritt erteilt dem Plugin die Berechtigung, auf Ihrem Computer zu laufen — die `/wiki-` Befehle erscheinen danach.
 
 ### Als eigenständiges Projekt klonen
 
@@ -1401,7 +1401,7 @@ Trois étapes. Tout s'installe automatiquement — vous n'avez rien à configure
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+Ensuite, allez dans `/plugin` → sélectionnez le marketplace **wiki-knowledge-compiler** → choisissez le plugin → **activez le scope**. Cette étape autorise le plugin à s'exécuter sur votre machine — les commandes `/wiki-` apparaîtront après l'activation.
 
 **Étape 2 — Lancer la configuration :**
 ```
@@ -1551,7 +1551,7 @@ Le plugin détecte votre système d'exploitation (macOS, Linux, Windows) et inst
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+Ensuite, allez dans `/plugin` → sélectionnez le marketplace **wiki-knowledge-compiler** → choisissez le plugin → **activez le scope**. Cette étape autorise le plugin à s'exécuter sur votre machine — les commandes `/wiki-` apparaîtront après l'activation.
 
 ### Cloner comme projet autonome
 
@@ -1625,7 +1625,7 @@ MIT
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+Затем перейдите в `/plugin` → выберите маркетплейс **wiki-knowledge-compiler** → выберите плагин → **активируйте scope**. Этот шаг даёт плагину разрешение на запуск — после активации появятся команды `/wiki-`.
 
 **Шаг 2 — Запустить настройку:**
 ```
@@ -1775,7 +1775,7 @@ knowledge-base/
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Then go to `/plugin` → select the **wiki-knowledge-compiler** marketplace → choose the plugin → **enable scope**. This grants the plugin permission to run on your machine — the `/wiki-` commands will appear after this step.
+Затем перейдите в `/plugin` → выберите маркетплейс **wiki-knowledge-compiler** → выберите плагин → **активируйте scope**. Этот шаг даёт плагину разрешение на запуск — после активации появятся команды `/wiki-`.
 
 ### Клонировать как отдельный проект
 
