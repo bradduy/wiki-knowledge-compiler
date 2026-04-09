@@ -16,7 +16,7 @@
   "platform": "claude-code",
   "min_claude_code_version": "1.0.0",
   "entry": "CLAUDE.md",
-  "commands_dir": ".claude/commands",
+  "commands_dir": "commands",
   "agents_dir": "agents",
   "skills_dir": "skills",
   "templates_dir": "templates",
@@ -30,27 +30,27 @@
   "commands": {
     "wiki-setup": {
       "description": "Set up your wiki — choose your project size and get started",
-      "file": ".claude/commands/wiki-setup.md"
+      "file": "commands/wiki-setup.md"
     },
     "wiki-ingest": {
       "description": "Add a document to your wiki",
-      "file": ".claude/commands/wiki-ingest.md"
+      "file": "commands/wiki-ingest.md"
     },
     "wiki-query": {
       "description": "Ask a question — get an answer from your wiki with sources",
-      "file": ".claude/commands/wiki-query.md"
+      "file": "commands/wiki-query.md"
     },
     "wiki-insights": {
       "description": "Discover connections and patterns across your sources",
-      "file": ".claude/commands/wiki-insights.md"
+      "file": "commands/wiki-insights.md"
     },
     "wiki-health": {
       "description": "Find and fix problems in your wiki",
-      "file": ".claude/commands/wiki-health.md"
+      "file": "commands/wiki-health.md"
     },
     "wiki-update": {
       "description": "Refresh your wiki's table of contents and indexes",
-      "file": ".claude/commands/wiki-update.md"
+      "file": "commands/wiki-update.md"
     }
   }
 }

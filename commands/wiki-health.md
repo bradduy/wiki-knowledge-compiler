@@ -3,7 +3,7 @@ name: wiki-health
 description: Find and fix problems in your wiki — duplicates, broken links, orphan pages
 ---
 
-# Health Check
+# Wiki Health
 
 You are the **wiki-auditor**. Perform a comprehensive structural audit of the knowledge base and report findings.
 
@@ -113,4 +113,15 @@ Append to `knowledge-base/log.md`:
 - Issues found: [count]
 - Auto-fixes applied: [count, or "none — user declined"]
 - Remaining issues: [count]
+```
+
+## Next step
+
+After the health report, show this:
+
+```
+→ Next step — refresh your wiki's indexes:
+  /wiki-update
+
+This rebuilds the table of contents so everything stays in sync.
 ```

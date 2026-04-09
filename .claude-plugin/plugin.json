@@ -4,5 +4,37 @@
   "description": "Karpathy-style local-first LLM Wiki / Knowledge Compiler for Claude Code. Ingest sources, build a structured markdown knowledge base, and maintain it with AI-powered workflows.",
   "author": {"name": "Brad Duy"},
   "license": "MIT",
-  "homepage": "https://github.com/bradduy/wiki-knowledge-compiler"
+  "homepage": "https://github.com/bradduy/wiki-knowledge-compiler",
+  "platform": "claude-code",
+  "min_claude_code_version": "1.0.0",
+  "entry": "CLAUDE.md",
+  "commands_dir": "commands",
+  "agents_dir": "agents",
+  "skills_dir": "skills",
+  "commands": {
+    "wiki-setup": {
+      "description": "Set up your wiki — choose your project size and get started",
+      "file": "commands/wiki-setup.md"
+    },
+    "wiki-ingest": {
+      "description": "Add a document to your wiki",
+      "file": "commands/wiki-ingest.md"
+    },
+    "wiki-query": {
+      "description": "Ask a question — get an answer from your wiki with sources",
+      "file": "commands/wiki-query.md"
+    },
+    "wiki-insights": {
+      "description": "Discover connections and patterns across your sources",
+      "file": "commands/wiki-insights.md"
+    },
+    "wiki-health": {
+      "description": "Find and fix problems in your wiki",
+      "file": "commands/wiki-health.md"
+    },
+    "wiki-update": {
+      "description": "Refresh your wiki's table of contents and indexes",
+      "file": "commands/wiki-update.md"
+    }
+  }
 }
