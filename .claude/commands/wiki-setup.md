@@ -123,18 +123,66 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
    - Tell the user: `✓ Search index built.`
 7. Set the backend in `wiki.config.md`:
    - **If Medium (2):** Set `size: medium`, `backend: qmd-cli`. Tell the user: `✓ Configured for medium project with qmd search.`
-   - **If Large (3):** Set `size: large`, `backend: qmd-mcp`. Also configure MCP by adding to the project's `.claude/settings.json`:
-     ```json
-     {
+   - **If Large (3):** Set `size: large`, `backend: qmd-mcp`. Then configure MCP in the user's Claude Code settings:
+
+     **Step 7a: Locate the settings file based on OS.**
+     - macOS: `~/.claude/settings.json`
+     - Linux: `~/.claude/settings.json`
+     - Windows: `%USERPROFILE%\.claude\settings.json`
+
+     **Step 7b: Resolve the full path to the `qmd` binary.**
+     - Run: `which qmd` (macOS/Linux) or `where qmd` (Windows)
+     - Store the result — e.g. `/usr/local/bin/qmd` or `C:\Users\name\AppData\Roaming\npm\qmd.cmd`
+     - This is needed because MCP servers run outside the shell, so PATH may not be available.
+
+     **Step 7c: Read the existing settings file.**
+     - If the file exists, read it and parse the JSON.
+     - If the file does not exist, create the directory first:
+       - macOS/Linux: `mkdir -p ~/.claude`
+       - Windows: `mkdir "%USERPROFILE%\.claude"` (if it doesn't exist)
+     - Start with an empty JSON object `{}` if the file is missing.
+
+     **Step 7d: Merge the qmd MCP server config into the existing settings.**
+     - Do NOT overwrite the entire file — the user may have other MCP servers or settings.
+     - If `mcpServers` key does not exist, create it.
+     - Add or update the `qmd` entry under `mcpServers`:
+       ```json
+       {
+         "mcpServers": {
+           "qmd": {
+             "command": "[full path to qmd from Step 7b]",
+             "args": ["mcp"]
+           }
+         }
+       }
+       ```
+     - Preserve all other existing keys and MCP servers.
+
+     **Step 7e: Write the merged settings back to the file.**
+     - Use the Write tool (or equivalent) to write the updated JSON.
+     - Format with 2-space indentation for readability.
+
+     **Step 7f: Verify the config.**
+     - Read the file back and confirm the `qmd` entry is present.
+     - Tell the user:
+       ```
+       ✓ Configured for large project with qmd MCP server.
+         MCP config written to: [path to settings file]
+         qmd binary: [full path to qmd]
+       ```
+     - If anything fails, tell the user the manual fallback:
+       ```
+       Could not configure MCP automatically.
+       Add this to [path to settings file]:
+
        "mcpServers": {
          "qmd": {
-           "command": "qmd",
+           "command": "[full path to qmd]",
            "args": ["mcp"]
          }
        }
-     }
-     ```
-     Tell the user: `✓ Configured for large project with qmd MCP server. MCP integration set up automatically.`
+       ```
+       Set `backend: qmd-cli` as fallback (still better than grep).
 
 ### Step 3: Initialize knowledge base structure
 

@@ -57,7 +57,10 @@ Enter 1, 2, or 3:
 5. Install qmd: `npm install -g @tobilu/qmd` (or bun equivalent). Verify with `qmd --version`.
 6. Configure: `qmd collection add knowledge-base/ --name wiki` + `qmd context add qmd://wiki "Knowledge base wiki pages"` + `qmd embed`
 7. If Medium: set `wiki.config.md` → `size: medium`, `backend: qmd-cli`
-8. If Large: set `wiki.config.md` → `size: large`, `backend: qmd-mcp` and configure MCP in `.claude/settings.json`
+8. If Large: set `wiki.config.md` → `size: large`, `backend: qmd-mcp`. Then configure MCP:
+   - Resolve qmd full path: `which qmd` (macOS/Linux) or `where qmd` (Windows)
+   - Locate settings: `~/.claude/settings.json` (macOS/Linux) or `%USERPROFILE%\.claude\settings.json` (Windows)
+   - Create the directory if missing, read existing settings, merge `qmd` MCP server entry (using full binary path), write back without overwriting other settings
 
 ### Step 3: Initialize knowledge base structure
 
