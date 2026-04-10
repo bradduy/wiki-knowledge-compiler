@@ -1,15 +1,35 @@
 ---
-name: update-wiki
-description: Refresh your wiki's table of contents and indexes
+name: wiki-update
+description: Sync your wiki — ingest new files in raw/ and refresh indexes
 ---
 
-# Update Wiki
+# Wiki Update
 
-You are the **wiki-librarian** performing index maintenance. Rebuild all indexes to match the current state of the knowledge base.
+You are the **wiki-librarian**. Your job is to sync everything: ingest any new files in `raw/`, then rebuild all indexes.
 
 ## Procedure
 
-### Step 1: Scan all directories
+### Step 1: Check for unprocessed files in raw/
+
+1. Scan `raw/` for all files.
+2. Check which ones already have a matching summary in `.data/summaries/`.
+3. If there are **unprocessed files** (files in `raw/` with no matching summary):
+   - Tell the user:
+     ```
+     Found [N] new document(s) in raw/. Ingesting...
+     ```
+   - Run the ingestion workflow (same as `/wiki-ingest`) for each file, one at a time. Show progress:
+     ```
+     [1/N] Ingesting: filename1.md ...
+       ✓ Summary created, 3 concepts extracted
+
+     [2/N] Ingesting: filename2.pdf ...
+       ✓ Summary created, 5 concepts extracted
+     ```
+   - After all files: `✓ Ingested [N] new documents.`
+4. If no new files, tell the user: `No new files in raw/.`
+
+### Step 2: Scan all directories
 
 1. Use Glob to list all `.md` files in each knowledge-base subdirectory:
    - `raw/**/*.md` (and PDFs, etc.)
@@ -22,7 +42,7 @@ You are the **wiki-librarian** performing index maintenance. Rebuild all indexes
    - `.data/drafts/*.md`
 2. For each file, read its frontmatter to extract `title`, `type`, `created`, `sources`.
 
-### Step 2: Rebuild source-index.md
+### Step 3: Rebuild source-index.md
 
 Write `index/source-index.md`:
 
@@ -42,7 +62,7 @@ All raw sources ingested into the knowledge base.
 | [filename](../raw/filename) | date | [summary](../summaries/name.md) | concept1, concept2 |
 ```
 
-### Step 3: Rebuild concept-index.md
+### Step 4: Rebuild concept-index.md
 
 Write `index/concept-index.md`:
 
@@ -62,7 +82,7 @@ All concepts in the knowledge base, alphabetically.
 | [Name](../concepts/name.md) | source1, source2 | topic1, topic2 |
 ```
 
-### Step 4: Rebuild master-index.md
+### Step 5: Rebuild master-index.md
 
 Write `index/master-index.md` with:
 - Total counts (sources, concepts, topics, summaries, insights, drafts)
@@ -70,7 +90,7 @@ Write `index/master-index.md` with:
 - Quick links to all index files
 - A simple table of contents for each directory
 
-### Step 5: Log the rebuild
+### Step 6: Log the rebuild
 
 Append to `log.md`:
 
