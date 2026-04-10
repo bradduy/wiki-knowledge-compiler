@@ -186,9 +186,16 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 
 ### Step 3: Initialize knowledge base structure
 
-1. Check if `knowledge-base/` exists with expected subdirectories
-2. If not, run `scripts/init-kb.sh`
-3. If it exists, verify structure is intact
+**You MUST create these directories if they don't exist. Do NOT rely on external scripts.**
+
+1. Check if `knowledge-base/` exists in the current working directory.
+2. If it does not exist, create the full structure:
+   ```bash
+   mkdir -p knowledge-base/raw knowledge-base/concepts knowledge-base/topics knowledge-base/summaries knowledge-base/insights knowledge-base/index knowledge-base/drafts knowledge-base/references
+   ```
+3. Create `knowledge-base/log.md` and empty index files if they don't exist.
+4. Tell the user: `✓ Knowledge base created at: knowledge-base/`
+5. If it already exists, verify subdirectories are present. Create any missing ones silently.
 
 ### Step 4: Check for existing sources in raw/
 
