@@ -34,7 +34,8 @@ log.md           # Append-only activity log
 - `/wiki` — Ask a question, get an answer with sources
 - `/wiki-insights` — Discover connections across your sources
 - `/wiki-health` — Find and fix problems in your wiki
-- `/wiki-update` — Refresh the table of contents and indexes
+- `/wiki-update` — Sync your wiki (ingest new raw files + refresh indexes)
+- `/wiki-schedule` — Schedule /wiki-update to run automatically
 
 ## File Conventions
 

@@ -84,9 +84,10 @@ Each command tells you what to try next, so you always know the next step.
 | `/wiki` | 🔍 Ask a question, get an answer with sources |
 | `/wiki-insights` | ✨ Find patterns and connections across your sources |
 | `/wiki-health` | 🩺 Find and fix problems (duplicates, broken links) |
-| `/wiki-update` | 🔄 Refresh the table of contents |
+| `/wiki-update` | 🔄 Sync wiki (ingest new raw files + refresh indexes) |
+| `/wiki-schedule` | 📅 Schedule /wiki-update to run automatically |
 
-**Recommended order:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
+**Recommended order:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update` → `/wiki-schedule`
 
 ---
 
