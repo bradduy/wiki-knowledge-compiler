@@ -223,41 +223,26 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 
 ### Step 4: Check for existing sources in raw/
 
-1. Scan `knowledge-base/raw/` for any files
-2. If files are found, count them and check which ones already have a matching summary in `knowledge-base/.data/summaries/`
+1. Scan `knowledge-base/raw/` for any files.
+2. If files are found, count them and check which ones already have a matching summary in `knowledge-base/.data/summaries/`.
 3. If there are **unprocessed files** (files in `raw/` with no matching summary):
+   - Tell the user:
+     ```
+     Found [N] document(s) in your raw/ folder. Ingesting now...
+     ```
+   - **Ingest them automatically** — run the ingestion workflow (same as `/wiki-ingest`) for each file, one at a time. Show progress:
+     ```
+     [1/N] Ingesting: filename1.md ...
+       ✓ Summary created, 3 concepts extracted
 
-```
-Found [N] document(s) in your raw/ folder that haven't been processed yet:
-  - [filename1]
-  - [filename2]
-  - ...
-
-Would you like to ingest them now? This will create summaries, extract key ideas, and build your wiki.
-
-1. Yes, ingest all of them
-2. Let me pick which ones
-3. Skip for now (you can run /wiki-ingest on them later)
-```
-
-4. **If "Yes, ingest all":** Run the ingestion workflow (same as `/wiki-ingest`) for each file, one at a time. Show progress:
-   ```
-   Ingesting [1/N]: filename1.md ...
-   ✓ Created summary, extracted 3 concepts
-
-   Ingesting [2/N]: filename2.pdf ...
-   ✓ Created summary, extracted 5 concepts
-   ```
-
-5. **If "Let me pick":** List the files and let the user select which ones to ingest. Process the selected files.
-
-6. **If "Skip":** Continue to next step. Remind the user:
-   ```
-   No problem. You can ingest them anytime with:
-     /wiki-ingest knowledge-base/raw/filename.md
-   ```
-
-7. If `raw/` is empty or all files are already processed, skip this step silently.
+     [2/N] Ingesting: filename2.pdf ...
+       ✓ Summary created, 5 concepts extracted
+     ```
+   - After all files are done, show a summary:
+     ```
+     ✓ Ingested [N] documents.
+     ```
+4. If `raw/` is empty or all files are already processed, skip this step silently.
 
 ### Step 5: Run initial index build
 
