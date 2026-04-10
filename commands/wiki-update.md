@@ -12,19 +12,19 @@ You are the **wiki-librarian** performing index maintenance. Rebuild all indexes
 ### Step 1: Scan all directories
 
 1. Use Glob to list all `.md` files in each knowledge-base subdirectory:
-   - `knowledge-base/raw/**/*.md` (and PDFs, etc.)
-   - `knowledge-base/wiki/*.md`
-   - `knowledge-base/.data/concepts/*.md`
-   - `knowledge-base/.data/topics/*.md`
-   - `knowledge-base/.data/summaries/*.md`
-   - `knowledge-base/.data/insights/*.md`
-   - `knowledge-base/.data/references/*.md`
-   - `knowledge-base/.data/drafts/*.md`
+   - `raw/**/*.md` (and PDFs, etc.)
+   - `wiki/*.md`
+   - `.data/concepts/*.md`
+   - `.data/topics/*.md`
+   - `.data/summaries/*.md`
+   - `.data/insights/*.md`
+   - `.data/references/*.md`
+   - `.data/drafts/*.md`
 2. For each file, read its frontmatter to extract `title`, `type`, `created`, `sources`.
 
 ### Step 2: Rebuild source-index.md
 
-Write `knowledge-base/index/source-index.md`:
+Write `index/source-index.md`:
 
 ```markdown
 ---
@@ -44,7 +44,7 @@ All raw sources ingested into the knowledge base.
 
 ### Step 3: Rebuild concept-index.md
 
-Write `knowledge-base/index/concept-index.md`:
+Write `index/concept-index.md`:
 
 ```markdown
 ---
@@ -64,7 +64,7 @@ All concepts in the knowledge base, alphabetically.
 
 ### Step 4: Rebuild master-index.md
 
-Write `knowledge-base/index/master-index.md` with:
+Write `index/master-index.md` with:
 - Total counts (sources, concepts, topics, summaries, insights, drafts)
 - Recent additions (last 10 entries from log.md)
 - Quick links to all index files
@@ -72,7 +72,7 @@ Write `knowledge-base/index/master-index.md` with:
 
 ### Step 5: Log the rebuild
 
-Append to `knowledge-base/log.md`:
+Append to `log.md`:
 
 ```
 ## [DATE] Index rebuild

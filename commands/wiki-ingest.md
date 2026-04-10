@@ -82,7 +82,7 @@ Then skip to the **Next step** section at the bottom.
 
 Before writing any files, create the directories you'll need. Run:
 ```bash
-mkdir -p knowledge-base/raw knowledge-base/wiki knowledge-base/index knowledge-base/.data/summaries knowledge-base/.data/concepts knowledge-base/.data/topics knowledge-base/.data/insights knowledge-base/.data/references knowledge-base/.data/drafts
+mkdir -p raw wiki index .data/summaries .data/concepts .data/topics .data/insights .data/references .data/drafts
 ```
 This is safe to run every time — `mkdir -p` does nothing if the folder already exists.
 
@@ -99,9 +99,9 @@ This is safe to run every time — `mkdir -p` does nothing if the folder already
 
 ### Step 2: Validate and store the raw source
 
-1. If it's a file path, copy the file into `knowledge-base/raw/` with a kebab-case filename. **Never modify the original.**
-2. If it's a URL, create a reference stub in `knowledge-base/.data/references/` using the source-stub template.
-3. If it's pasted content, save it as a new `.md` file in `knowledge-base/raw/` with an appropriate name.
+1. If it's a file path, copy the file into `raw/` with a kebab-case filename. **Never modify the original.**
+2. If it's a URL, create a reference stub in `.data/references/` using the source-stub template.
+3. If it's pasted content, save it as a new `.md` file in `raw/` with an appropriate name.
 4. Record the source metadata: filename, date ingested, original location.
 
 ### Step 3: Read and understand the source
@@ -112,7 +112,7 @@ This is safe to run every time — `mkdir -p` does nothing if the folder already
 
 ### Step 4: Create or update the summary
 
-1. Check if a summary already exists in `knowledge-base/.data/summaries/` for this source.
+1. Check if a summary already exists in `.data/summaries/` for this source.
 2. If not, create one using the summary template from `templates/summary.md`.
 3. The summary must:
    - Cite the raw source by relative path
@@ -123,36 +123,36 @@ This is safe to run every time — `mkdir -p` does nothing if the folder already
 ### Step 5: Extract and write concepts
 
 1. Identify 3-10 atomic concepts from the source.
-2. For each concept, check `knowledge-base/.data/concepts/` and `knowledge-base/index/concept-index.md` to see if it already exists.
+2. For each concept, check `.data/concepts/` and `index/concept-index.md` to see if it already exists.
 3. If it exists: update the existing page with new information and add a source citation.
-4. If it's new: create a concept page using `templates/concept.md` in `knowledge-base/.data/concepts/`.
+4. If it's new: create a concept page using `templates/concept.md` in `.data/concepts/`.
 5. Each concept page must have a clear one-paragraph definition and at least one source citation.
 
 ### Step 6: Update topic pages
 
 1. Identify which broader topics this source relates to.
-2. Check `knowledge-base/.data/topics/` for existing topic pages.
+2. Check `.data/topics/` for existing topic pages.
 3. Update existing topics with references to the new summary and concepts.
 4. Only create a new topic page if the source clearly introduces a new domain not covered by existing topics.
 
 ### Step 7: Publish to wiki/
 
-After creating summaries, concepts, and topics in `.data/`, publish the **user-facing pages** to `knowledge-base/wiki/`:
+After creating summaries, concepts, and topics in `.data/`, publish the **user-facing pages** to `wiki/`:
 
-1. For each new or updated concept, create or update a clean page in `knowledge-base/wiki/` with the same filename.
-2. For each new summary, create a readable version in `knowledge-base/wiki/`.
-3. For topic pages, create or update them in `knowledge-base/wiki/`.
+1. For each new or updated concept, create or update a clean page in `wiki/` with the same filename.
+2. For each new summary, create a readable version in `wiki/`.
+3. For topic pages, create or update them in `wiki/`.
 4. Pages in `wiki/` should be polished, well-linked, and easy to read — this is what the user sees in Obsidian and their editor.
 
 ### Step 8: Update indexes
 
-1. Add the source to `knowledge-base/index/source-index.md`.
-2. Add new concepts to `knowledge-base/index/concept-index.md`.
-3. Update `knowledge-base/index/master-index.md` with any new pages created.
+1. Add the source to `index/source-index.md`.
+2. Add new concepts to `index/concept-index.md`.
+3. Update `index/master-index.md` with any new pages created.
 
 ### Step 9: Log the ingestion
 
-Append to `knowledge-base/log.md`:
+Append to `log.md`:
 
 ```
 ## [DATE] Ingested: [source name]

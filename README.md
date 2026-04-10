@@ -148,7 +148,7 @@ You get an answer that draws from **both** sources, with links to exactly where 
 
 During setup, you'll be asked if you want [Obsidian](https://obsidian.md) — a free app for browsing your wiki visually. It's installed automatically if you say yes.
 
-Open your `knowledge-base/` folder in Obsidian and you get:
+Open your project folder in Obsidian and you get:
 
 - 🕸️ **Graph View** — a visual map of all your pages and how they connect
 - 🔙 **Backlinks** — click any page to see everything that links to it
@@ -162,14 +162,15 @@ This is optional. Your wiki works perfectly with just the commands.
 ## 📁 What Gets Created
 
 ```
-knowledge-base/
+your-project/
   📄 raw/           Your original documents (never modified)
   📚 wiki/          All generated pages (summaries, concepts, topics, insights)
   📇 index/         Table of contents (auto-generated)
   📝 log.md         A record of everything that happened
+  .data/            Internal working data (hidden)
 ```
 
-Other folders (concepts/, topics/, summaries/, insights/, etc.) are created automatically when needed.
+No wrapper folder. `raw/`, `wiki/`, and `index/` live right in your project. If `raw/` already exists, setup just adds `wiki/` and `index/` next to it.
 
 All files are plain Markdown. Open them with any text editor, Obsidian, or VS Code.
 

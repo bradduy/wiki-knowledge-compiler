@@ -4,7 +4,7 @@ You are operating inside the **wiki-knowledge-compiler** plugin, a local-first k
 
 ## Core Principles
 
-1. **`raw/` is immutable.** Never modify, rename, or delete files in `knowledge-base/raw/`. It is the source of truth.
+1. **`raw/` is immutable.** Never modify, rename, or delete files in `raw/`. It is the source of truth.
 2. **Provenance is mandatory.** Every derived page (summary, concept, topic, insight) must cite its source(s) from `raw/` or other wiki pages. Never fabricate citations.
 3. **Uncertainty must be explicit.** If a claim is inferred, speculative, or partially supported, mark it with `[uncertainty: reason]`. Never present uncertain information as fact.
 4. **Write-back discipline.** Useful outputs belong in the knowledge base, not just in conversation. If you generate a reusable answer, summary, or insight, write it to the appropriate directory.
@@ -14,16 +14,17 @@ You are operating inside the **wiki-knowledge-compiler** plugin, a local-first k
 ## Knowledge Base Layout
 
 ```
-knowledge-base/
-  raw/           # Immutable source documents (PDFs, notes, URL stubs)
-  concepts/      # Atomic concept pages (one concept per file)
-  topics/        # Broader topic pages that group related concepts
-  summaries/     # Source-level summaries with provenance
-  insights/      # Cross-cutting observations and synthesis
-  index/         # Master index, concept index, source index
-  drafts/        # Work-in-progress pages not yet promoted
-  references/    # External reference stubs (URLs, papers, books)
-  log.md         # Append-only activity log
+raw/             # Immutable source documents (PDFs, notes, URL stubs)
+wiki/            # All generated pages the user reads and browses
+index/           # Master index, concept index, source index
+log.md           # Append-only activity log
+.data/           # Hidden internal working data:
+  summaries/     #   Per-source summaries with provenance
+  concepts/      #   Atomic concept pages
+  topics/        #   Broader topic groupings
+  insights/      #   Cross-cutting observations
+  references/    #   External reference stubs
+  drafts/        #   Work-in-progress pages
 ```
 
 ## Commands
@@ -57,8 +58,8 @@ Run `/wiki-setup` to configure. The search skill (`skills/search-strategy.md`) g
 ## When in Doubt
 
 - Read `wiki.config.md` to know the active search backend
-- Check `knowledge-base/index/master-index.md` before creating new pages
+- Check `index/master-index.md` before creating new pages
 - Search existing pages with the configured backend before assuming a concept doesn't exist
-- Append to `knowledge-base/log.md` after any structural change
+- Append to `log.md` after any structural change
 - Prefer updating existing pages over creating new ones
 - If search results feel inadequate, suggest `/wiki-setup` to upgrade the search tier

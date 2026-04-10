@@ -117,7 +117,7 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
    - If verification succeeds, tell the user: `✓ qmd installed.`
 6. Configure qmd — register the knowledge base as a collection:
    - Tell the user: `Setting up search index...`
-   - Run: `qmd collection add knowledge-base/ --name wiki`
+   - Run: `qmd collection add  --name wiki`
    - Run: `qmd context add qmd://wiki "Knowledge base wiki pages"`
    - Run: `qmd embed`
    - Tell the user: `✓ Search index built.`
@@ -188,15 +188,15 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 
 **You MUST create these directories if they don't exist. Do NOT rely on external scripts.**
 
-1. Check if `knowledge-base/` exists in the current working directory.
-2. If it does not exist, create the **required** folders only:
+1. Check if `raw/` already exists in the current working directory.
+2. Create the required folders alongside `raw/`:
    ```bash
-   mkdir -p knowledge-base/raw knowledge-base/wiki knowledge-base/index
+   mkdir -p raw wiki index
    ```
    - `raw/` — stores original documents (immutable)
    - `wiki/` — stores all generated pages (summaries, concepts, topics, insights)
    - `index/` — stores auto-generated table of contents
-3. Create `knowledge-base/log.md` if it doesn't exist:
+3. Create `log.md` in the current directory if it doesn't exist:
    ```markdown
    ---
    title: Knowledge Base Activity Log
@@ -209,22 +209,22 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 
    ---
    ```
-4. Create empty index files if they don't exist (`knowledge-base/index/master-index.md`, `knowledge-base/index/concept-index.md`, `knowledge-base/index/source-index.md`) with basic frontmatter.
+4. Create empty index files if they don't exist (`index/master-index.md`, `index/concept-index.md`, `index/source-index.md`) with basic frontmatter.
 5. Tell the user:
    ```
-   ✓ Knowledge base created at: knowledge-base/
+   ✓ Wiki folders ready:
      - raw/    → your original documents
      - wiki/   → generated pages (summaries, concepts, topics, insights)
      - index/  → table of contents
    ```
-6. If `knowledge-base/` already exists, verify the 3 required subdirectories are present. Create any missing ones silently.
+6. If folders already exist, verify all 3 are present. Create any missing ones silently.
 
-**Note:** Other folders (concepts/, topics/, summaries/, insights/, drafts/, references/) are created automatically by `/wiki-ingest` when needed. Do NOT create empty folders upfront.
+**Note:** Internal working folders (`.data/summaries/`, `.data/concepts/`, etc.) are created automatically by `/wiki-ingest` when needed. Do NOT create them upfront.
 
 ### Step 4: Check for existing sources in raw/
 
-1. Scan `knowledge-base/raw/` for any files.
-2. If files are found, count them and check which ones already have a matching summary in `knowledge-base/.data/summaries/`.
+1. Scan `raw/` for any files.
+2. If files are found, count them and check which ones already have a matching summary in `.data/summaries/`.
 3. If there are **unprocessed files** (files in `raw/` with no matching summary):
    - Tell the user:
      ```
@@ -317,8 +317,8 @@ navigate everything visually.
 
 1. Open Obsidian
 2. Click "Open folder as vault"
-3. Select your knowledge-base/ folder:
-   [print the absolute path to knowledge-base/]
+3. Select your  folder:
+   [print the absolute path to ]
 
 That's it! You'll see:
 
@@ -348,7 +348,7 @@ Skip this step. Do not mention Obsidian again.
 
 ### Step 7: Log the setup
 
-Append to `knowledge-base/log.md`:
+Append to `log.md`:
 
 ```
 ## [DATE] Wiki setup

@@ -106,7 +106,7 @@ After presenting the report:
 
 ### Step 10: Log the audit
 
-Append to `knowledge-base/log.md`:
+Append to `log.md`:
 
 ```
 ## [DATE] Health check

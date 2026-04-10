@@ -21,9 +21,9 @@ If no focus is provided, perform a broad scan.
 
 ### Step 1: Read broadly
 
-1. Read `knowledge-base/index/master-index.md` for an overview.
-2. Read all topic pages in `knowledge-base/.data/topics/`.
-3. Read all existing insight pages in `knowledge-base/.data/insights/`.
+1. Read `index/master-index.md` for an overview.
+2. Read all topic pages in `.data/topics/`.
+3. Read all existing insight pages in `.data/insights/`.
 4. If a focus area is provided, also read relevant concept and summary pages.
 
 ### Step 2: Identify cross-cutting patterns
@@ -62,9 +62,9 @@ Create a section listing:
 
 ### Step 6: Write results
 
-1. Save new insights to `knowledge-base/.data/insights/` and publish readable versions to `knowledge-base/wiki/`.
-2. Update `knowledge-base/index/master-index.md`.
-3. If knowledge gaps suggest new concept or topic pages, create stubs in `knowledge-base/.data/drafts/` (not in `.data/concepts/` or `.data/topics/` — they need real content first).
+1. Save new insights to `.data/insights/` and publish readable versions to `wiki/`.
+2. Update `index/master-index.md`.
+3. If knowledge gaps suggest new concept or topic pages, create stubs in `.data/drafts/` (not in `.data/concepts/` or `.data/topics/` — they need real content first).
 
 ### Step 7: Present and log
 
@@ -86,7 +86,7 @@ Present the insights to the user with:
 - `drafts/[name].md` (gap stubs)
 ```
 
-Append to `knowledge-base/log.md`:
+Append to `log.md`:
 
 ```
 ## [DATE] Insight generation
