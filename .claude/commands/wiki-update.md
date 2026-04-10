@@ -92,14 +92,23 @@ Append to `knowledge-base/log.md`:
 
 ## Next step
 
-After the rebuild completes, show this:
+After the rebuild completes, present this menu and **WAIT for the user to choose**:
 
 ```
-Wiki indexes are up to date.
+✓ Wiki indexes are up to date.
 
-→ Ready to add more knowledge:
-  /wiki-ingest <file, URL, or paste text>
+What would you like to do next?
 
-Or ask a question:
-  /wiki-query <your question>
+  1. 📥 Add more documents                     → /wiki-ingest
+  2. 🔍 Ask a question                         → /wiki-query
+  3. ✨ Generate insights                       → /wiki-insights
+  4. 🩺 Check wiki health                       → /wiki-health
+  5. 🔄 Refresh indexes again                   → /wiki-update
+  6. ✅ I'm done for now
+
+Recommended: 1 if you have more sources, 2 if you want to explore
+
+Enter 1-6:
 ```
+
+Run the command the user picks. If they choose 6, end the session.

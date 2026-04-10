@@ -180,15 +180,23 @@ Append to `knowledge-base/log.md`:
 
 ## Next step
 
-After the ingestion report, show this:
+After the ingestion report, present this menu and **WAIT for the user to choose**:
 
 ```
-Done! Your document has been added to the wiki.
+✓ Done! Your document has been added to the wiki.
 
-→ Next step — try asking a question about it:
-  /wiki-query <your question>
+What would you like to do next?
 
-You can also:
-  • Add another document:     /wiki-ingest <file, URL, or paste text>
-  • Find connections:          /wiki-insights
+  1. 🔍 Ask a question about what you just added     → /wiki-query
+  2. 📥 Add another document                          → /wiki-ingest
+  3. ✨ Find connections across your sources           → /wiki-insights
+  4. 🩺 Check wiki health                              → /wiki-health
+  5. 🔄 Refresh indexes                                → /wiki-update
+  6. ✅ I'm done for now
+
+Recommended: 1 (ask a question about what you just added)
+
+Enter 1-6:
 ```
+
+Run the command the user picks. If they choose 6, end the session.

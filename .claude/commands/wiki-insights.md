@@ -106,11 +106,21 @@ Append to `knowledge-base/log.md`:
 
 ## Next step
 
-After presenting the insights, show this:
+After presenting the insights, present this menu and **WAIT for the user to choose**:
 
 ```
-→ Next step — check your wiki's health:
-  /wiki-health
+What would you like to do next?
 
-This finds any problems (duplicates, broken links, orphan pages) and offers to fix them.
+  1. 🩺 Check wiki health (recommended after generating insights) → /wiki-health
+  2. 🔍 Ask a question about the insights                        → /wiki-query
+  3. 📥 Add more documents to deepen coverage                    → /wiki-ingest
+  4. ✨ Generate more insights on a different topic               → /wiki-insights
+  5. 🔄 Refresh indexes                                          → /wiki-update
+  6. ✅ I'm done for now
+
+Recommended: 1
+
+Enter 1-6:
 ```
+
+Run the command the user picks. If they choose 6, end the session.

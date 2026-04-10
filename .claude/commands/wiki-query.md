@@ -103,13 +103,21 @@ Append to `knowledge-base/log.md`:
 
 ## Next step
 
-After the answer, show this:
+After the answer, present this menu and **WAIT for the user to choose**:
 
 ```
-→ Next step — discover connections across your sources:
-  /wiki-insights
+What would you like to do next?
 
-You can also:
-  • Add another document:     /wiki-ingest <file, URL, or paste text>
-  • Ask another question:      /wiki-query <your question>
+  1. 🔍 Ask another question                          → /wiki-query
+  2. ✨ Find connections across your sources           → /wiki-insights
+  3. 📥 Add another document                          → /wiki-ingest
+  4. 🩺 Check wiki health                              → /wiki-health
+  5. 🔄 Refresh indexes                                → /wiki-update
+  6. ✅ I'm done for now
+
+Recommended: 1 if you have more questions, 2 if you've added several sources
+
+Enter 1-6:
 ```
+
+Run the command the user picks. If they choose 6, end the session.

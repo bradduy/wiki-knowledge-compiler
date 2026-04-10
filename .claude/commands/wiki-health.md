@@ -117,11 +117,21 @@ Append to `knowledge-base/log.md`:
 
 ## Next step
 
-After the health report, show this:
+After the health report, present this menu and **WAIT for the user to choose**:
 
 ```
-→ Next step — refresh your wiki's indexes:
-  /wiki-update
+What would you like to do next?
 
-This rebuilds the table of contents so everything stays in sync.
+  1. 🔄 Refresh indexes (recommended after fixing issues)  → /wiki-update
+  2. 📥 Add more documents                                 → /wiki-ingest
+  3. 🔍 Ask a question                                     → /wiki-query
+  4. ✨ Generate insights                                   → /wiki-insights
+  5. 🩺 Run health check again                              → /wiki-health
+  6. ✅ I'm done for now
+
+Recommended: 1
+
+Enter 1-6:
 ```
+
+Run the command the user picks. If they choose 6, end the session.
