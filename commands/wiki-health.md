@@ -18,7 +18,7 @@ You are the **wiki-auditor**. Perform a comprehensive structural audit of the kn
 ### Step 2: Check for orphan pages
 
 A page is an orphan if:
-- It exists in `concepts/`, `topics/`, `summaries/`, or `insights/`
+- It exists in `.data/concepts/`, `.data/topics/`, `.data/summaries/`, or `.data/insights/`
 - No other page links to it
 - It is not listed in any index
 
@@ -48,14 +48,14 @@ For each concept and topic page:
 
 ### Step 6: Check provenance
 
-For each page in `summaries/`, `concepts/`, `insights/`:
+For each page in `.data/summaries/`, `.data/concepts/`, `.data/insights/`:
 - Verify the `sources` frontmatter field is non-empty
-- Verify each cited source actually exists in `raw/` or `references/`
+- Verify each cited source actually exists in `raw/` or `.data/references/`
 - Flag pages with `[missing provenance]` or `[broken source reference]`
 
 ### Step 7: Check drafts
 
-List all files in `drafts/` with their age and any tags.
+List all files in `.data/drafts/` with their age and any tags.
 
 ### Step 8: Generate report
 

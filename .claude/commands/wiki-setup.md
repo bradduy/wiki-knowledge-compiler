@@ -224,7 +224,7 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 ### Step 4: Check for existing sources in raw/
 
 1. Scan `knowledge-base/raw/` for any files
-2. If files are found, count them and check which ones already have a matching summary in `knowledge-base/summaries/`
+2. If files are found, count them and check which ones already have a matching summary in `knowledge-base/.data/summaries/`
 3. If there are **unprocessed files** (files in `raw/` with no matching summary):
 
 ```

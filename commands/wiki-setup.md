@@ -193,15 +193,38 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
    ```bash
    mkdir -p knowledge-base/raw knowledge-base/wiki knowledge-base/index
    ```
-3. Create `knowledge-base/log.md` and empty index files if they don't exist.
-4. Tell the user: `✓ Knowledge base created at: knowledge-base/ (raw/, wiki/, index/)`
-5. If it already exists, verify the 3 required subdirectories are present. Create any missing ones silently.
-6. Other folders are created automatically by `/wiki-ingest` when needed.
+   - `raw/` — stores original documents (immutable)
+   - `wiki/` — stores all generated pages (summaries, concepts, topics, insights)
+   - `index/` — stores auto-generated table of contents
+3. Create `knowledge-base/log.md` if it doesn't exist:
+   ```markdown
+   ---
+   title: Knowledge Base Activity Log
+   type: log
+   ---
+
+   # Activity Log
+
+   All structural changes to the knowledge base are logged here in reverse chronological order.
+
+   ---
+   ```
+4. Create empty index files if they don't exist (`knowledge-base/index/master-index.md`, `knowledge-base/index/concept-index.md`, `knowledge-base/index/source-index.md`) with basic frontmatter.
+5. Tell the user:
+   ```
+   ✓ Knowledge base created at: knowledge-base/
+     - raw/    → your original documents
+     - wiki/   → generated pages (summaries, concepts, topics, insights)
+     - index/  → table of contents
+   ```
+6. If `knowledge-base/` already exists, verify the 3 required subdirectories are present. Create any missing ones silently.
+
+**Note:** Other folders (concepts/, topics/, summaries/, insights/, drafts/, references/) are created automatically by `/wiki-ingest` when needed. Do NOT create empty folders upfront.
 
 ### Step 4: Check for existing sources in raw/
 
 1. Scan `knowledge-base/raw/` for any files
-2. If files are found, count them and check which ones already have a matching summary in `knowledge-base/summaries/`
+2. If files are found, count them and check which ones already have a matching summary in `knowledge-base/.data/summaries/`
 3. If there are **unprocessed files** (files in `raw/` with no matching summary):
 
 ```

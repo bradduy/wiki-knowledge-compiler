@@ -47,7 +47,7 @@ The user asks: `$ARGUMENTS`
 ### Step 3: Construct the answer
 
 1. Synthesize an answer from the wiki pages you found.
-2. **Every factual claim must cite a wiki page** using relative links: `[source](../summaries/source-name.md)`.
+2. **Every factual claim must cite a wiki page** using relative links: `[source](../wiki/source-name.md)`.
 3. If the wiki does not contain enough information to fully answer the question:
    - State clearly what the wiki covers and what it does not.
    - Mark gaps with `[knowledge gap: description]`.
@@ -58,9 +58,9 @@ The user asks: `$ARGUMENTS`
 
 After answering, evaluate whether the answer should be persisted:
 
-- **Write to `insights/`** if the answer synthesizes across multiple sources in a novel way.
-- **Write to `summaries/`** if the answer is a good summary of a source not yet summarized.
-- **Write to `concepts/`** if the answer clarifies a concept not yet documented.
+- **Write to `.data/insights/`** (and publish to `wiki/`) if the answer synthesizes across multiple sources in a novel way.
+- **Write to `.data/summaries/`** (and publish to `wiki/`) if the answer is a good summary of a source not yet summarized.
+- **Write to `.data/concepts/`** (and publish to `wiki/`) if the answer clarifies a concept not yet documented.
 - **Do not write back** if the answer is trivial, already covered, or too conversation-specific.
 
 If writing back, use the appropriate template and log the action.

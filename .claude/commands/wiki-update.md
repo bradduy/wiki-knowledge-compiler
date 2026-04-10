@@ -13,12 +13,13 @@ You are the **wiki-librarian** performing index maintenance. Rebuild all indexes
 
 1. Use Glob to list all `.md` files in each knowledge-base subdirectory:
    - `knowledge-base/raw/**/*.md` (and PDFs, etc.)
-   - `knowledge-base/concepts/*.md`
-   - `knowledge-base/topics/*.md`
-   - `knowledge-base/summaries/*.md`
-   - `knowledge-base/insights/*.md`
-   - `knowledge-base/references/*.md`
-   - `knowledge-base/drafts/*.md`
+   - `knowledge-base/wiki/*.md`
+   - `knowledge-base/.data/concepts/*.md`
+   - `knowledge-base/.data/topics/*.md`
+   - `knowledge-base/.data/summaries/*.md`
+   - `knowledge-base/.data/insights/*.md`
+   - `knowledge-base/.data/references/*.md`
+   - `knowledge-base/.data/drafts/*.md`
 2. For each file, read its frontmatter to extract `title`, `type`, `created`, `sources`.
 
 ### Step 2: Rebuild source-index.md
