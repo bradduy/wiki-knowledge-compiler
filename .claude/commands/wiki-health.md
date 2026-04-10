@@ -124,7 +124,7 @@ What would you like to do next?
 
   1. 🔄 Refresh indexes (recommended after fixing issues)  → /wiki-update
   2. 📥 Add more documents                                 → /wiki-ingest
-  3. 🔍 Ask a question                                     → /wiki-query
+  3. 🔍 Ask a question                                     → /wiki
   4. ✨ Generate insights                                   → /wiki-insights
   5. 🩺 Run health check again                              → /wiki-health
   6. ✅ I'm done for now

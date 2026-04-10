@@ -370,7 +370,7 @@ Tailor the message based on the current state of the wiki:
 Setup complete! Your wiki already has content. Here's what to try:
 
 → Next step — ask a question about what you've added:
-  /wiki-query <try a question about your sources>
+  /wiki <try a question about your sources>
 
 After that, you can:
   • Add more documents:        /wiki-ingest <file, URL, or paste text>
@@ -391,7 +391,7 @@ For example:
   /wiki-ingest ~/Downloads/research-paper.pdf
 
 Once you've added 2-3 sources, try asking a question:
-  /wiki-query <your question here>
+  /wiki <your question here>
 ```
 
 In both cases, keep the message short and focused on the **one thing** to do next. Do not list all commands — the user can discover them naturally or ask for help.

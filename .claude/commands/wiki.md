@@ -1,5 +1,5 @@
 ---
-name: wiki-query
+name: wiki
 description: Ask a question — get an answer from your wiki with sources
 arguments:
   - name: question
@@ -108,7 +108,7 @@ After the answer, present this menu and **WAIT for the user to choose**:
 ```
 What would you like to do next?
 
-  1. 🔍 Ask another question                          → /wiki-query
+  1. 🔍 Ask another question                          → /wiki
   2. ✨ Find connections across your sources           → /wiki-insights
   3. 📥 Add another document                          → /wiki-ingest
   4. 🩺 Check wiki health                              → /wiki-health

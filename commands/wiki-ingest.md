@@ -187,7 +187,7 @@ After the ingestion report, present this menu and **WAIT for the user to choose*
 
 What would you like to do next?
 
-  1. 🔍 Ask a question about what you just added     → /wiki-query
+  1. 🔍 Ask a question about what you just added     → /wiki
   2. 📥 Add another document                          → /wiki-ingest
   3. ✨ Find connections across your sources           → /wiki-insights
   4. 🩺 Check wiki health                              → /wiki-health

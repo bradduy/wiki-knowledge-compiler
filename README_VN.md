@@ -83,12 +83,12 @@ Mỗi lệnh sẽ gợi ý bước tiếp theo, nên bạn luôn biết phải l
 |---------|-------------|
 | `/wiki-setup` | Thiết lập một lần (tự cài đặt mọi thứ cho bạn) |
 | `/wiki-ingest` | Thêm tài liệu — một file, cả thư mục, hoặc một URL |
-| `/wiki-query` | Đặt câu hỏi, nhận câu trả lời kèm nguồn |
+| `/wiki` | Đặt câu hỏi, nhận câu trả lời kèm nguồn |
 | `/wiki-insights` | Tìm các mẫu hình và mối liên hệ giữa các nguồn |
 | `/wiki-health` | Tìm và sửa lỗi (trùng lặp, liên kết hỏng) |
 | `/wiki-update` | Cập nhật mục lục |
 
-**Thứ tự khuyên dùng:** `/wiki-setup` → `/wiki-ingest` → `/wiki-query` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
+**Thứ tự khuyên dùng:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
 
 ---
 
@@ -139,7 +139,7 @@ Bây giờ thêm một bài viết thứ hai về chính sách năng lượng. P
 
 Khi bạn hỏi:
 ```
-/wiki-query How do carbon budgets affect energy policy?
+/wiki How do carbon budgets affect energy policy?
 ```
 
 Bạn nhận được câu trả lời rút ra từ **cả hai** nguồn, kèm liên kết đến chính xác nơi mỗi thông tin được lấy ra.
@@ -181,7 +181,7 @@ Tất cả file đều là Markdown thuần. Mở bằng bất kỳ trình soạ
 
 ## 💡 Mẹo hay
 
-- **Bắt đầu nhỏ.** Thêm 2–3 nguồn và thử `/wiki-query` trước khi thêm nhiều hơn.
+- **Bắt đầu nhỏ.** Thêm 2–3 nguồn và thử `/wiki` trước khi thêm nhiều hơn.
 - **Hỏi cụ thể.** "Nguồn X nói gì về Y?" hiệu quả hơn câu hỏi chung chung.
 - **Chạy `/wiki-health` thỉnh thoảng.** Giúp mọi thứ gọn gàng khi wiki phát triển.
 - **Thử `/wiki-insights`** sau khi thêm nhiều nguồn về cùng một chủ đề — nó tìm ra các mẫu hình bạn có thể bỏ lỡ.

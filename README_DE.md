@@ -83,12 +83,12 @@ Jeder Befehl zeigt Ihnen, was als Nächstes zu tun ist.
 |--------|-------------|
 | `/wiki-setup` | Einmalige Einrichtung (installiert alles für Sie) |
 | `/wiki-ingest` | Dokumente hinzufügen — eine Datei, einen ganzen Ordner oder eine URL |
-| `/wiki-query` | Eine Frage stellen, Antwort mit Quellen erhalten |
+| `/wiki` | Eine Frage stellen, Antwort mit Quellen erhalten |
 | `/wiki-insights` | Muster und Verbindungen über Ihre Quellen hinweg finden |
 | `/wiki-health` | Probleme finden und beheben (Duplikate, defekte Links) |
 | `/wiki-update` | Inhaltsverzeichnis aktualisieren |
 
-**Empfohlene Reihenfolge:** `/wiki-setup` → `/wiki-ingest` → `/wiki-query` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
+**Empfohlene Reihenfolge:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
 
 ---
 
@@ -137,7 +137,7 @@ Fügen Sie einen zweiten Artikel über Energiepolitik hinzu. Das Plugin erkennt,
 
 Wenn Sie fragen:
 ```
-/wiki-query How do carbon budgets affect energy policy?
+/wiki How do carbon budgets affect energy policy?
 ```
 
 Erhalten Sie eine Antwort aus **beiden** Quellen, mit Links zu den genauen Stellen.
@@ -179,7 +179,7 @@ Alle Dateien sind einfaches Markdown. Öffnen Sie sie mit jedem Texteditor, Obsi
 
 ## 💡 Tipps
 
-- **Klein anfangen.** Fügen Sie 2–3 Quellen hinzu und probieren Sie `/wiki-query` aus.
+- **Klein anfangen.** Fügen Sie 2–3 Quellen hinzu und probieren Sie `/wiki` aus.
 - **Seien Sie spezifisch.** „Was sagt Quelle X über Y?" funktioniert besser als vage Fragen.
 - **Führen Sie `/wiki-health` gelegentlich aus.** Es hält alles ordentlich.
 - **Probieren Sie `/wiki-insights`** nach mehreren Quellen zu einem Thema — es findet Muster, die Sie übersehen könnten.

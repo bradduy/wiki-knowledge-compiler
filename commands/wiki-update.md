@@ -100,7 +100,7 @@ After the rebuild completes, present this menu and **WAIT for the user to choose
 What would you like to do next?
 
   1. 📥 Add more documents                     → /wiki-ingest
-  2. 🔍 Ask a question                         → /wiki-query
+  2. 🔍 Ask a question                         → /wiki
   3. ✨ Generate insights                       → /wiki-insights
   4. 🩺 Check wiki health                       → /wiki-health
   5. 🔄 Refresh indexes again                   → /wiki-update

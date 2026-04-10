@@ -31,7 +31,7 @@ log.md           # Append-only activity log
 
 - `/wiki-setup` — Set up your wiki (run this first)
 - `/wiki-ingest` — Add a document to your wiki
-- `/wiki-query` — Ask a question, get an answer with sources
+- `/wiki` — Ask a question, get an answer with sources
 - `/wiki-insights` — Discover connections across your sources
 - `/wiki-health` — Find and fix problems in your wiki
 - `/wiki-update` — Refresh the table of contents and indexes

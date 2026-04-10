@@ -83,12 +83,12 @@ Chaque commande vous indique quoi essayer ensuite.
 |----------|----------------|
 | `/wiki-setup` | Configuration initiale (installe tout pour vous) |
 | `/wiki-ingest` | Ajouter des documents — un fichier, un dossier entier ou une URL |
-| `/wiki-query` | Poser une question, obtenir une réponse avec les sources |
+| `/wiki` | Poser une question, obtenir une réponse avec les sources |
 | `/wiki-insights` | Trouver des motifs et des connexions entre vos sources |
 | `/wiki-health` | Trouver et corriger les problèmes (doublons, liens cassés) |
 | `/wiki-update` | Actualiser la table des matières |
 
-**Ordre recommandé :** `/wiki-setup` → `/wiki-ingest` → `/wiki-query` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
+**Ordre recommandé :** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
 
 ---
 
@@ -137,7 +137,7 @@ Ajoutez un second article sur la politique énergétique. Le plugin remarque que
 
 Quand vous demandez :
 ```
-/wiki-query How do carbon budgets affect energy policy?
+/wiki How do carbon budgets affect energy policy?
 ```
 
 Vous obtenez une réponse qui s'appuie sur les **deux** sources, avec des liens vers l'endroit exact d'où provient chaque fait.
@@ -179,7 +179,7 @@ Tous les fichiers sont en Markdown. Ouvrez-les avec n'importe quel éditeur de t
 
 ## 💡 Conseils
 
-- **Commencez petit.** Ajoutez 2–3 sources et essayez `/wiki-query` avant d'en ajouter davantage.
+- **Commencez petit.** Ajoutez 2–3 sources et essayez `/wiki` avant d'en ajouter davantage.
 - **Soyez précis.** « Que dit la source X sur Y ? » fonctionne mieux que des questions vagues.
 - **Lancez `/wiki-health` de temps en temps.** Cela maintient l'ordre.
 - **Essayez `/wiki-insights`** après avoir ajouté plusieurs sources sur un sujet — il trouve des motifs que vous pourriez manquer.

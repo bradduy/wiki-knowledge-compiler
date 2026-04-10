@@ -83,12 +83,12 @@
 |---------|-------------|
 | `/wiki-setup` | 初回セットアップ（すべて自動インストール） |
 | `/wiki-ingest` | ドキュメントを追加 — ファイル1つ、フォルダ丸ごと、または URL |
-| `/wiki-query` | 質問してソース付きの回答を取得 |
+| `/wiki` | 質問してソース付きの回答を取得 |
 | `/wiki-insights` | ソース間のパターンとつながりを発見 |
 | `/wiki-health` | 問題を発見して修正（重複、リンク切れ） |
 | `/wiki-update` | 目次を更新 |
 
-**推奨順序：** `/wiki-setup` → `/wiki-ingest` → `/wiki-query` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
+**推奨順序：** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
 
 ---
 
@@ -139,7 +139,7 @@
 
 質問すると：
 ```
-/wiki-query How do carbon budgets affect energy policy?
+/wiki How do carbon budgets affect energy policy?
 ```
 
 **両方**のソースから情報を引き出した回答が得られ、各事実の正確な出典リンクが含まれます。
@@ -181,7 +181,7 @@ knowledge-base/
 
 ## 💡 ヒント
 
-- **小さく始めましょう。** 2〜3個のソースを追加し、`/wiki-query` を試してから追加してください。
+- **小さく始めましょう。** 2〜3個のソースを追加し、`/wiki` を試してから追加してください。
 - **具体的に質問しましょう。** 「ソース X は Y について何と言っていますか？」の方が曖昧な質問より効果的です。
 - **`/wiki-health` を定期的に実行しましょう。** wiki が大きくなるにつれて整理を助けてくれます。
 - **複数のソースを追加した後に `/wiki-insights` を試しましょう** — 見落としがちなパターンを発見してくれます。

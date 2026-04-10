@@ -81,12 +81,12 @@ Each command tells you what to try next, so you always know the next step.
 |---------|-------------|
 | `/wiki-setup` | ⚙️ One-time setup (installs everything for you) |
 | `/wiki-ingest` | 📥 Add documents — one file, a whole folder, or a URL |
-| `/wiki-query` | 🔍 Ask a question, get an answer with sources |
+| `/wiki` | 🔍 Ask a question, get an answer with sources |
 | `/wiki-insights` | ✨ Find patterns and connections across your sources |
 | `/wiki-health` | 🩺 Find and fix problems (duplicates, broken links) |
 | `/wiki-update` | 🔄 Refresh the table of contents |
 
-**Recommended order:** `/wiki-setup` → `/wiki-ingest` → `/wiki-query` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
+**Recommended order:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
 
 ---
 
@@ -137,7 +137,7 @@ Now add a second article about energy policy. The plugin notices both sources di
 
 When you ask:
 ```
-/wiki-query How do carbon budgets affect energy policy?
+/wiki How do carbon budgets affect energy policy?
 ```
 
 You get an answer that draws from **both** sources, with links to exactly where each fact came from.
@@ -178,7 +178,7 @@ All files are plain Markdown. Open them with any text editor, Obsidian, or VS Co
 
 ## 💡 Tips
 
-- 🌱 **Start small.** Add 2–3 sources and try `/wiki-query` before adding more.
+- 🌱 **Start small.** Add 2–3 sources and try `/wiki` before adding more.
 - 🎯 **Be specific.** "What does source X say about Y?" works better than vague questions.
 - 🩺 **Run `/wiki-health` occasionally.** It keeps things tidy as your wiki grows.
 - ✨ **Try `/wiki-insights`** after adding several sources on a topic — it finds patterns you might miss.
