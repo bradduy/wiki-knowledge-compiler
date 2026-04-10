@@ -189,10 +189,13 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 **You MUST create these directories if they don't exist. Do NOT rely on external scripts.**
 
 1. Check if `knowledge-base/` exists in the current working directory.
-2. If it does not exist, create the full structure by running these commands:
+2. If it does not exist, create the **required** folders only:
    ```bash
-   mkdir -p knowledge-base/raw knowledge-base/concepts knowledge-base/topics knowledge-base/summaries knowledge-base/insights knowledge-base/index knowledge-base/drafts knowledge-base/references
+   mkdir -p knowledge-base/raw knowledge-base/wiki knowledge-base/index
    ```
+   - `raw/` — stores original documents (immutable)
+   - `wiki/` — stores all generated pages (summaries, concepts, topics, insights)
+   - `index/` — stores auto-generated table of contents
 3. Create `knowledge-base/log.md` if it doesn't exist:
    ```markdown
    ---
@@ -206,23 +209,17 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 
    ---
    ```
-4. Create empty index files if they don't exist (`knowledge-base/index/master-index.md`, `knowledge-base/index/concept-index.md`, `knowledge-base/index/source-index.md`) with basic frontmatter:
-   ```markdown
-   ---
-   title: Master Index
-   type: index
-   updated: [today's date]
-   ---
-
-   # Master Index
-
-   _(empty — will be populated as you add sources)_
-   ```
+4. Create empty index files if they don't exist (`knowledge-base/index/master-index.md`, `knowledge-base/index/concept-index.md`, `knowledge-base/index/source-index.md`) with basic frontmatter.
 5. Tell the user:
    ```
    ✓ Knowledge base created at: knowledge-base/
+     - raw/    → your original documents
+     - wiki/   → generated pages (summaries, concepts, topics, insights)
+     - index/  → table of contents
    ```
-6. If `knowledge-base/` already exists, verify the subdirectories are present. Create any missing ones silently.
+6. If `knowledge-base/` already exists, verify the 3 required subdirectories are present. Create any missing ones silently.
+
+**Note:** Other folders (concepts/, topics/, summaries/, insights/, drafts/, references/) are created automatically by `/wiki-ingest` when needed. Do NOT create empty folders upfront.
 
 ### Step 4: Check for existing sources in raw/
 

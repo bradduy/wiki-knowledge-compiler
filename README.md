@@ -164,14 +164,12 @@ This is optional. Your wiki works perfectly with just the commands.
 ```
 knowledge-base/
   📄 raw/           Your original documents (never modified)
-  📋 summaries/     One-page summary of each source
-  💡 concepts/      Key ideas, one per page
-  📚 topics/        Bigger-picture pages grouping related ideas
-  ✨ insights/      Connections discovered across sources
+  📚 wiki/          All generated pages (summaries, concepts, topics, insights)
   📇 index/         Table of contents (auto-generated)
-  🔗 references/    Links to external resources
   📝 log.md         A record of everything that happened
 ```
+
+Other folders (concepts/, topics/, summaries/, insights/, etc.) are created automatically when needed.
 
 All files are plain Markdown. Open them with any text editor, Obsidian, or VS Code.
 

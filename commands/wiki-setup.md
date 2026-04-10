@@ -189,13 +189,14 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 **You MUST create these directories if they don't exist. Do NOT rely on external scripts.**
 
 1. Check if `knowledge-base/` exists in the current working directory.
-2. If it does not exist, create the full structure:
+2. If it does not exist, create the **required** folders only:
    ```bash
-   mkdir -p knowledge-base/raw knowledge-base/concepts knowledge-base/topics knowledge-base/summaries knowledge-base/insights knowledge-base/index knowledge-base/drafts knowledge-base/references
+   mkdir -p knowledge-base/raw knowledge-base/wiki knowledge-base/index
    ```
 3. Create `knowledge-base/log.md` and empty index files if they don't exist.
-4. Tell the user: `✓ Knowledge base created at: knowledge-base/`
-5. If it already exists, verify subdirectories are present. Create any missing ones silently.
+4. Tell the user: `✓ Knowledge base created at: knowledge-base/ (raw/, wiki/, index/)`
+5. If it already exists, verify the 3 required subdirectories are present. Create any missing ones silently.
+6. Other folders are created automatically by `/wiki-ingest` when needed.
 
 ### Step 4: Check for existing sources in raw/
 
