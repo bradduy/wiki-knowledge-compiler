@@ -78,20 +78,28 @@ Updated:
 
 Then skip to the **Next step** section at the bottom.
 
-### Step 1: Validate and store the raw source
+### Step 1: Ensure directories exist
+
+Before writing any files, create the directories you'll need. Run:
+```bash
+mkdir -p knowledge-base/raw knowledge-base/summaries knowledge-base/concepts knowledge-base/topics knowledge-base/insights knowledge-base/references knowledge-base/drafts knowledge-base/index
+```
+This is safe to run every time — `mkdir -p` does nothing if the folder already exists.
+
+### Step 2: Validate and store the raw source
 
 1. If it's a file path, copy the file into `knowledge-base/raw/` with a kebab-case filename. **Never modify the original.**
 2. If it's a URL, create a reference stub in `knowledge-base/references/` using the source-stub template.
 3. If it's pasted content, save it as a new `.md` file in `knowledge-base/raw/` with an appropriate name.
 4. Record the source metadata: filename, date ingested, original location.
 
-### Step 2: Read and understand the source
+### Step 3: Read and understand the source
 
 1. Read the full source content.
 2. Identify the key claims, concepts, arguments, and structure.
 3. Note any uncertainty, caveats, or limitations stated by the author.
 
-### Step 3: Create or update the summary
+### Step 4: Create or update the summary
 
 1. Check if a summary already exists in `knowledge-base/summaries/` for this source.
 2. If not, create one using the summary template from `templates/summary.md`.
@@ -101,7 +109,7 @@ Then skip to the **Next step** section at the bottom.
    - Not introduce claims not in the source
    - Include a "Key Takeaways" section
 
-### Step 4: Extract and write concepts
+### Step 5: Extract and write concepts
 
 1. Identify 3-10 atomic concepts from the source.
 2. For each concept, check `knowledge-base/concepts/` and `knowledge-base/index/concept-index.md` to see if it already exists.
@@ -109,20 +117,20 @@ Then skip to the **Next step** section at the bottom.
 4. If it's new: create a concept page using `templates/concept.md`.
 5. Each concept page must have a clear one-paragraph definition and at least one source citation.
 
-### Step 5: Update topic pages
+### Step 6: Update topic pages
 
 1. Identify which broader topics this source relates to.
 2. Check `knowledge-base/topics/` for existing topic pages.
 3. Update existing topics with references to the new summary and concepts.
 4. Only create a new topic page if the source clearly introduces a new domain not covered by existing topics.
 
-### Step 6: Update indexes
+### Step 7: Update indexes
 
 1. Add the source to `knowledge-base/index/source-index.md`.
 2. Add new concepts to `knowledge-base/index/concept-index.md`.
 3. Update `knowledge-base/index/master-index.md` with any new pages created.
 
-### Step 7: Log the ingestion
+### Step 8: Log the ingestion
 
 Append to `knowledge-base/log.md`:
 
