@@ -12,6 +12,7 @@ echo "Initializing knowledge base at: $TARGET"
 
 dirs=(
   "$TARGET/raw"
+  "$TARGET/wiki"
   "$TARGET/.data/index"
   "$TARGET/.data/summaries"
   "$TARGET/.data/concepts"

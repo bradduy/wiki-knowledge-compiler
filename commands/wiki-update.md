@@ -90,7 +90,17 @@ Write `.data/index/master-index.md` with:
 - Quick links to all index files
 - A simple table of contents for each directory
 
-### Step 6: Log the rebuild
+### Step 6: Update wiki/index.md
+
+Update `wiki/index.md` — the user-facing landing page — to reflect current wiki contents:
+- List all topic pages with links (grouped by theme if possible)
+- List recent additions
+- Show total counts (sources, pages)
+- Keep the Quick Commands section at the bottom
+
+If `wiki/index.md` doesn't exist, create it.
+
+### Step 7: Log the rebuild
 
 Append to `.data/log.md`:
 

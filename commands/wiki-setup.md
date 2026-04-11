@@ -191,11 +191,11 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 1. Check if `raw/` already exists in the current working directory.
 2. Create the required folders alongside `raw/`:
    ```bash
-   mkdir -p raw .data/index
+   mkdir -p raw wiki .data/index
    ```
    - `raw/` — stores original documents (immutable)
+   - `wiki/` — stores all generated pages the user reads and browses
    - `.data/index/` — stores auto-generated table of contents (hidden)
-   - `wiki/` is created later by `/wiki-ingest` when there's actual content to show
 3. Create `.data/log.md` in the current directory if it doesn't exist:
    ```markdown
    ---
@@ -210,12 +210,47 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
    ---
    ```
 4. Create empty index files if they don't exist (`.data/index/master-index.md`, `.data/index/concept-index.md`, `.data/index/source-index.md`) with basic frontmatter.
-5. Tell the user:
+5. Create `wiki/index.md` if it doesn't exist — this is the landing page the user sees:
+   ```markdown
+   ---
+   title: Wiki Home
+   type: index
+   created: [today]
+   updated: [today]
+   sources: []
+   ---
+
+   # Wiki Home
+
+   Welcome to your knowledge base.
+
+   ## Getting Started
+
+   Add your first document to start building your wiki:
+
    ```
-   ✓ Wiki ready:
+   /wiki-ingest <file, URL, or paste text>
+   ```
+
+   Once you've added sources, this page will be updated with:
+   - Links to all your topic pages
+   - A summary of what's in your wiki
+   - Quick access to recent additions
+
+   ## Quick Commands
+
+   - `/wiki <question>` — ask a question
+   - `/wiki-ingest <source>` — add a document
+   - `/wiki-insights` — discover connections
+   - `/wiki-update` — sync and rebuild indexes
+   ```
+6. Tell the user:
+   ```
+   ✓ Wiki folders ready:
      - raw/    → drop your documents here
+     - wiki/   → your knowledge base (generated pages appear here)
    ```
-6. If folders already exist, verify they are present. Create any missing ones silently.
+7. If folders already exist, verify they are present. Create any missing ones silently. Always ensure `wiki/index.md` exists.
 
 **Note:** Internal working folders (`.data/summaries/`, `.data/concepts/`, etc.) are created automatically by `/wiki-ingest` when needed. Do NOT create them upfront.
 
