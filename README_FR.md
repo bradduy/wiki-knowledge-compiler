@@ -58,7 +58,11 @@ Trois étapes. Tout s'installe automatiquement — vous n'avez rien à configure
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Ensuite, allez dans `/plugin` → sélectionnez le marketplace **wiki-knowledge-compiler** → choisissez le plugin → **activez le scope**. Cette étape autorise le plugin à s'exécuter sur votre machine — les commandes `/wiki-` apparaîtront après l'activation.
+Après l'ajout, configurez-le dans le marketplace :
+1. Exécutez `/plugin` → sélectionnez l'onglet **Marketplace**
+2. Trouvez **wiki-knowledge-compiler** et ouvrez-le
+3. Cliquez sur **Enable** et choisissez le scope — sélectionnez le dossier projet où vous souhaitez placer votre wiki
+4. Confirmez — cette étape autorise le plugin à créer des fichiers et exécuter des commandes dans ce dossier
 
 **Étape 2 — Lancer la configuration :**
 ```
@@ -205,7 +209,11 @@ Le plugin détecte votre système d'exploitation (macOS, Linux, Windows) et inst
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Ensuite, allez dans `/plugin` → sélectionnez le marketplace **wiki-knowledge-compiler** → choisissez le plugin → **activez le scope**. Cette étape autorise le plugin à s'exécuter sur votre machine — les commandes `/wiki-` apparaîtront après l'activation.
+Après l'ajout, configurez-le dans le marketplace :
+1. Exécutez `/plugin` → sélectionnez l'onglet **Marketplace**
+2. Trouvez **wiki-knowledge-compiler** et ouvrez-le
+3. Cliquez sur **Enable** et choisissez le scope — sélectionnez le dossier projet où vous souhaitez placer votre wiki
+4. Confirmez — cette étape autorise le plugin à créer des fichiers et exécuter des commandes dans ce dossier
 
 ### Cloner comme projet autonome
 

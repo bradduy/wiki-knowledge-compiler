@@ -58,7 +58,11 @@
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-然后进入 `/plugin` → 选择 **wiki-knowledge-compiler** 市场 → 选择该插件 → **启用 scope**。此步骤授权插件在你的机器上运行——启用后 `/wiki-` 命令将会出现。
+添加后，在市场中进行配置：
+1. 运行 `/plugin` → 选择 **Marketplace** 标签页
+2. 找到 **wiki-knowledge-compiler** 并打开
+3. 点击 **Enable** 并选择 scope —— 选择你想放置 wiki 的项目文件夹
+4. 确认 —— 此步骤授权插件在该文件夹中创建文件和运行命令
 
 **第 2 步——运行设置：**
 ```
@@ -207,7 +211,11 @@ knowledge-base/
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-然后进入 `/plugin` → 选择 **wiki-knowledge-compiler** 市场 → 选择该插件 → **启用 scope**。此步骤授权插件在你的机器上运行——启用后 `/wiki-` 命令将会出现。
+添加后，在市场中进行配置：
+1. 运行 `/plugin` → 选择 **Marketplace** 标签页
+2. 找到 **wiki-knowledge-compiler** 并打开
+3. 点击 **Enable** 并选择 scope —— 选择你想放置 wiki 的项目文件夹
+4. 确认 —— 此步骤授权插件在该文件夹中创建文件和运行命令
 
 ### 克隆为独立项目
 

@@ -58,7 +58,11 @@
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-その後 `/plugin` → **wiki-knowledge-compiler** マーケットプレイスを選択 → プラグインを選択 → **scope を有効化**。このステップでプラグインに実行権限を付与します — 有効化後に `/wiki-` コマンドが表示されます。
+追加後、マーケットプレイスで設定します：
+1. `/plugin` を実行 → **Marketplace** タブを選択
+2. **wiki-knowledge-compiler** を見つけて開く
+3. **Enable** をクリックし、scope を選択 — wiki を配置したいプロジェクトフォルダを選びます
+4. 確認 — これにより、プラグインがそのフォルダでファイル作成やコマンド実行を行う権限が付与されます
 
 **ステップ 2 — セットアップを実行：**
 ```
@@ -207,7 +211,11 @@ knowledge-base/
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-その後 `/plugin` → **wiki-knowledge-compiler** マーケットプレイスを選択 → プラグインを選択 → **scope を有効化**。このステップでプラグインに実行権限を付与します — 有効化後に `/wiki-` コマンドが表示されます。
+追加後、マーケットプレイスで設定します：
+1. `/plugin` を実行 → **Marketplace** タブを選択
+2. **wiki-knowledge-compiler** を見つけて開く
+3. **Enable** をクリックし、scope を選択 — wiki を配置したいプロジェクトフォルダを選びます
+4. 確認 — これにより、プラグインがそのフォルダでファイル作成やコマンド実行を行う権限が付与されます
 
 ### スタンドアロンプロジェクトとしてクローン
 

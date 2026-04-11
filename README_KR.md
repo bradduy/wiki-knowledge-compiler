@@ -58,7 +58,11 @@
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-그런 다음 `/plugin` → **wiki-knowledge-compiler** 마켓플레이스 선택 → 플러그인 선택 → **scope 활성화**. 이 단계에서 플러그인에 실행 권한을 부여합니다 — 활성화 후 `/wiki-` 명령어가 나타납니다.
+추가 후 마켓플레이스에서 설정합니다:
+1. `/plugin` 실행 → **Marketplace** 탭 선택
+2. **wiki-knowledge-compiler**를 찾아 열기
+3. **Enable** 클릭 후 scope 선택 — wiki를 만들 프로젝트 폴더를 선택합니다
+4. 확인 — 이 단계에서 플러그인이 해당 폴더에서 파일을 생성하고 명령을 실행할 수 있는 권한을 부여합니다
 
 **2단계 — 설정 실행:**
 ```
@@ -207,7 +211,11 @@ knowledge-base/
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-그런 다음 `/plugin` → **wiki-knowledge-compiler** 마켓플레이스 선택 → 플러그인 선택 → **scope 활성화**. 이 단계에서 플러그인에 실행 권한을 부여합니다 — 활성화 후 `/wiki-` 명령어가 나타납니다.
+추가 후 마켓플레이스에서 설정합니다:
+1. `/plugin` 실행 → **Marketplace** 탭 선택
+2. **wiki-knowledge-compiler**를 찾아 열기
+3. **Enable** 클릭 후 scope 선택 — wiki를 만들 프로젝트 폴더를 선택합니다
+4. 확인 — 이 단계에서 플러그인이 해당 폴더에서 파일을 생성하고 명령을 실행할 수 있는 권한을 부여합니다
 
 ### 독립 프로젝트로 클론
 

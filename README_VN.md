@@ -58,7 +58,11 @@ Ba bước. Mọi thứ được cài đặt tự động — bạn không cần
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Sau đó vào `/plugin` → chọn marketplace **wiki-knowledge-compiler** → chọn plugin → **bật scope**. Bước này cấp quyền cho plugin chạy trên máy bạn — các lệnh `/wiki-` sẽ xuất hiện sau khi bật.
+Sau khi thêm, cấu hình trong marketplace:
+1. Chạy `/plugin` → chọn tab **Marketplace**
+2. Tìm **wiki-knowledge-compiler** và mở ra
+3. Nhấn **Enable** và chọn scope — chọn thư mục dự án bạn muốn đặt wiki
+4. Xác nhận — bước này cấp quyền cho plugin tạo file và chạy lệnh trong thư mục đó
 
 **Bước 2 — Chạy thiết lập:**
 ```
@@ -207,7 +211,11 @@ Plugin nhận diện hệ điều hành của bạn (macOS, Linux, Windows) và 
 ```
 /plugin marketplace add bradduy/wiki-knowledge-compiler
 ```
-Sau đó vào `/plugin` → chọn marketplace **wiki-knowledge-compiler** → chọn plugin → **bật scope**. Bước này cấp quyền cho plugin chạy trên máy bạn — các lệnh `/wiki-` sẽ xuất hiện sau khi bật.
+Sau khi thêm, cấu hình trong marketplace:
+1. Chạy `/plugin` → chọn tab **Marketplace**
+2. Tìm **wiki-knowledge-compiler** và mở ra
+3. Nhấn **Enable** và chọn scope — chọn thư mục dự án bạn muốn đặt wiki
+4. Xác nhận — bước này cấp quyền cho plugin tạo file và chạy lệnh trong thư mục đó
 
 ### Clone như một dự án độc lập
 
