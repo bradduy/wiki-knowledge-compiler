@@ -93,7 +93,7 @@ You are running an automated wiki update. Do the following:
 
 1. Check the raw/ directory for any files that don't have a matching summary in .data/summaries/
 2. For each unprocessed file:
-   - Create directories if needed: mkdir -p raw wiki index .data/summaries .data/concepts .data/topics .data/insights .data/references .data/drafts
+   - Create directories if needed: mkdir -p raw wiki .data/index .data/summaries .data/concepts .data/topics .data/insights .data/references .data/drafts
    - Copy/store the raw source
    - Read and understand the content
    - Create a summary in .data/summaries/
@@ -101,12 +101,12 @@ You are running an automated wiki update. Do the following:
    - Update topics in .data/topics/
    - Publish polished pages to wiki/
    - Update index files
-   - Log to log.md
+   - Log to .data/log.md
 3. After all ingestion is done, rebuild all indexes:
-   - Rebuild index/source-index.md
-   - Rebuild index/concept-index.md
-   - Rebuild index/master-index.md
-4. Log the update to log.md
+   - Rebuild .data/index/source-index.md
+   - Rebuild .data/index/concept-index.md
+   - Rebuild .data/index/master-index.md
+4. Log the update to .data/log.md
 
 If there are no new files, just rebuild the indexes and log it.
 Be thorough but concise. Commit any changes with a descriptive message.

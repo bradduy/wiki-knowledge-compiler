@@ -21,7 +21,7 @@ If no focus is provided, perform a broad scan.
 
 ### Step 1: Read broadly
 
-1. Read `index/master-index.md` for an overview.
+1. Read `.data/index/master-index.md` for an overview.
 2. Read all topic pages in `.data/topics/`.
 3. Read all existing insight pages in `.data/insights/`.
 4. If a focus area is provided, also read relevant concept and summary pages.
@@ -63,7 +63,7 @@ Create a section listing:
 ### Step 6: Write results
 
 1. Save new insights to `.data/insights/` and publish readable versions to `wiki/`.
-2. Update `index/master-index.md`.
+2. Update `.data/index/master-index.md`.
 3. If knowledge gaps suggest new concept or topic pages, create stubs in `.data/drafts/` (not in `.data/concepts/` or `.data/topics/` — they need real content first).
 
 ### Step 7: Present and log
@@ -86,7 +86,7 @@ Present the insights to the user with:
 - `drafts/[name].md` (gap stubs)
 ```
 
-Append to `log.md`:
+Append to `.data/log.md`:
 
 ```
 ## [DATE] Insight generation

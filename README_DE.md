@@ -167,9 +167,8 @@ knowledge-base/
   concepts/      Kernideen, eine pro Seite
   topics/        Übergeordnete Seiten, die verwandte Ideen gruppieren
   insights/      Entdeckte Verbindungen über Quellen hinweg
-  index/         Inhaltsverzeichnis (automatisch generiert)
   references/    Links zu externen Ressourcen
-  log.md         Ein Protokoll über alles, was passiert ist
+  .data/         Interne Arbeitsdaten (versteckt)
 ```
 
 Alle Dateien sind einfaches Markdown. Öffnen Sie sie mit jedem Texteditor, Obsidian oder VS Code.

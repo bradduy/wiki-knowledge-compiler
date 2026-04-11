@@ -85,14 +85,14 @@ Then skip to the **Next step** section at the bottom.
 
 Before writing any files, create the directories you'll need. Run:
 ```bash
-mkdir -p raw wiki index .data/summaries .data/concepts .data/topics .data/insights .data/references .data/drafts
+mkdir -p raw wiki .data/index .data/summaries .data/concepts .data/topics .data/insights .data/references .data/drafts
 ```
 This is safe to run every time — `mkdir -p` does nothing if the folder already exists.
 
 **Directory layout:**
 - `raw/` — user-facing: original documents (immutable)
 - `wiki/` — user-facing: final polished pages the user reads and browses
-- `index/` — user-facing: table of contents
+- `.data/index/` — hidden: table of contents (auto-generated)
 - `.data/summaries/` — hidden: per-source summaries with provenance
 - `.data/concepts/` — hidden: atomic concept pages
 - `.data/topics/` — hidden: broader topic groupings
@@ -126,7 +126,7 @@ This is safe to run every time — `mkdir -p` does nothing if the folder already
 ### Step 5: Extract and write concepts
 
 1. Identify 3-10 atomic concepts from the source.
-2. For each concept, check `.data/concepts/` and `index/concept-index.md` to see if it already exists.
+2. For each concept, check `.data/concepts/` and `.data/index/concept-index.md` to see if it already exists.
 3. If it exists: update the existing page with new information and add a source citation.
 4. If it's new: create a concept page using `templates/concept.md` in `.data/concepts/`.
 5. Each concept page must have a clear one-paragraph definition and at least one source citation.
@@ -149,13 +149,13 @@ After creating summaries, concepts, and topics in `.data/`, publish the **user-f
 
 ### Step 8: Update indexes
 
-1. Add the source to `index/source-index.md`.
-2. Add new concepts to `index/concept-index.md`.
-3. Update `index/master-index.md` with any new pages created.
+1. Add the source to `.data/index/source-index.md`.
+2. Add new concepts to `.data/index/concept-index.md`.
+3. Update `.data/index/master-index.md` with any new pages created.
 
 ### Step 9: Log the ingestion
 
-Append to `log.md`:
+Append to `.data/log.md`:
 
 ```
 ## [DATE] Ingested: [source name]

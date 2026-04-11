@@ -17,7 +17,7 @@ The search approach depends on the project size configured in `.data/wiki.config
 
 **How to search:**
 
-1. **Start with the index.** Read `knowledge-base/index/master-index.md` to understand scope.
+1. **Start with the index.** Read `knowledge-base/.data/index/master-index.md` to understand scope.
 2. **Keyword search.** Use Grep across `knowledge-base/` for exact and partial keyword matches.
 3. **Follow links.** When you find a relevant page, follow its markdown links to related pages.
 4. **Scan directories.** If Grep misses something, use Glob to list files in relevant directories and read promising filenames.

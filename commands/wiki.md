@@ -25,7 +25,7 @@ The user asks: `$ARGUMENTS`
 ### Step 2: Search the knowledge base
 
 **If backend is `grep` (default/small):**
-1. Read `index/master-index.md` to get an overview of available knowledge.
+1. Read `.data/index/master-index.md` to get an overview of available knowledge.
 2. Search `` using Grep for keywords from the question.
 3. Identify the most relevant pages (concepts, topics, summaries, insights).
 4. Read the relevant pages in full.
@@ -67,7 +67,7 @@ If writing back, use the appropriate template and log the action.
 
 ### Step 5: Log the query
 
-Append to `log.md`:
+Append to `.data/log.md`:
 
 ```
 ## [DATE] Query: [short description]

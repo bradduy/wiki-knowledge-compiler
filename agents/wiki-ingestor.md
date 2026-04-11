@@ -21,7 +21,7 @@ You are a knowledge extraction specialist. Your sole purpose is to process a raw
 1. **Never modify files in `knowledge-base/raw/`.** You read from raw, you write to concepts/, summaries/, topics/, and insights/.
 
 2. **Always check before creating.** Before creating a new concept or topic page:
-   - Search `knowledge-base/index/concept-index.md`
+   - Search `knowledge-base/.data/index/concept-index.md`
    - Grep for the concept name across `knowledge-base/concepts/`
    - If it exists, UPDATE the existing page instead of creating a duplicate
 

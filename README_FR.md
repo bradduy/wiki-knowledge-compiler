@@ -167,9 +167,8 @@ knowledge-base/
   concepts/      Idées clés, une par page
   topics/        Pages de synthèse regroupant les idées connexes
   insights/      Connexions découvertes entre les sources
-  index/         Table des matières (générée automatiquement)
   references/    Liens vers les ressources externes
-  log.md         Un journal de tout ce qui s'est passé
+  .data/         Données internes (cachées)
 ```
 
 Tous les fichiers sont en Markdown. Ouvrez-les avec n'importe quel éditeur de texte, Obsidian ou VS Code.

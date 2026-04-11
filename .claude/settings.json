@@ -19,10 +19,10 @@
       "knowledge-base/topics/**",
       "knowledge-base/summaries/**",
       "knowledge-base/insights/**",
-      "knowledge-base/index/**",
       "knowledge-base/drafts/**",
       "knowledge-base/references/**",
-      "knowledge-base/log.md"
+      "knowledge-base/.data/index/**",
+      "knowledge-base/.data/log.md"
     ],
     "deny_write": ["knowledge-base/raw/**"]
   }

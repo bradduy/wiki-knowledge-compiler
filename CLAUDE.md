@@ -16,9 +16,9 @@ You are operating inside the **wiki-knowledge-compiler** plugin, a local-first k
 ```
 raw/             # Immutable source documents (PDFs, notes, URL stubs)
 wiki/            # All generated pages the user reads and browses
-index/           # Master index, concept index, source index
-log.md           # Append-only activity log
 .data/           # Hidden internal working data:
+  index/         #   Master index, concept index, source index
+  log.md         #   Append-only activity log
   summaries/     #   Per-source summaries with provenance
   concepts/      #   Atomic concept pages
   topics/        #   Broader topic groupings
@@ -58,8 +58,8 @@ Run `/wiki-setup` to configure. The search skill (`skills/search-strategy.md`) g
 ## When in Doubt
 
 - Read `.data/wiki.config.md` to know the active search backend
-- Check `index/master-index.md` before creating new pages
+- Check `.data/index/master-index.md` before creating new pages
 - Search existing pages with the configured backend before assuming a concept doesn't exist
-- Append to `log.md` after any structural change
+- Append to `.data/log.md` after any structural change
 - Prefer updating existing pages over creating new ones
 - If search results feel inadequate, suggest `/wiki-setup` to upgrade the search tier

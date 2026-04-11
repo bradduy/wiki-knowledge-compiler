@@ -169,9 +169,8 @@ knowledge-base/
   concepts/      핵심 아이디어, 하나당 한 페이지
   topics/        관련 아이디어를 묶는 상위 주제 페이지
   insights/      출처 간 발견된 연결
-  index/         목차 (자동 생성)
   references/    외부 리소스 링크
-  log.md         모든 작업 기록
+  .data/         내부 데이터 (숨김)
 ```
 
 모든 파일은 일반 Markdown 형식입니다. 아무 텍스트 편집기, Obsidian 또는 VS Code로 열 수 있습니다.

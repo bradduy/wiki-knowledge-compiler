@@ -31,7 +31,7 @@ An atomic concept is a single, well-defined idea that:
 **Check existence first:**
 ```
 Grep for the concept name in knowledge-base/concepts/
-Grep for the concept name in knowledge-base/index/concept-index.md
+Grep for the concept name in knowledge-base/.data/index/concept-index.md
 ```
 
 **If it exists:** Read the existing page. Add new information from this source:

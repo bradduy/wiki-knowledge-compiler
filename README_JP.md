@@ -169,9 +169,8 @@ knowledge-base/
   concepts/      キーアイデア（1つにつき1ページ）
   topics/        関連アイデアをまとめた上位トピックページ
   insights/      ソース間で発見されたつながり
-  index/         目次（自動生成）
   references/    外部リソースへのリンク
-  log.md         すべての操作の記録
+  .data/         内部データ（非表示）
 ```
 
 すべてのファイルはプレーン Markdown 形式です。任意のテキストエディタ、Obsidian、または VS Code で開けます。

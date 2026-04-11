@@ -169,9 +169,8 @@ knowledge-base/
   concepts/      关键概念，每个概念一页
   topics/        更宏观的主题页，归类相关概念
   insights/      跨来源发现的关联
-  index/         目录（自动生成）
   references/    外部资源链接
-  log.md         所有操作的记录
+  .data/         内部工作数据（隐藏）
 ```
 
 所有文件均为纯 Markdown 格式。可以用任意文本编辑器、Obsidian 或 VS Code 打开。

@@ -165,12 +165,10 @@ This is optional. Your wiki works perfectly with just the commands.
 your-project/
   📄 raw/           Your original documents (never modified)
   📚 wiki/          All generated pages (summaries, concepts, topics, insights)
-  📇 index/         Table of contents (auto-generated)
-  📝 log.md         A record of everything that happened
   .data/            Internal working data (hidden)
 ```
 
-No wrapper folder. `raw/`, `wiki/`, and `index/` live right in your project. If `raw/` already exists, setup just adds `wiki/` and `index/` next to it.
+No wrapper folder. `raw/` and `wiki/` live right in your project. If `raw/` already exists, setup just adds `wiki/` next to it.
 
 All files are plain Markdown. Open them with any text editor, Obsidian, or VS Code.
 

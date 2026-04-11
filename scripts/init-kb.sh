@@ -16,7 +16,7 @@ dirs=(
   "$TARGET/topics"
   "$TARGET/summaries"
   "$TARGET/insights"
-  "$TARGET/index"
+  "$TARGET/.data/index"
   "$TARGET/drafts"
   "$TARGET/references"
 )
@@ -28,9 +28,10 @@ for dir in "${dirs[@]}"; do
   fi
 done
 
-# Create log.md if it doesn't exist
-if [ ! -f "$TARGET/log.md" ]; then
-  cat > "$TARGET/log.md" << 'EOF'
+# Create .data/log.md if it doesn't exist
+if [ ! -f "$TARGET/.data/log.md" ]; then
+  mkdir -p "$TARGET/.data"
+  cat > "$TARGET/.data/log.md" << 'EOF'
 ---
 title: Knowledge Base Activity Log
 type: log
@@ -42,12 +43,12 @@ All structural changes to the knowledge base are logged here in reverse chronolo
 
 ---
 EOF
-  echo "Created $TARGET/log.md"
+  echo "Created $TARGET/.data/log.md"
 fi
 
 # Create index files if they don't exist
 for idx in master-index concept-index source-index; do
-  if [ ! -f "$TARGET/index/$idx.md" ]; then
+  if [ ! -f "$TARGET/.data/index/$idx.md" ]; then
     echo "---
 title: ${idx//-/ }
 type: index
@@ -56,8 +57,8 @@ updated: $(date +%Y-%m-%d)
 
 # ${idx//-/ }
 
-_(empty — run /update-index to populate)_" > "$TARGET/index/$idx.md"
-    echo "Created $TARGET/index/$idx.md"
+_(empty — run /update-index to populate)_" > "$TARGET/.data/index/$idx.md"
+    echo "Created $TARGET/.data/index/$idx.md"
   fi
 done
 

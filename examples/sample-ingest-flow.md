@@ -51,7 +51,7 @@ The plugin will:
 
 5. **Update indexes**: source-index, concept-index, master-index
 
-6. **Log the ingestion** in `log.md`
+6. **Log the ingestion** in `.data/log.md`
 
 ## Step 3: Review the output
 
@@ -67,10 +67,10 @@ Files created:
 
 Files updated:
   - topics/llm-architecture.md (added source + concepts)
-  - index/source-index.md
-  - index/concept-index.md
-  - index/master-index.md
-  - log.md
+  - .data/index/source-index.md
+  - .data/index/concept-index.md
+  - .data/index/master-index.md
+  - .data/log.md
 
 Items for review:
   - concepts/retrieval-augmented-generation.md — already existed, added

@@ -191,12 +191,12 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 1. Check if `raw/` already exists in the current working directory.
 2. Create the required folders alongside `raw/`:
    ```bash
-   mkdir -p raw wiki index
+   mkdir -p raw wiki .data/index
    ```
    - `raw/` — stores original documents (immutable)
    - `wiki/` — stores all generated pages (summaries, concepts, topics, insights)
-   - `index/` — stores auto-generated table of contents
-3. Create `log.md` in the current directory if it doesn't exist:
+   - `.data/index/` — stores auto-generated table of contents (hidden)
+3. Create `.data/log.md` in the current directory if it doesn't exist:
    ```markdown
    ---
    title: Knowledge Base Activity Log
@@ -209,13 +209,12 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 
    ---
    ```
-4. Create empty index files if they don't exist (`index/master-index.md`, `index/concept-index.md`, `index/source-index.md`) with basic frontmatter.
+4. Create empty index files if they don't exist (`.data/index/master-index.md`, `.data/index/concept-index.md`, `.data/index/source-index.md`) with basic frontmatter.
 5. Tell the user:
    ```
    ✓ Wiki folders ready:
      - raw/    → your original documents
      - wiki/   → generated pages (summaries, concepts, topics, insights)
-     - index/  → table of contents
    ```
 6. If folders already exist, verify all 3 are present. Create any missing ones silently.
 
@@ -348,7 +347,7 @@ Skip this step. Do not mention Obsidian again.
 
 ### Step 7: Log the setup
 
-Append to `log.md`:
+Append to `.data/log.md`:
 
 ```
 ## [DATE] Wiki setup

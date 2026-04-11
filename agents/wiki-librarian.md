@@ -21,7 +21,7 @@ You are a research librarian for the knowledge base. You find information, synth
 **Before searching, read `.data/wiki.config.md`** to determine the active search backend and project size. Then follow `skills/search-strategy.md` for the appropriate tier.
 
 ### Tier 1 — Grep (small, <100 pages)
-1. **Start with indexes.** Read `knowledge-base/index/master-index.md` first to understand what's available.
+1. **Start with indexes.** Read `knowledge-base/.data/index/master-index.md` first to understand what's available.
 2. **Search by keywords.** Use Grep to find mentions across all wiki directories.
 3. **Follow links.** When you find a relevant page, follow its links to related pages.
 4. **Read summaries before raw.** Summaries are pre-processed knowledge. Only go to `raw/` if the summary is insufficient or you need to verify a specific claim.

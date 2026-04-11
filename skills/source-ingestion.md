@@ -15,7 +15,7 @@ Before ingesting any source:
 - [ ] Determine source type: file (PDF, markdown, text), URL, or pasted content
 - [ ] Generate a kebab-case filename from the source title
 - [ ] Check if `knowledge-base/raw/` already contains a file with the same or similar name
-- [ ] Check if `knowledge-base/index/source-index.md` already lists this source
+- [ ] Check if `knowledge-base/.data/index/source-index.md` already lists this source
 
 ## Storage rules
 
@@ -62,7 +62,7 @@ origin: user-provided
 
 ## Metadata requirements
 
-Every raw source must be tracked in `knowledge-base/index/source-index.md` with:
+Every raw source must be tracked in `knowledge-base/.data/index/source-index.md` with:
 - Filename and path
 - Date ingested
 - Original location (file path, URL, or "user-provided")

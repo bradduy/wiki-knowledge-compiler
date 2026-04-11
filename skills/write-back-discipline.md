@@ -29,7 +29,7 @@ After generating any substantive output (answer, summary, analysis, insight), ev
 4. **Include full provenance** — cite every source used.
 5. **Mark uncertainty** — any speculative content must be flagged.
 6. **Update indexes** — add the new page to the relevant index.
-7. **Log the action** — append to `log.md`.
+7. **Log the action** — append to `.data/log.md`.
 
 ## What "useful" means
 

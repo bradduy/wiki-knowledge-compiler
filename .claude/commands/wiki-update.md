@@ -44,7 +44,7 @@ You are the **wiki-librarian**. Your job is to sync everything: ingest any new f
 
 ### Step 3: Rebuild source-index.md
 
-Write `index/source-index.md`:
+Write `.data/index/source-index.md`:
 
 ```markdown
 ---
@@ -64,7 +64,7 @@ All raw sources ingested into the knowledge base.
 
 ### Step 4: Rebuild concept-index.md
 
-Write `index/concept-index.md`:
+Write `.data/index/concept-index.md`:
 
 ```markdown
 ---
@@ -84,15 +84,15 @@ All concepts in the knowledge base, alphabetically.
 
 ### Step 5: Rebuild master-index.md
 
-Write `index/master-index.md` with:
+Write `.data/index/master-index.md` with:
 - Total counts (sources, concepts, topics, summaries, insights, drafts)
-- Recent additions (last 10 entries from log.md)
+- Recent additions (last 10 entries from `.data/log.md`)
 - Quick links to all index files
 - A simple table of contents for each directory
 
 ### Step 6: Log the rebuild
 
-Append to `log.md`:
+Append to `.data/log.md`:
 
 ```
 ## [DATE] Index rebuild

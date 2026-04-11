@@ -169,9 +169,8 @@ knowledge-base/
   concepts/      Ý tưởng chính, mỗi ý một trang
   topics/        Các trang tổng quan nhóm các ý tưởng liên quan
   insights/      Mối liên hệ phát hiện được giữa các nguồn
-  index/         Mục lục (tự động tạo)
   references/    Liên kết đến tài nguyên bên ngoài
-  log.md         Nhật ký mọi hoạt động đã diễn ra
+  .data/         Dữ liệu nội bộ (ẩn)
 ```
 
 Tất cả file đều là Markdown thuần. Mở bằng bất kỳ trình soạn thảo nào, Obsidian, hoặc VS Code.

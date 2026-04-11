@@ -11,10 +11,10 @@ This is your local-first LLM Wiki. All knowledge is stored as plain markdown wit
 | `topics/` | Broader topic overviews grouping concepts | Derived — updated by ingestion |
 | `summaries/` | Per-source summaries with provenance | Derived — one per raw source |
 | `insights/` | Cross-cutting observations and synthesis | Derived — generated from analysis |
-| `index/` | Master index, concept index, source index | Auto-generated — rebuilt by `/wiki-update` |
 | `drafts/` | Work-in-progress pages not yet promoted | Temporary — promote or delete |
 | `references/` | External URL/resource stubs | Reference — added during ingestion |
-| `log.md` | Append-only activity log | Append-only |
+| `.data/index/` | Master index, concept index, source index | Auto-generated — rebuilt by `/wiki-update` |
+| `.data/log.md` | Append-only activity log | Append-only |
 
 ## Rules
 
