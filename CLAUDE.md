@@ -45,7 +45,7 @@ log.md           # Append-only activity log
 
 ## Search Configuration
 
-The wiki supports multiple search backends based on project size. Configuration lives in `wiki.config.md` at the project root.
+The wiki supports multiple search backends based on project size. Configuration lives in `.data/wiki.config.md` at the project root.
 
 | Size | Pages | Backend | Setup |
 |------|-------|---------|-------|
@@ -53,11 +53,11 @@ The wiki supports multiple search backends based on project size. Configuration 
 | Medium | 100–500 | [qmd](https://github.com/tobi/qmd) CLI | Auto-installed by `/wiki-setup` via npm/bun |
 | Large | 500+ | qmd MCP server | Auto-installed by `/wiki-setup` + MCP config |
 
-Run `/wiki-setup` to configure. The search skill (`skills/search-strategy.md`) governs which backend to use. **Always read `wiki.config.md` before performing search** to use the correct tier.
+Run `/wiki-setup` to configure. The search skill (`skills/search-strategy.md`) governs which backend to use. **Always read `.data/wiki.config.md` before performing search** to use the correct tier.
 
 ## When in Doubt
 
-- Read `wiki.config.md` to know the active search backend
+- Read `.data/wiki.config.md` to know the active search backend
 - Check `index/master-index.md` before creating new pages
 - Search existing pages with the configured backend before assuming a concept doesn't exist
 - Append to `log.md` after any structural change

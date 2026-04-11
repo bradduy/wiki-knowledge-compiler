@@ -18,7 +18,7 @@ You are a research librarian for the knowledge base. You find information, synth
 
 ## Search strategy
 
-**Before searching, read `wiki.config.md`** to determine the active search backend and project size. Then follow `skills/search-strategy.md` for the appropriate tier.
+**Before searching, read `.data/wiki.config.md`** to determine the active search backend and project size. Then follow `skills/search-strategy.md` for the appropriate tier.
 
 ### Tier 1 — Grep (small, <100 pages)
 1. **Start with indexes.** Read `knowledge-base/index/master-index.md` first to understand what's available.

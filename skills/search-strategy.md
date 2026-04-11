@@ -6,7 +6,7 @@ type: rigid
 
 # Search Strategy Skill
 
-The search approach depends on the project size configured in `wiki.config.md`. **Always read `wiki.config.md` before searching** to determine the active backend.
+The search approach depends on the project size configured in `.data/wiki.config.md`. **Always read `.data/wiki.config.md` before searching** to determine the active backend.
 
 ## Search tiers
 

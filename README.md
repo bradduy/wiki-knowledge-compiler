@@ -225,7 +225,7 @@ cp -r /tmp/wkc/.claude/ your-project/.claude/
 cp -r /tmp/wkc/.claude-plugin/ your-project/.claude-plugin/
 cp -r /tmp/wkc/{agents,skills,templates} your-project/
 cp /tmp/wkc/CLAUDE.md your-project/CLAUDE.md
-cp /tmp/wkc/wiki.config.md your-project/wiki.config.md
+cp /tmp/wkc/.data/wiki.config.md your-project/.data/wiki.config.md
 bash /tmp/wkc/scripts/init-kb.sh your-project/knowledge-base
 rm -rf /tmp/wkc
 ```

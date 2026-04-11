@@ -28,7 +28,7 @@ Enter 1, 2, or 3:
 ### Step 2: Configure based on choice
 
 **If Small (1):**
-1. Set `wiki.config.md` → `size: small`, `backend: grep`
+1. Set `.data/wiki.config.md` → `size: small`, `backend: grep`
 2. No additional tools needed
 3. Tell the user: `✓ Configured for small project. Search uses built-in Grep. Works well up to ~100 pages. Run /wiki-setup again if you outgrow it.`
 
@@ -121,7 +121,7 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
    - Run: `qmd context add qmd://wiki "Knowledge base wiki pages"`
    - Run: `qmd embed`
    - Tell the user: `✓ Search index built.`
-7. Set the backend in `wiki.config.md`:
+7. Set the backend in `.data/wiki.config.md`:
    - **If Medium (2):** Set `size: medium`, `backend: qmd-cli`. Tell the user: `✓ Configured for medium project with qmd search.`
    - **If Large (3):** Set `size: large`, `backend: qmd-mcp`. Then configure MCP in the user's Claude Code settings:
 

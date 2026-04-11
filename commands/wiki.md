@@ -19,7 +19,7 @@ The user asks: `$ARGUMENTS`
 
 ### Step 1: Determine search strategy
 
-1. Read `wiki.config.md` to check the configured `backend` and `size`.
+1. Read `.data/wiki.config.md` to check the configured `backend` and `size`.
 2. Follow the `skills/search-strategy.md` skill for the active search tier.
 
 ### Step 2: Search the knowledge base
