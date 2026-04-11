@@ -17,10 +17,11 @@ The user provides: `$ARGUMENTS`
 
 This may be:
 - A single file path (e.g. `~/Documents/article.md`)
+- Multiple files (e.g. `abc.pdf a.md c.docx`)
+- A mix of files and URLs (e.g. `abc.pdf https://example.com/article a.md`)
 - A folder path (e.g. `~/Documents/research/`) — ingest all supported files inside
-- Multiple files (e.g. `~/notes/a.md ~/notes/b.md ~/notes/c.pdf`)
 - A glob pattern (e.g. `~/papers/*.pdf`)
-- A URL to create a reference stub
+- A URL to create a reference stub (e.g. `https://example.com/article`)
 - Pasted text content to save as a raw source
 
 ## Procedure
@@ -47,10 +48,12 @@ Follow these steps **in order**. Do not skip steps.
    - If "let me pick": let the user select which files to ingest
    - If "cancel": stop
 
-2. **If it's multiple files or a glob pattern:**
-   - Resolve all paths / expand the glob
-   - Verify each file exists
-   - Tell the user: `Ingesting [N] documents...`
+2. **If it's multiple items (files, URLs, or a mix):**
+   - Split the input by spaces
+   - For each item, detect if it's a file path (exists on disk), a URL (starts with `http`), or a glob pattern (contains `*` or `?`)
+   - Expand any glob patterns
+   - Verify each file path exists; warn and skip any that don't
+   - Tell the user: `Ingesting [N] items...`
 
 3. **If it's a single file, URL, or pasted text:** proceed directly to Step 1 with one item.
 
