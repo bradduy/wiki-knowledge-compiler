@@ -191,11 +191,11 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 1. Check if `raw/` already exists in the current working directory.
 2. Create the required folders alongside `raw/`:
    ```bash
-   mkdir -p raw wiki .data/index
+   mkdir -p raw .data/index
    ```
    - `raw/` — stores original documents (immutable)
-   - `wiki/` — stores all generated pages (summaries, concepts, topics, insights)
    - `.data/index/` — stores auto-generated table of contents (hidden)
+   - `wiki/` is created later by `/wiki-ingest` when there's actual content to show
 3. Create `.data/log.md` in the current directory if it doesn't exist:
    ```markdown
    ---
@@ -212,11 +212,10 @@ These sizes use [qmd](https://github.com/tobi/qmd) for smarter search. Follow th
 4. Create empty index files if they don't exist (`.data/index/master-index.md`, `.data/index/concept-index.md`, `.data/index/source-index.md`) with basic frontmatter.
 5. Tell the user:
    ```
-   ✓ Wiki folders ready:
-     - raw/    → your original documents
-     - wiki/   → generated pages (summaries, concepts, topics, insights)
+   ✓ Wiki ready:
+     - raw/    → drop your documents here
    ```
-6. If folders already exist, verify all 3 are present. Create any missing ones silently.
+6. If folders already exist, verify they are present. Create any missing ones silently.
 
 **Note:** Internal working folders (`.data/summaries/`, `.data/concepts/`, etc.) are created automatically by `/wiki-ingest` when needed. Do NOT create them upfront.
 

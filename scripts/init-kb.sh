@@ -12,13 +12,13 @@ echo "Initializing knowledge base at: $TARGET"
 
 dirs=(
   "$TARGET/raw"
-  "$TARGET/concepts"
-  "$TARGET/topics"
-  "$TARGET/summaries"
-  "$TARGET/insights"
   "$TARGET/.data/index"
-  "$TARGET/drafts"
-  "$TARGET/references"
+  "$TARGET/.data/summaries"
+  "$TARGET/.data/concepts"
+  "$TARGET/.data/topics"
+  "$TARGET/.data/insights"
+  "$TARGET/.data/references"
+  "$TARGET/.data/drafts"
 )
 
 for dir in "${dirs[@]}"; do
