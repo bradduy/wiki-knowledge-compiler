@@ -85,10 +85,9 @@
 | `/wiki-ingest` | 문서 추가 — 파일 하나, 폴더 전체 또는 URL |
 | `/wiki` | 질문하고 출처가 포함된 답변 받기 |
 | `/wiki-insights` | 출처 간 패턴과 연결 발견 |
-| `/wiki-health` | 문제 찾기 및 수정 (중복, 깨진 링크) |
 | `/wiki-update` | 목차 갱신 |
 
-**권장 순서:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
+**권장 순서:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update`
 
 ---
 
@@ -183,7 +182,6 @@ knowledge-base/
 
 - **작게 시작하세요.** 2–3개의 출처를 추가하고 `/wiki`를 먼저 시도하세요.
 - **구체적으로 질문하세요.** "출처 X가 Y에 대해 뭐라고 하나요?"가 모호한 질문보다 효과적입니다.
-- **`/wiki-health`를 가끔 실행하세요.** 위키가 커질수록 정리를 도와줍니다.
 - **여러 출처를 추가한 후 `/wiki-insights`를 시도하세요** — 놓칠 수 있는 패턴을 찾아줍니다.
 - **원본 파일은 안전합니다.** 플러그인은 원본 파일을 절대 변경하지 않습니다.
 

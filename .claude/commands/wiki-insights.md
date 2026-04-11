@@ -111,11 +111,11 @@ After presenting the insights, present this menu and **WAIT for the user to choo
 ```
 What would you like to do next?
 
-  1. 🩺 Check wiki health (recommended after generating insights) → /wiki-health
-  2. 🔍 Ask a question about the insights                        → /wiki
-  3. 📥 Add more documents to deepen coverage                    → /wiki-ingest
-  4. ✨ Generate more insights on a different topic               → /wiki-insights
-  5. 🔄 Refresh indexes                                          → /wiki-update
+  1. 🔍 Ask a question about the insights                → /wiki
+  2. 📥 Add more documents to deepen coverage            → /wiki-ingest
+  3. ✨ Generate more insights on a different topic       → /wiki-insights
+  4. 🔄 Sync wiki (ingest new raw files + reindex)       → /wiki-update
+  5. 📅 Schedule automatic updates                        → /wiki-schedule
   6. ✅ I'm done for now
 
 Recommended: 1

@@ -137,7 +137,7 @@ Consider running /wiki-setup to upgrade to qmd for better search quality.
 
 After any of these events, re-index:
 - `/wiki-ingest` completes (new pages created)
-- `/wiki-health` applies fixes (pages modified)
+- `/wiki-update` applies fixes (pages modified)
 - Manual page creation or editing
 - `/wiki-update` runs (file index rebuilt)
 

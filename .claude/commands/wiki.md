@@ -111,8 +111,8 @@ What would you like to do next?
   1. 🔍 Ask another question                          → /wiki
   2. ✨ Find connections across your sources           → /wiki-insights
   3. 📥 Add another document                          → /wiki-ingest
-  4. 🩺 Check wiki health                              → /wiki-health
-  5. 🔄 Refresh indexes                                → /wiki-update
+  4. 🔄 Sync wiki (ingest new raw files + reindex)    → /wiki-update
+  5. 📅 Schedule automatic updates                     → /wiki-schedule
   6. ✅ I'm done for now
 
 Recommended: 1 if you have more questions, 2 if you've added several sources

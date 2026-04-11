@@ -119,11 +119,11 @@ After the rebuild completes, present this menu and **WAIT for the user to choose
 
 What would you like to do next?
 
-  1. 📥 Add more documents                     → /wiki-ingest
-  2. 🔍 Ask a question                         → /wiki
-  3. ✨ Generate insights                       → /wiki-insights
-  4. 🩺 Check wiki health                       → /wiki-health
-  5. 🔄 Refresh indexes again                   → /wiki-update
+  1. 📥 Add more documents                         → /wiki-ingest
+  2. 🔍 Ask a question                             → /wiki
+  3. ✨ Generate insights                           → /wiki-insights
+  4. 📅 Schedule automatic updates                  → /wiki-schedule
+  5. 🔄 Sync again                                  → /wiki-update
   6. ✅ I'm done for now
 
 Recommended: 1 if you have more sources, 2 if you want to explore

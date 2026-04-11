@@ -375,7 +375,6 @@ Setup complete! Your wiki already has content. Here's what to try:
 After that, you can:
   • Add more documents:        /wiki-ingest <file, URL, or paste text>
   • Find connections:           /wiki-insights
-  • Check for problems:         /wiki-health
 ```
 
 **If the wiki is empty** (no sources yet):

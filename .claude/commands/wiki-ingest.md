@@ -190,8 +190,8 @@ What would you like to do next?
   1. 🔍 Ask a question about what you just added     → /wiki
   2. 📥 Add another document                          → /wiki-ingest
   3. ✨ Find connections across your sources           → /wiki-insights
-  4. 🩺 Check wiki health                              → /wiki-health
-  5. 🔄 Refresh indexes                                → /wiki-update
+  4. 🔄 Sync wiki (ingest new raw files + reindex)    → /wiki-update
+  5. 📅 Schedule automatic updates                     → /wiki-schedule
   6. ✅ I'm done for now
 
 Recommended: 1 (ask a question about what you just added)

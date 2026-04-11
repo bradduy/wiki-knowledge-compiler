@@ -83,11 +83,10 @@ Each command tells you what to try next, so you always know the next step.
 | `/wiki-ingest` | 📥 Add documents — one file, a whole folder, or a URL |
 | `/wiki` | 🔍 Ask a question, get an answer with sources |
 | `/wiki-insights` | ✨ Find patterns and connections across your sources |
-| `/wiki-health` | 🩺 Find and fix problems (duplicates, broken links) |
 | `/wiki-update` | 🔄 Sync wiki (ingest new raw files + refresh indexes) |
 | `/wiki-schedule` | 📅 Schedule /wiki-update to run automatically |
 
-**Recommended order:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update` → `/wiki-schedule`
+**Recommended order:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-schedule`
 
 ---
 
@@ -181,7 +180,6 @@ All files are plain Markdown. Open them with any text editor, Obsidian, or VS Co
 
 - 🌱 **Start small.** Add 2–3 sources and try `/wiki` before adding more.
 - 🎯 **Be specific.** "What does source X say about Y?" works better than vague questions.
-- 🩺 **Run `/wiki-health` occasionally.** It keeps things tidy as your wiki grows.
 - ✨ **Try `/wiki-insights`** after adding several sources on a topic — it finds patterns you might miss.
 - 🔒 **Your sources are safe.** The plugin never changes your original files.
 

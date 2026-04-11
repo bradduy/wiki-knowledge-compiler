@@ -85,10 +85,9 @@
 | `/wiki-ingest` | 添加文档——单个文件、整个文件夹或 URL |
 | `/wiki` | 提问并获得附带来源的回答 |
 | `/wiki-insights` | 发现来源之间的模式和关联 |
-| `/wiki-health` | 查找并修复问题（重复项、失效链接） |
 | `/wiki-update` | 刷新目录 |
 
-**推荐顺序：** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-health` → `/wiki-update`
+**推荐顺序：** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update`
 
 ---
 
@@ -183,7 +182,6 @@ knowledge-base/
 
 - **从小处开始。** 先添加 2–3 个来源，试试 `/wiki`，然后再添加更多。
 - **提问要具体。** "来源 X 关于 Y 说了什么？"比模糊的问题效果更好。
-- **定期运行 `/wiki-health`。** 随着知识库增长，它能帮你保持整洁。
 - **添加多个同主题来源后试试 `/wiki-insights`** ——它能发现你可能忽略的模式。
 - **你的原始文件是安全的。** 插件绝不会修改你的原始文件。
 
