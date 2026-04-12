@@ -74,6 +74,10 @@ Sau khi thêm, cấu hình trong marketplace:
 ```
 Chọn quy mô dự án (nhỏ, vừa, hoặc lớn). Plugin lo phần còn lại — cài các công cụ cần thiết, tạo thư mục wiki, và còn đề nghị cài [Obsidian](https://obsidian.md) để bạn duyệt wiki trực quan.
 
+<p align="center">
+  <img src="./assets/obisidian.gif" alt="Duyệt wiki bằng Obsidian" width="100%" />
+</p>
+
 **Bước 3 — Thêm tài liệu đầu tiên:**
 ```
 /wiki-ingest ~/Documents/my-article.md

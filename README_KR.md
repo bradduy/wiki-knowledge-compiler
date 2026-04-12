@@ -74,6 +74,10 @@
 ```
 프로젝트 규모를 선택하세요 (소형, 중형, 대형). 플러그인이 나머지를 처리합니다 — 필요한 도구 설치, 위키 폴더 생성, 그리고 [Obsidian](https://obsidian.md) 설정까지 제안합니다.
 
+<p align="center">
+  <img src="./assets/obisidian.gif" alt="Obsidian으로 wiki 탐색" width="100%" />
+</p>
+
 **3단계 — 첫 번째 문서 추가:**
 ```
 /wiki-ingest ~/Documents/my-article.md

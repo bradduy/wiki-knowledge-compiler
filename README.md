@@ -72,6 +72,10 @@ After adding, configure it in the marketplace:
 ```
 Pick your project size (small, medium, or large). The plugin handles the rest — it installs any tools you need, builds your wiki folder, and even offers to set up [Obsidian](https://obsidian.md) so you can browse your wiki visually.
 
+<p align="center">
+  <img src="./assets/obisidian.gif" alt="Obsidian visual browsing" width="100%" />
+</p>
+
 **Step 3 — Add your first document:**
 ```
 /wiki-ingest ~/Documents/my-article.md

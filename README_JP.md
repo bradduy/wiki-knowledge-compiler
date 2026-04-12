@@ -74,6 +74,10 @@
 ```
 プロジェクトの規模を選択します（小・中・大）。プラグインが残りをすべて処理します — 必要なツールのインストール、wiki フォルダの作成、さらに [Obsidian](https://obsidian.md) のセットアップも提案します。
 
+<p align="center">
+  <img src="./assets/obisidian.gif" alt="Obsidian で wiki を閲覧" width="100%" />
+</p>
+
 **ステップ 3 — 最初のドキュメントを追加：**
 ```
 /wiki-ingest ~/Documents/my-article.md

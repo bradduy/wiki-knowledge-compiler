@@ -74,6 +74,10 @@ Après l'ajout, configurez-le dans le marketplace :
 ```
 Choisissez la taille de votre projet (petit, moyen ou grand). Le plugin s'occupe du reste — il installe les outils nécessaires, crée votre dossier wiki et propose même de configurer [Obsidian](https://obsidian.md).
 
+<p align="center">
+  <img src="./assets/obisidian.gif" alt="Parcourir le wiki avec Obsidian" width="100%" />
+</p>
+
 **Étape 3 — Ajouter votre premier document :**
 ```
 /wiki-ingest ~/Documents/my-article.md

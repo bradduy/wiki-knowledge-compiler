@@ -74,6 +74,10 @@ Nach dem Hinzufügen konfigurieren Sie es im Marketplace:
 ```
 Wählen Sie Ihre Projektgröße (klein, mittel oder groß). Das Plugin erledigt den Rest — es installiert alle benötigten Tools, erstellt Ihren Wiki-Ordner und bietet sogar an, [Obsidian](https://obsidian.md) einzurichten.
 
+<p align="center">
+  <img src="./assets/obisidian.gif" alt="Wiki in Obsidian durchsuchen" width="100%" />
+</p>
+
 **Schritt 3 — Erstes Dokument hinzufügen:**
 ```
 /wiki-ingest ~/Documents/my-article.md

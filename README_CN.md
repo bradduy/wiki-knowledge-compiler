@@ -74,6 +74,10 @@
 ```
 选择你的项目规模（小型、中型或大型）。插件会处理剩下的一切——安装所需工具、创建 wiki 文件夹，还可以帮你配置 [Obsidian](https://obsidian.md)，让你以可视化方式浏览知识库。
 
+<p align="center">
+  <img src="./assets/obisidian.gif" alt="使用 Obsidian 浏览 wiki" width="100%" />
+</p>
+
 **第 3 步——添加你的第一个文档：**
 ```
 /wiki-ingest ~/Documents/my-article.md
