@@ -64,6 +64,10 @@
 3. **Enable** 클릭 후 scope 선택 — wiki를 만들 프로젝트 폴더를 선택합니다
 4. 확인 — 이 단계에서 플러그인이 해당 폴더에서 파일을 생성하고 명령을 실행할 수 있는 권한을 부여합니다
 
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Scope 설정" width="100%" />
+</p>
+
 **2단계 — 설정 실행:**
 ```
 /wiki-setup
@@ -216,6 +220,10 @@ knowledge-base/
 2. **wiki-knowledge-compiler**를 찾아 열기
 3. **Enable** 클릭 후 scope 선택 — wiki를 만들 프로젝트 폴더를 선택합니다
 4. 확인 — 이 단계에서 플러그인이 해당 폴더에서 파일을 생성하고 명령을 실행할 수 있는 권한을 부여합니다
+
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Scope 설정" width="100%" />
+</p>
 
 ### 독립 프로젝트로 클론
 

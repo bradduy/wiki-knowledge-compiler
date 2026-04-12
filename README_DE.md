@@ -64,6 +64,10 @@ Nach dem Hinzufügen konfigurieren Sie es im Marketplace:
 3. **Enable** klicken und den Scope wählen — wählen Sie den Projektordner, in dem Ihr Wiki gespeichert werden soll
 4. Bestätigen — dieser Schritt erteilt dem Plugin die Berechtigung, Dateien zu erstellen und Befehle in diesem Ordner auszuführen
 
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Scope-Einstellung" width="100%" />
+</p>
+
 **Schritt 2 — Setup ausführen:**
 ```
 /wiki-setup
@@ -214,6 +218,10 @@ Nach dem Hinzufügen konfigurieren Sie es im Marketplace:
 2. **wiki-knowledge-compiler** finden und öffnen
 3. **Enable** klicken und den Scope wählen — wählen Sie den Projektordner, in dem Ihr Wiki gespeichert werden soll
 4. Bestätigen — dieser Schritt erteilt dem Plugin die Berechtigung, Dateien zu erstellen und Befehle in diesem Ordner auszuführen
+
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Scope-Einstellung" width="100%" />
+</p>
 
 ### Als eigenständiges Projekt klonen
 

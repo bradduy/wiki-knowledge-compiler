@@ -64,6 +64,10 @@
 3. 点击 **Enable** 并选择 scope —— 选择你想放置 wiki 的项目文件夹
 4. 确认 —— 此步骤授权插件在该文件夹中创建文件和运行命令
 
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Scope 设置" width="100%" />
+</p>
+
 **第 2 步——运行设置：**
 ```
 /wiki-setup
@@ -216,6 +220,10 @@ knowledge-base/
 2. 找到 **wiki-knowledge-compiler** 并打开
 3. 点击 **Enable** 并选择 scope —— 选择你想放置 wiki 的项目文件夹
 4. 确认 —— 此步骤授权插件在该文件夹中创建文件和运行命令
+
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Scope 设置" width="100%" />
+</p>
 
 ### 克隆为独立项目
 

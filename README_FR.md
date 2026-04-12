@@ -64,6 +64,10 @@ Après l'ajout, configurez-le dans le marketplace :
 3. Cliquez sur **Enable** et choisissez le scope — sélectionnez le dossier projet où vous souhaitez placer votre wiki
 4. Confirmez — cette étape autorise le plugin à créer des fichiers et exécuter des commandes dans ce dossier
 
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Paramètre de scope" width="100%" />
+</p>
+
 **Étape 2 — Lancer la configuration :**
 ```
 /wiki-setup
@@ -214,6 +218,10 @@ Après l'ajout, configurez-le dans le marketplace :
 2. Trouvez **wiki-knowledge-compiler** et ouvrez-le
 3. Cliquez sur **Enable** et choisissez le scope — sélectionnez le dossier projet où vous souhaitez placer votre wiki
 4. Confirmez — cette étape autorise le plugin à créer des fichiers et exécuter des commandes dans ce dossier
+
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Paramètre de scope" width="100%" />
+</p>
 
 ### Cloner comme projet autonome
 

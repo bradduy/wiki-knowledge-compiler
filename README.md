@@ -62,6 +62,10 @@ After adding, configure it in the marketplace:
 3. Click **Enable** and choose the scope — pick the project folder where you want your wiki to live
 4. Confirm — this grants the plugin permission to create files and run commands in that folder
 
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Enable scope setting" width="100%" />
+</p>
+
 **Step 2 — Run setup:**
 ```
 /wiki-setup
@@ -213,6 +217,10 @@ After adding, configure it in the marketplace:
 2. Find **wiki-knowledge-compiler** and open it
 3. Click **Enable** and choose the scope — pick the project folder where you want your wiki to live
 4. Confirm — this grants the plugin permission to create files and run commands in that folder
+
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Enable scope setting" width="100%" />
+</p>
 
 ### Clone as a standalone project
 

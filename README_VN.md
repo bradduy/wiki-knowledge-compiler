@@ -64,6 +64,10 @@ Sau khi thêm, cấu hình trong marketplace:
 3. Nhấn **Enable** và chọn scope — chọn thư mục dự án bạn muốn đặt wiki
 4. Xác nhận — bước này cấp quyền cho plugin tạo file và chạy lệnh trong thư mục đó
 
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Cài đặt scope" width="100%" />
+</p>
+
 **Bước 2 — Chạy thiết lập:**
 ```
 /wiki-setup
@@ -216,6 +220,10 @@ Sau khi thêm, cấu hình trong marketplace:
 2. Tìm **wiki-knowledge-compiler** và mở ra
 3. Nhấn **Enable** và chọn scope — chọn thư mục dự án bạn muốn đặt wiki
 4. Xác nhận — bước này cấp quyền cho plugin tạo file và chạy lệnh trong thư mục đó
+
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Cài đặt scope" width="100%" />
+</p>
 
 ### Clone như một dự án độc lập
 

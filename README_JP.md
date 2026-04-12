@@ -64,6 +64,10 @@
 3. **Enable** をクリックし、scope を選択 — wiki を配置したいプロジェクトフォルダを選びます
 4. 確認 — これにより、プラグインがそのフォルダでファイル作成やコマンド実行を行う権限が付与されます
 
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Scope 設定" width="100%" />
+</p>
+
 **ステップ 2 — セットアップを実行：**
 ```
 /wiki-setup
@@ -216,6 +220,10 @@ knowledge-base/
 2. **wiki-knowledge-compiler** を見つけて開く
 3. **Enable** をクリックし、scope を選択 — wiki を配置したいプロジェクトフォルダを選びます
 4. 確認 — これにより、プラグインがそのフォルダでファイル作成やコマンド実行を行う権限が付与されます
+
+<p align="center">
+  <img src="./assets/user_scope_setting.png" alt="Scope 設定" width="100%" />
+</p>
 
 ### スタンドアロンプロジェクトとしてクローン
 
