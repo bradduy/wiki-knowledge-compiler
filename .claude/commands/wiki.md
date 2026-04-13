@@ -66,9 +66,24 @@ This step is especially valuable for questions like "what's the impact of X?" or
    - Do NOT fill gaps with information from your training data unless you explicitly mark it as `[external knowledge, not in wiki]`.
 4. If the question is ambiguous, list the possible interpretations and answer each.
 
-### Step 4: Write back (if appropriate)
+### Step 4: Reinforce accessed pages
 
-After answering, evaluate whether the answer should be persisted:
+Update the `verified` date to today on any pages that were read and confirmed still accurate during this query. This resets the retention decay clock (see `skills/retention-decay.md`).
+
+### Step 5: Crystallize (if appropriate)
+
+Follow the `skills/crystallization.md` skill.
+
+If the answer drew from **3 or more** wiki pages and the synthesis is novel (not already captured in an existing insight or topic), create a **digest page**:
+- Write to `.data/insights/` with tag `crystallization`
+- Include: the question, synthesized answer, sources consulted table, key connections, lessons, open questions
+- Publish a readable version to `wiki/`
+
+This turns your research into a permanent, reusable wiki page.
+
+### Step 6: Write back (if appropriate)
+
+If crystallization didn't apply, evaluate whether the answer should still be persisted:
 
 - **Write to `.data/insights/`** (and publish to `wiki/`) if the answer synthesizes across multiple sources in a novel way.
 - **Write to `.data/summaries/`** (and publish to `wiki/`) if the answer is a good summary of a source not yet summarized.
@@ -77,9 +92,8 @@ After answering, evaluate whether the answer should be persisted:
 - **Do not write back** if the answer is trivial, already covered, or too conversation-specific.
 
 If writing back, use the appropriate template, set `confidence` and `verified`, and log the action.
-Also update `verified` date on any pages that were read and confirmed still accurate during this query.
 
-### Step 5: Log the query
+### Step 7: Log the query
 
 Append to `.data/log.md`:
 

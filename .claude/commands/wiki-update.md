@@ -91,7 +91,30 @@ Write `.data/index/master-index.md` with:
 - Quick links to all index files
 - A simple table of contents for each directory
 
-### Step 6: Update wiki/index.md
+### Step 6: Apply retention decay
+
+Follow the `skills/retention-decay.md` skill.
+
+For each page scanned in Step 2:
+1. Calculate days since `verified` (or `updated`/`created` if no `verified`).
+2. Look up the half-life for the page's type (concept: 180d, topic: 120d, summary: 90d, insight: 60d, entity: 90d, reference: 60d, draft: 30d).
+3. If the page has decayed past a threshold, update its `confidence` in frontmatter.
+4. Report any confidence changes to the user.
+
+### Step 7: Compute quality scores
+
+Follow the `skills/quality-scoring.md` skill.
+
+For each page, compute a quality score (0–100) based on:
+- Frontmatter completeness (0–20)
+- Citation health (0–20)
+- Freshness (0–20)
+- Relationship richness (0–20)
+- Content quality (0–20)
+
+Add a **Quality Summary** section to `.data/index/master-index.md` with grade distribution and a table of pages scoring below 60 (grade C or lower).
+
+### Step 8: Update wiki/index.md
 
 Update `wiki/index.md` — the user-facing landing page — to reflect current wiki contents:
 - List all topic pages with links (grouped by theme if possible)
@@ -101,7 +124,7 @@ Update `wiki/index.md` — the user-facing landing page — to reflect current w
 
 If `wiki/index.md` doesn't exist, create it.
 
-### Step 7: Log the rebuild
+### Step 9: Log the rebuild
 
 Append to `.data/log.md`:
 
@@ -114,6 +137,8 @@ Append to `.data/log.md`:
 - Insights: [count]
 - Entities: [count]
 - Drafts: [count]
+- Retention decay applied: [count] pages
+- Quality scores: avg [N]/100, [count] pages below 60
 ```
 
 ## Rules

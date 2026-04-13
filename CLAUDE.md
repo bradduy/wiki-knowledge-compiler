@@ -46,6 +46,30 @@ Every page carries lifecycle metadata:
 - **`verified: YYYY-MM-DD`** — when the content was last confirmed accurate
 - **`authority: primary/secondary/commentary`** — source reliability tier (summaries only)
 - **`supersedes` / `superseded_by`** — explicit version chain when content is replaced
+- **`visibility: public/private/internal`** — privacy classification from the privacy filter
+
+### Retention Decay
+
+Confidence decays over time unless a page is accessed or reinforced. Each page type has a half-life:
+
+| Page type | Half-life | Stale at |
+|-----------|-----------|----------|
+| concept | 180 days | 540 days |
+| topic | 120 days | 360 days |
+| summary | 90 days | 270 days |
+| insight | 60 days | 180 days |
+| entity | 90 days | 270 days |
+| draft | 30 days | 90 days |
+
+Reading a page during `/wiki`, ingesting a new source that cites it, or running `/wiki-audit` resets the clock. Decay is applied during `/wiki-update` and `/wiki-audit`. See `skills/retention-decay.md`.
+
+### Quality Scoring
+
+Every page is scored 0–100 across 5 dimensions: frontmatter completeness, citation health, freshness, relationship richness, and content quality. Scores are computed during `/wiki-update` and `/wiki-audit`, summarized in `.data/index/master-index.md`. Pages below 60 are flagged for attention. See `skills/quality-scoring.md`.
+
+### Crystallization
+
+When `/wiki` synthesizes 3+ sources to answer a question, the result is automatically distilled into a **digest page** — capturing the question, answer, sources consulted, key connections, and lessons. Digests become first-class wiki pages that can be cited by future queries. See `skills/crystallization.md`.
 
 ## Commands
 

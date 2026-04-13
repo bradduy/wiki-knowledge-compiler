@@ -60,11 +60,24 @@ For each page missing required fields:
 
 ### Step 6: Check for stale content
 
-A page is stale if its `verified` date is more than 90 days ago (or if it has no `verified` date and `updated` is more than 90 days ago).
+Use the retention decay curves from `skills/retention-decay.md` to assess staleness per page type:
 
-For each stale page:
-1. Record the page path, title, and how many days since last verification.
-2. Do NOT auto-fix — just report. The user decides whether to re-verify or archive.
+| Page type | Half-life | Stale at (3× half-life) |
+|-----------|-----------|------------------------|
+| concept | 180 days | 540 days |
+| topic | 120 days | 360 days |
+| summary | 90 days | 270 days |
+| insight | 60 days | 180 days |
+| entity | 90 days | 270 days |
+| reference | 60 days | 180 days |
+| draft | 30 days | 90 days |
+
+For each page:
+1. Calculate days since `verified` (or `updated`/`created`).
+2. If past one half-life: report as **aging** with current effective confidence.
+3. If past 3× half-life: report as **stale**.
+4. **Auto-fix:** Apply confidence decay to frontmatter (e.g., `high` → `medium` if past one half-life).
+5. Do NOT delete stale pages — just lower confidence and report.
 
 ### Step 7: Check for citation mismatches
 
@@ -97,14 +110,27 @@ Follow the `skills/contradiction-resolution.md` skill.
 
 **Auto-fix:** Merge duplicate entities into one page, updating all references.
 
-### Step 10: Rebuild indexes
+### Step 10: Compute quality scores
+
+Follow the `skills/quality-scoring.md` skill.
+
+For each page, compute a quality score (0–100) across 5 dimensions:
+- Frontmatter completeness (0–20)
+- Citation health (0–20)
+- Freshness (0–20)
+- Relationship richness (0–20)
+- Content quality (0–20)
+
+Include the quality summary in the audit report. Flag all pages scoring below 60 (grade C or lower) with their top issues.
+
+### Step 11: Rebuild indexes
 
 After all fixes, rebuild:
 1. `.data/index/source-index.md`
 2. `.data/index/concept-index.md`
 3. `.data/index/master-index.md`
 
-### Step 11: Log and report
+### Step 12: Log and report
 
 Append to `.data/log.md`:
 
@@ -118,6 +144,8 @@ Append to `.data/log.md`:
 - Citation mismatches: [count] (auto-fixed: [count])
 - Contradictions found: [count] (auto-fixed: [count])
 - Entity issues: [count] (auto-fixed: [count])
+- Retention decay applied: [count] pages
+- Quality scores computed: avg [N]/100
 ```
 
 Present the report to the user:
@@ -132,10 +160,11 @@ Present the report to the user:
 - [N] citation mismatches resolved
 - [N] contradiction relationships added
 - [N] duplicate entities merged
+- [N] pages had confidence decayed (retention decay)
 
 ### ⚠️ Needs attention
-- [N] stale pages (not verified in 90+ days)
-  - [page] — last verified [date] ([N] days ago)
+- [N] stale pages (past 3× half-life for their type)
+  - [page] ([type]) — last verified [date] ([N] days ago, half-life [N]d)
   - ...
 - [N] pages missing required fields (title/type/sources)
   - [page] — missing: [fields]
@@ -145,16 +174,33 @@ Present the report to the user:
     Recommended: keep [A/B] based on [reason]
   - ...
 
-### 📊 Health summary
+### 📊 Quality scores
+
+| Grade | Count | Percentage |
+|-------|-------|------------|
+| A (80-100) | [N] | [%] |
+| B (60-79) | [N] | [%] |
+| C (40-59) | [N] | [%] |
+| D (20-39) | [N] | [%] |
+| F (0-19) | [N] | [%] |
+
+Average: [N]/100
+
+Pages needing attention (< 60):
+- [page] — score [N] — [top issues]
+- ...
+
+### 📈 Health summary
 - Total pages: [count]
 - Pages with confidence high: [count]
 - Pages with confidence medium: [count]
 - Pages with confidence low: [count]
 - Average age since last verification: [N] days
 - Entity graph: [N] entities, [N] relationships
+- Retention decay: [N] pages decayed this cycle
 ```
 
-### Step 12: Next step menu
+### Step 13: Next step menu
 
 ```
 What would you like to do next?
