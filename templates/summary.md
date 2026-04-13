@@ -3,9 +3,16 @@ title: "Summary: [Source Title]"
 type: summary
 created: "[YYYY-MM-DD]"
 updated: "[YYYY-MM-DD]"
+verified: "[YYYY-MM-DD]"
+confidence: "[high/medium/low]"
 source: "raw/[source-file]"
 author: "[original author if known]"
 year: "[publication year if known]"
+authority: "[primary/secondary/commentary]"
+supersedes: ""
+superseded_by: ""
+entities:
+  - "entities/[entity-name].md"
 ---
 
 # Summary: [Source Title]
@@ -36,6 +43,10 @@ year: "[publication year if known]"
 ## Relevance
 
 [Why this source matters to the knowledge base. What gap does it fill? What does it confirm or challenge?]
+
+## Entities
+
+- [Entity Name](../entities/entity-name.md) — [role in this source]
 
 ## Limitations
 

@@ -26,7 +26,7 @@ The user asks: `$ARGUMENTS`
 
 **If backend is `grep` (default/small):**
 1. Read `.data/index/master-index.md` to get an overview of available knowledge.
-2. Search `` using Grep for keywords from the question.
+2. Search using Grep for keywords from the question.
 3. Identify the most relevant pages (concepts, topics, summaries, insights).
 4. Read the relevant pages in full.
 
@@ -43,6 +43,18 @@ The user asks: `$ARGUMENTS`
 2. Query with the user's question as natural language.
 3. Read the top results in full.
 4. Fall back to qmd CLI (`qmd query "<question>"`), then Grep, if MCP is unavailable.
+
+### Step 2b: Graph traversal (all backends)
+
+After the initial search, walk the knowledge graph to find connections keyword search might miss:
+
+1. **Check entities.** Search `.data/entities/` for any entities mentioned in the question.
+2. **Walk relationships.** For each entity found, read its `relationships` field and follow edges outward (1-2 hops). Collect connected entities, concepts, and topics.
+3. **Follow typed relationships on pages.** For each concept/topic found in Step 2, read its `related` field. Follow `depends-on`, `extends`, and `contradicts` edges to find connected pages.
+4. **Merge results.** Combine pages from keyword/semantic search (Step 2) with pages from graph traversal (Step 2b). Remove duplicates.
+5. **Prioritize by confidence.** When multiple pages are relevant, prefer those with higher `confidence` and more recent `verified` dates.
+
+This step is especially valuable for questions like "what's the impact of X?" or "how does X relate to Y?" where the answer spans multiple connected pages.
 
 ### Step 3: Construct the answer
 
@@ -61,9 +73,11 @@ After answering, evaluate whether the answer should be persisted:
 - **Write to `.data/insights/`** (and publish to `wiki/`) if the answer synthesizes across multiple sources in a novel way.
 - **Write to `.data/summaries/`** (and publish to `wiki/`) if the answer is a good summary of a source not yet summarized.
 - **Write to `.data/concepts/`** (and publish to `wiki/`) if the answer clarifies a concept not yet documented.
+- **Write to `.data/entities/`** if the answer identifies a new entity not yet in the graph.
 - **Do not write back** if the answer is trivial, already covered, or too conversation-specific.
 
-If writing back, use the appropriate template and log the action.
+If writing back, use the appropriate template, set `confidence` and `verified`, and log the action.
+Also update `verified` date on any pages that were read and confirmed still accurate during this query.
 
 ### Step 5: Log the query
 

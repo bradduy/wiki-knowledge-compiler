@@ -93,11 +93,12 @@ You are running an automated wiki update. Do the following:
 
 1. Check the raw/ directory for any files that don't have a matching summary in .data/summaries/
 2. For each unprocessed file:
-   - Create directories if needed: mkdir -p raw wiki .data/index .data/summaries .data/concepts .data/topics .data/insights .data/references .data/drafts
+   - Create directories if needed: mkdir -p raw wiki .data/index .data/summaries .data/concepts .data/topics .data/insights .data/entities .data/references .data/drafts
    - Copy/store the raw source
    - Read and understand the content
-   - Create a summary in .data/summaries/
-   - Extract concepts to .data/concepts/
+   - Create a summary in .data/summaries/ (with confidence and authority)
+   - Extract concepts to .data/concepts/ (with typed relationships)
+   - Extract entities to .data/entities/ (people, projects, technologies, decisions)
    - Update topics in .data/topics/
    - Publish polished pages to wiki/
    - Update index files

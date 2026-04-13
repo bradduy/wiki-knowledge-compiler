@@ -85,7 +85,7 @@ Then skip to the **Next step** section at the bottom.
 
 Before writing any files, create the directories you'll need. Run:
 ```bash
-mkdir -p raw wiki .data/index .data/summaries .data/concepts .data/topics .data/insights .data/references .data/drafts
+mkdir -p raw wiki .data/index .data/summaries .data/concepts .data/topics .data/insights .data/references .data/drafts .data/entities
 ```
 This is safe to run every time — `mkdir -p` does nothing if the folder already exists.
 
@@ -98,6 +98,7 @@ This is safe to run every time — `mkdir -p` does nothing if the folder already
 - `.data/topics/` — hidden: broader topic groupings
 - `.data/insights/` — hidden: cross-cutting observations
 - `.data/references/` — hidden: external URL stubs
+- `.data/entities/` — hidden: knowledge graph entities (people, projects, technologies)
 - `.data/drafts/` — hidden: work-in-progress pages
 
 ### Step 2: Validate and store the raw source
@@ -122,14 +123,19 @@ This is safe to run every time — `mkdir -p` does nothing if the folder already
    - Preserve the author's stated uncertainty
    - Not introduce claims not in the source
    - Include a "Key Takeaways" section
+   - Set `confidence` based on source quality (peer-reviewed = high, blog = medium, etc.)
+   - Set `authority` to `primary` (original research/docs), `secondary` (review/analysis), or `commentary` (opinion/blog)
+   - Set `verified` to today's date
 
 ### Step 5: Extract and write concepts
 
 1. Identify 3-10 atomic concepts from the source.
 2. For each concept, check `.data/concepts/` and `.data/index/concept-index.md` to see if it already exists.
-3. If it exists: update the existing page with new information and add a source citation.
+3. If it exists: update the existing page with new information, add a source citation, update `confidence` and `verified`.
 4. If it's new: create a concept page using `templates/concept.md` in `.data/concepts/`.
 5. Each concept page must have a clear one-paragraph definition and at least one source citation.
+6. Use **typed relationships** in the `related` field — each entry needs a `page` and a `type` (extends, contradicts, supersedes, depends-on, generalizes, component-of).
+7. If a new concept contradicts an existing one, add `contradicts` relationships on both pages and note the conflict.
 
 ### Step 6: Update topic pages
 
@@ -138,7 +144,19 @@ This is safe to run every time — `mkdir -p` does nothing if the folder already
 3. Update existing topics with references to the new summary and concepts.
 4. Only create a new topic page if the source clearly introduces a new domain not covered by existing topics.
 
-### Step 7: Publish to wiki/
+### Step 7: Extract entities
+
+Follow the `skills/entity-extraction.md` skill.
+
+1. Identify named entities in the source: people, projects, libraries, technologies, decisions, organizations, files.
+2. For each entity, check `.data/entities/` to see if it already exists.
+3. If it exists: update with new relationships, sources, and attributes.
+4. If it's new: create an entity page using `templates/entity.md` in `.data/entities/`.
+5. Link entities to the concepts and summary created in earlier steps (add to their `entities` frontmatter).
+6. Set `confidence` based on how clearly the source identifies the entity.
+7. Extract typed relationships between entities (uses, depends-on, maintained-by, etc.).
+
+### Step 8: Publish to wiki/
 
 After creating summaries, concepts, and topics in `.data/`, publish the **user-facing pages** to `wiki/`:
 
@@ -147,13 +165,13 @@ After creating summaries, concepts, and topics in `.data/`, publish the **user-f
 3. For topic pages, create or update them in `wiki/`.
 4. Pages in `wiki/` should be polished, well-linked, and easy to read — this is what the user sees in Obsidian and their editor.
 
-### Step 8: Update indexes
+### Step 9: Update indexes
 
 1. Add the source to `.data/index/source-index.md`.
 2. Add new concepts to `.data/index/concept-index.md`.
 3. Update `.data/index/master-index.md` with any new pages created.
 
-### Step 9: Log the ingestion
+### Step 10: Log the ingestion
 
 Append to `.data/log.md`:
 
@@ -164,13 +182,16 @@ Append to `.data/log.md`:
 - Concepts created: [list]
 - Concepts updated: [list]
 - Topics updated: [list]
+- Entities created: [list]
+- Entities updated: [list]
 ```
 
 ## Success criteria
 
 - Raw source stored immutably
-- Summary written with provenance
-- Concepts extracted and deduplicated
+- Summary written with provenance, confidence, and authority
+- Concepts extracted and deduplicated with typed relationships
+- Entities extracted and connected
 - Topics updated
 - Indexes current
 - Log entry appended

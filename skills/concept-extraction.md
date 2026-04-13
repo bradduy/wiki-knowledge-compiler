@@ -38,45 +38,26 @@ Grep for the concept name in knowledge-base/.data/index/concept-index.md
 - Add the new source to the `sources` frontmatter
 - Add any new details to the Definition or Details section
 - Add the new source to the Sources section at the bottom
+- Update `confidence` if new evidence strengthens it (e.g., `low` → `medium` with a second source)
+- Update `verified` to today's date
+- Add any new typed relationships discovered
+- Add any entities referenced in the new source
+- If the new source contradicts the existing definition, add a `contradicts` relationship and note the conflict in the Details section with `[uncertainty: conflicting sources]`
 - Do NOT overwrite the existing definition — append or refine
 
-**If it's new:** Create using the concept template:
+**If it's new:** Create using `templates/concept.md`. Key fields:
 
-```markdown
----
-title: [Concept Name]
-type: concept
-created: [today]
-updated: [today]
-sources:
-  - raw/[source-file]
-aliases: [other names for this concept]
-related:
-  - concepts/[related-concept].md
----
-
-# [Concept Name]
-
-## Definition
-
-[1-2 paragraph definition derived from the source. Cite the source.]
-
-## Details
-
-[Additional context, nuance, or explanation. Cite sources for each claim.]
-
-## Examples
-
-[Concrete examples if available from the source. Mark if constructed by you: "[constructed example]"]
-
-## Related Concepts
-
-- [Related Concept 1](../concepts/related.md) — [brief note on relationship]
-
-## Sources
-
-- [Source Title](../raw/source-file) — [what this source says about the concept]
-```
+- `confidence`: `high` if the source defines the concept clearly, `medium` if it describes it, `low` if it's mentioned in passing
+- `verified`: set to today's date
+- `related`: use typed relationships — each entry must have a `page` and a `type`:
+  - `extends` — this concept builds on the related one
+  - `contradicts` — this concept conflicts with the related one
+  - `supersedes` — this concept replaces the related one
+  - `depends-on` — this concept requires understanding the related one
+  - `generalizes` — this concept is a broader version of the related one
+  - `component-of` — this concept is a part of the related one
+- `entities`: link any entities (people, projects, technologies) mentioned in the source for this concept
+- `supersedes`/`superseded_by`: if this concept replaces an older one, link them both ways
 
 ### 3. Quality check each concept page
 

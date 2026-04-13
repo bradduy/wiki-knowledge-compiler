@@ -13,6 +13,7 @@ This is your local-first LLM Wiki. All knowledge is stored as plain markdown wit
 | `insights/` | Cross-cutting observations and synthesis | Derived — generated from analysis |
 | `drafts/` | Work-in-progress pages not yet promoted | Temporary — promote or delete |
 | `references/` | External URL/resource stubs | Reference — added during ingestion |
+| `.data/entities/` | Knowledge graph — people, projects, technologies | Derived — updated by ingestion |
 | `.data/index/` | Master index, concept index, source index | Auto-generated — rebuilt by `/wiki-update` |
 | `.data/log.md` | Append-only activity log | Append-only |
 

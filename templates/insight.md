@@ -3,12 +3,17 @@ title: "[Insight Title]"
 type: insight
 created: "[YYYY-MM-DD]"
 updated: "[YYYY-MM-DD]"
+verified: "[YYYY-MM-DD]"
 confidence: "[high/medium/low]"
 sources:
   - "summaries/[source1].md"
   - "concepts/[concept1].md"
+entities:
+  - "entities/[entity-name].md"
 tags:
   - "[pattern/contradiction/gap/connection]"
+supersedes: ""
+superseded_by: ""
 ---
 
 # [Insight Title]
@@ -44,6 +49,12 @@ tags:
 
 [What could make this insight wrong? What assumptions does it rest on? What additional evidence would strengthen or weaken it?]
 
+## Entities
+
+- [Entity Name](../entities/entity-name.md) — [role in this insight]
+
 ## Related
 
-- [Related insight or page](../path) — [relationship]
+- [Related insight or page](../path) — **extends** — [relationship]
+
+Relationship types: `extends`, `contradicts`, `supersedes`, `depends-on`

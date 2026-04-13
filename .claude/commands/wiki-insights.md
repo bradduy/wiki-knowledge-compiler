@@ -24,7 +24,8 @@ If no focus is provided, perform a broad scan.
 1. Read `.data/index/master-index.md` for an overview.
 2. Read all topic pages in `.data/topics/`.
 3. Read all existing insight pages in `.data/insights/`.
-4. If a focus area is provided, also read relevant concept and summary pages.
+4. Read entity pages in `.data/entities/` — walk their relationships to find structural connections.
+5. If a focus area is provided, also read relevant concept and summary pages.
 
 ### Step 2: Identify cross-cutting patterns
 

@@ -23,9 +23,29 @@ wiki/            # All generated pages the user reads and browses
   concepts/      #   Atomic concept pages
   topics/        #   Broader topic groupings
   insights/      #   Cross-cutting observations
+  entities/      #   Knowledge graph — people, projects, technologies, decisions
   references/    #   External reference stubs
   drafts/        #   Work-in-progress pages
 ```
+
+## Knowledge Graph
+
+The wiki maintains a knowledge graph as typed markdown pages in `.data/entities/`. During ingestion, named entities (people, projects, libraries, technologies, decisions) are extracted and connected with typed relationships.
+
+- **Entity types:** person, project, library, technology, decision, organization, file
+- **Relationship types:** uses, used-by, depends-on, maintained-by, owns, created-by, part-of, replaces, contradicts, implements, relates-to, defined-in
+- **Concept relationship types:** extends, contradicts, supersedes, depends-on, generalizes, component-of
+
+Every page (concept, topic, insight, summary) links to relevant entities via the `entities` frontmatter field. Queries use graph traversal (walking entity relationships) alongside keyword/semantic search to find connections.
+
+## Confidence & Lifecycle
+
+Every page carries lifecycle metadata:
+
+- **`confidence: high/medium/low`** — how well-supported the content is by sources
+- **`verified: YYYY-MM-DD`** — when the content was last confirmed accurate
+- **`authority: primary/secondary/commentary`** — source reliability tier (summaries only)
+- **`supersedes` / `superseded_by`** — explicit version chain when content is replaced
 
 ## Commands
 

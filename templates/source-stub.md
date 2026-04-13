@@ -5,7 +5,10 @@ url: "[full URL]"
 accessed: "[YYYY-MM-DD]"
 created: "[YYYY-MM-DD]"
 author: "[author if known]"
+authority: "[primary/secondary/commentary]"
 status: "active"
+entities:
+  - "entities/[entity-name].md"
 ---
 
 # [Source Title]

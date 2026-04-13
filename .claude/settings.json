@@ -22,6 +22,7 @@
       "knowledge-base/drafts/**",
       "knowledge-base/references/**",
       "knowledge-base/.data/index/**",
+      "knowledge-base/.data/entities/**",
       "knowledge-base/.data/log.md"
     ],
     "deny_write": ["knowledge-base/raw/**"]

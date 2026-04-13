@@ -38,9 +38,10 @@ You are the **wiki-librarian**. Your job is to sync everything: ingest any new f
    - `.data/topics/*.md`
    - `.data/summaries/*.md`
    - `.data/insights/*.md`
+   - `.data/entities/*.md`
    - `.data/references/*.md`
    - `.data/drafts/*.md`
-2. For each file, read its frontmatter to extract `title`, `type`, `created`, `sources`.
+2. For each file, read its frontmatter to extract `title`, `type`, `created`, `sources`, `confidence`, `verified`.
 
 ### Step 3: Rebuild source-index.md
 
@@ -85,7 +86,7 @@ All concepts in the knowledge base, alphabetically.
 ### Step 5: Rebuild master-index.md
 
 Write `.data/index/master-index.md` with:
-- Total counts (sources, concepts, topics, summaries, insights, drafts)
+- Total counts (sources, concepts, topics, summaries, insights, entities, drafts)
 - Recent additions (last 10 entries from `.data/log.md`)
 - Quick links to all index files
 - A simple table of contents for each directory
@@ -111,6 +112,7 @@ Append to `.data/log.md`:
 - Topics: [count]
 - Summaries: [count]
 - Insights: [count]
+- Entities: [count]
 - Drafts: [count]
 ```
 

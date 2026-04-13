@@ -18,6 +18,7 @@ dirs=(
   "$TARGET/.data/concepts"
   "$TARGET/.data/topics"
   "$TARGET/.data/insights"
+  "$TARGET/.data/entities"
   "$TARGET/.data/references"
   "$TARGET/.data/drafts"
 )

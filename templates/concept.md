@@ -3,12 +3,19 @@ title: "[Concept Name]"
 type: concept
 created: "[YYYY-MM-DD]"
 updated: "[YYYY-MM-DD]"
+verified: "[YYYY-MM-DD]"
+confidence: "[high/medium/low]"
 sources:
   - "raw/[source-file]"
 aliases:
   - "[alternative name]"
 related:
-  - "concepts/[related-concept].md"
+  - page: "concepts/[related-concept].md"
+    type: "[extends/contradicts/supersedes/depends-on/generalizes/component-of]"
+supersedes: ""
+superseded_by: ""
+entities:
+  - "entities/[entity-name].md"
 ---
 
 # [Concept Name]
@@ -27,7 +34,13 @@ related:
 
 ## Related Concepts
 
-- [Related Concept](../concepts/related-concept.md) — [brief note on the relationship: "generalizes", "is a component of", "contrasts with", etc.]
+- [Related Concept](../concepts/related-concept.md) — **extends** — [brief note on why]
+
+Relationship types: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`
+
+## Entities
+
+- [Entity Name](../entities/entity-name.md) — [role in this concept]
 
 ## Sources
 

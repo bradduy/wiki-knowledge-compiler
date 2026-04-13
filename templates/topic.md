@@ -3,13 +3,19 @@ title: "[Topic Name]"
 type: topic
 created: "[YYYY-MM-DD]"
 updated: "[YYYY-MM-DD]"
+verified: "[YYYY-MM-DD]"
+confidence: "[high/medium/low]"
 sources:
   - "raw/[source1]"
   - "raw/[source2]"
 concepts:
   - "concepts/[concept1].md"
   - "concepts/[concept2].md"
+entities:
+  - "entities/[entity-name].md"
 status: "draft"
+supersedes: ""
+superseded_by: ""
 ---
 
 # [Topic Name]
@@ -36,6 +42,12 @@ status: "draft"
 - [Source 1](../summaries/source1.md) — [what it contributes to this topic]
 - [Source 2](../summaries/source2.md) — [what it contributes]
 
+## Entities
+
+- [Entity Name](../entities/entity-name.md) — [role in this topic]
+
 ## Related Topics
 
-- [Related Topic](../topics/related-topic.md) — [nature of the relationship]
+- [Related Topic](../topics/related-topic.md) — **extends** — [nature of the relationship]
+
+Relationship types: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`
