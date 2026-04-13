@@ -40,6 +40,16 @@
 
 ## 🆕 Cập nhật mới
 
+### v0.4.0 — Suy giảm lưu giữ, kết tinh, và chấm điểm chất lượng
+- 📉 **Suy giảm lưu giữ** — Độ tin cậy giảm dần theo thời gian trừ khi trang được truy cập hoặc củng cố. Mỗi loại trang có chu kỳ bán rã riêng (khái niệm: 180 ngày, insights: 60 ngày, bản nháp: 30 ngày). Đọc trang qua `/wiki` sẽ đặt lại đồng hồ.
+- 💎 **Kết tinh** — Khi `/wiki` tổng hợp từ 3+ nguồn, nó tự tạo một **trang tóm lược** chứa câu hỏi, câu trả lời, nguồn, kết nối chính và bài học — biến nghiên cứu của bạn thành trang wiki vĩnh viễn.
+- 📊 **Chấm điểm chất lượng** — Mỗi trang được chấm 0–100 trên 5 chiều (frontmatter, trích dẫn, độ mới, quan hệ, nội dung). Xếp hạng A–F. Trang dưới 60 được đánh dấu trong `/wiki-update` và `/wiki-audit`.
+
+### v0.3.0 — Kiểm tra wiki, bộ lọc bảo mật, và giải quyết mâu thuẫn
+- 🔍 **`/wiki-audit`** — Lệnh mới kiểm tra sức khỏe wiki: liên kết hỏng, trang mồ côi, nội dung lỗi thời, thiếu frontmatter, sai lệch trích dẫn, mâu thuẫn, vấn đề đồ thị thực thể. Tự sửa những gì có thể, báo cáo phần còn lại kèm tóm tắt điểm chất lượng.
+- 🔒 **Bộ lọc bảo mật** — Tự động loại bỏ API key, token, mật khẩu và PII khỏi nội dung phái sinh trong quá trình nhập liệu. Nguồn gốc không bao giờ bị sửa đổi. Các trang được gắn nhãn `visibility: public/private/internal`.
+- ⚖️ **Giải quyết mâu thuẫn** — Khi các nguồn không đồng ý, cả hai phía được chấm điểm theo độ mới, thẩm quyền và số lượng bằng chứng. Tuyên bố mạnh hơn thay thế tuyên bố yếu hơn; trường hợp ngang nhau được đánh dấu để xem xét thủ công.
+
 ### v0.2.0 — Đồ thị tri thức, chấm điểm tin cậy, và quan hệ phân loại
 - 🧠 **Đồ thị tri thức** — Mỗi lần nhập liệu trích xuất thực thể có tên (người, dự án, công nghệ, quyết định) và kết nối chúng bằng quan hệ phân loại trong `.data/entities/`.
 - 🔗 **Quan hệ phân loại** — Các khái niệm liên kết với nhau có ý nghĩa: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
@@ -70,8 +80,12 @@
 | **Đồ thị tri thức** | Trích xuất người, dự án, công nghệ, quyết định thành thực thể kết nối |
 | **Quan hệ phân loại** | Khái niệm và thực thể liên kết có ý nghĩa ngữ nghĩa (`extends`, `contradicts`, `depends-on`) |
 | **Theo dõi tin cậy** | Mỗi trang được đánh giá `high`/`medium`/`low` kèm ngày xác minh |
-| **Thẩm quyền nguồn** | Tóm tắt gắn nhãn `primary`, `secondary`, hoặc `commentary` |
-| **Phát hiện mâu thuẫn** | Các tuyên bố mâu thuẫn được đánh dấu và liên kết tự động |
+| **Suy giảm lưu giữ** | Độ tin cậy giảm dần theo thời gian trừ khi được củng cố — mỗi loại trang có chu kỳ bán rã riêng |
+| **Chấm điểm chất lượng** | Mỗi trang được chấm 0–100 trên 5 chiều, xếp hạng A–F |
+| **Kết tinh** | Câu trả lời đa nguồn tự động chưng cất thành trang tóm lược tái sử dụng |
+| **Kiểm tra wiki** | `/wiki-audit` tìm liên kết hỏng, nội dung lỗi thời, mâu thuẫn và tự sửa |
+| **Bộ lọc bảo mật** | Tự động loại bỏ API key, token, mật khẩu, PII khỏi nội dung phái sinh |
+| **Giải quyết mâu thuẫn** | Tuyên bố mâu thuẫn được chấm điểm theo độ mới/thẩm quyền/bằng chứng, giải quyết hoặc đánh dấu |
 | **Thay thế** | Tuyên bố cũ liên kết đến nội dung thay thế, không bị xóa âm thầm |
 | **Truy vấn theo đồ thị** | `/wiki` duyệt quan hệ thực thể, không chỉ từ khóa |
 | **Nhập đa định dạng** | File, thư mục, URL, glob pattern, văn bản dán |
@@ -149,8 +163,9 @@ Mỗi lệnh sẽ gợi ý bước tiếp theo, nên bạn luôn biết phải l
 | `/wiki-insights` | ✨ Tìm các mẫu hình và mối liên hệ giữa các nguồn |
 | `/wiki-update` | 🔄 Đồng bộ wiki (nhập file mới trong raw/ + làm mới mục lục) |
 | `/wiki-schedule` | 📅 Lên lịch tự chạy /wiki-update |
+| `/wiki-audit` | 🩺 Kiểm tra sức khỏe wiki — sửa liên kết hỏng, phát hiện mâu thuẫn, chấm điểm chất lượng |
 
-**Thứ tự khuyên dùng:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-schedule`
+**Thứ tự khuyên dùng:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-audit` → `/wiki-schedule`
 
 ### 📥 Thêm tài liệu
 

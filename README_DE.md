@@ -40,6 +40,16 @@
 
 ## 🆕 Aktuelle Updates
 
+### v0.4.0 — Vertrauensverfall, Kristallisierung und Qualitätsbewertung
+- 📉 **Vertrauensverfall** — Vertrauen nimmt mit der Zeit ab, es sei denn, Seiten werden aufgerufen oder verstärkt. Jeder Seitentyp hat seine eigene Halbwertszeit (Konzepte: 180 Tage, Insights: 60 Tage, Entwürfe: 30 Tage). Das Lesen einer Seite über `/wiki` setzt den Timer zurück.
+- 💎 **Kristallisierung** — Wenn `/wiki` 3+ Quellen zusammenfasst, wird automatisch eine **Digest-Seite** erstellt, die Frage, Antwort, Quellen, wichtige Verbindungen und Erkenntnisse erfasst — Ihre Recherche wird zu permanenten Wiki-Seiten.
+- 📊 **Qualitätsbewertung** — Jede Seite wird auf einer Skala von 0–100 in 5 Dimensionen bewertet (Frontmatter, Zitate, Aktualität, Beziehungen, Inhalt). Noten A–F. Seiten unter 60 werden bei `/wiki-update` und `/wiki-audit` markiert.
+
+### v0.3.0 — Wiki-Audit, Datenschutzfilter und Widerspruchsauflösung
+- 🔍 **`/wiki-audit`** — Neuer Befehl zur Überprüfung der Wiki-Gesundheit: defekte Links, verwaiste Seiten, veraltete Inhalte, fehlende Frontmatter, Zitatfehler, Widersprüche, Probleme im Entitätsgraph. Behebt automatisch, was möglich ist, und meldet den Rest mit einer Qualitätsbewertungsübersicht.
+- 🔒 **Datenschutzfilter** — Entfernt automatisch API-Schlüssel, Tokens, Passwörter und personenbezogene Daten aus abgeleiteten Inhalten während der Aufnahme. Originalquellen werden nie verändert. Seiten werden mit `visibility: public/private/internal` gekennzeichnet.
+- ⚖️ **Widerspruchsauflösung** — Wenn Quellen nicht übereinstimmen, werden beide Seiten nach Aktualität, Autorität und Evidenzmenge bewertet. Stärkere Aussagen ersetzen schwächere; knappe Fälle werden zur manuellen Überprüfung markiert.
+
 ### v0.2.0 — Wissensgraph, Vertrauensbewertung und typisierte Beziehungen
 - 🧠 **Wissensgraph** — Jede Aufnahme extrahiert benannte Entitäten (Personen, Projekte, Technologien, Entscheidungen) und verbindet sie mit typisierten Beziehungen in `.data/entities/`.
 - 🔗 **Typisierte Beziehungen** — Konzepte verknüpfen sich mit Bedeutung: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
@@ -70,8 +80,12 @@
 | **Wissensgraph** | Extrahiert Personen, Projekte, Technologien, Entscheidungen als verbundene Entitäten |
 | **Typisierte Beziehungen** | Konzepte und Entitäten mit semantischer Bedeutung verknüpft (`extends`, `contradicts`, `depends-on`) |
 | **Vertrauens-Tracking** | Jede Seite mit `high`/`medium`/`low` bewertet, mit Verifizierungsdatum |
-| **Quellautorität** | Zusammenfassungen als `primary`, `secondary` oder `commentary` gekennzeichnet |
-| **Widerspruchserkennung** | Widersprüchliche Aussagen automatisch markiert und verlinkt |
+| **Vertrauensverfall** | Vertrauen nimmt mit der Zeit ab, es sei denn verstärkt — jeder Seitentyp hat eigene Halbwertszeit |
+| **Qualitätsbewertung** | Jede Seite auf einer Skala von 0–100 in 5 Dimensionen bewertet, Noten A–F |
+| **Kristallisierung** | Antworten aus mehreren Quellen automatisch zu wiederverwendbaren Digest-Seiten destilliert |
+| **Wiki-Audit** | `/wiki-audit` findet defekte Links, veraltete Inhalte, Widersprüche und behebt sie automatisch |
+| **Datenschutzfilter** | Entfernt automatisch API-Schlüssel, Tokens, Passwörter, personenbezogene Daten aus Ableitungen |
+| **Widerspruchsauflösung** | Widersprüchliche Aussagen nach Aktualität/Autorität/Evidenz bewertet, aufgelöst oder markiert |
 | **Ablösung** | Alte Aussagen mit Ersatz verlinkt, nie stillschweigend gelöscht |
 | **Graphbasierte Abfragen** | `/wiki` durchläuft Entitätsbeziehungen, nicht nur Schlüsselwörter |
 | **Multi-Format-Aufnahme** | Dateien, Ordner, URLs, Glob-Muster, eingefügter Text |
@@ -149,8 +163,9 @@ Jeder Befehl zeigt Ihnen, was als Nächstes zu tun ist.
 | `/wiki-insights` | ✨ Muster und Verbindungen über Ihre Quellen hinweg finden |
 | `/wiki-update` | 🔄 Wiki synchronisieren (neue Dateien in raw/ aufnehmen + Indizes aktualisieren) |
 | `/wiki-schedule` | 📅 /wiki-update automatisch nach Zeitplan ausführen |
+| `/wiki-audit` | 🩺 Wiki-Gesundheit prüfen — defekte Links reparieren, Widersprüche erkennen, Qualität bewerten |
 
-**Empfohlene Reihenfolge:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-schedule`
+**Empfohlene Reihenfolge:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-audit` → `/wiki-schedule`
 
 ### 📥 Dokumente hinzufügen
 

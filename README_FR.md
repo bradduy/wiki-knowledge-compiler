@@ -40,6 +40,16 @@
 
 ## 🆕 Mises à jour récentes
 
+### v0.4.0 — Décroissance de rétention, cristallisation et score de qualité
+- 📉 **Décroissance de rétention** — La fiabilité décroît avec le temps sauf si les pages sont consultées ou renforcées. Chaque type de page a sa propre demi-vie (concepts : 180 jours, insights : 60 jours, brouillons : 30 jours). Lire une page via `/wiki` remet le compteur à zéro.
+- 💎 **Cristallisation** — Quand `/wiki` synthétise 3+ sources, il génère automatiquement une **page digest** capturant la question, la réponse, les sources, les connexions clés et les leçons — transformant vos recherches en pages wiki permanentes.
+- 📊 **Score de qualité** — Chaque page est notée de 0 à 100 sur 5 dimensions (frontmatter, citations, fraîcheur, relations, contenu). Notes A–F. Les pages en dessous de 60 sont signalées lors de `/wiki-update` et `/wiki-audit`.
+
+### v0.3.0 — Audit wiki, filtre de confidentialité et résolution de contradictions
+- 🔍 **`/wiki-audit`** — Nouvelle commande qui vérifie la santé du wiki : liens cassés, pages orphelines, contenu périmé, frontmatter manquant, incohérences de citations, contradictions, problèmes de graphe d'entités. Corrige automatiquement ce qui est possible, signale le reste avec un résumé des scores de qualité.
+- 🔒 **Filtre de confidentialité** — Supprime automatiquement les clés API, tokens, mots de passe et données personnelles du contenu dérivé lors de l'ingestion. Les sources originales ne sont jamais modifiées. Les pages sont étiquetées `visibility: public/private/internal`.
+- ⚖️ **Résolution de contradictions** — Quand les sources divergent, les deux côtés sont évalués par récence, autorité et quantité de preuves. Les affirmations les plus solides remplacent les plus faibles ; les cas serrés sont signalés pour révision humaine.
+
 ### v0.2.0 — Graphe de connaissances, score de fiabilité et relations typées
 - 🧠 **Graphe de connaissances** — Chaque ingestion extrait des entités nommées (personnes, projets, technologies, décisions) et les connecte avec des relations typées dans `.data/entities/`.
 - 🔗 **Relations typées** — Les concepts se lient entre eux avec du sens : `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
@@ -70,8 +80,12 @@
 | **Graphe de connaissances** | Extrait personnes, projets, technologies, décisions en entités connectées |
 | **Relations typées** | Concepts et entités liés avec du sens sémantique (`extends`, `contradicts`, `depends-on`) |
 | **Suivi de fiabilité** | Chaque page évaluée `high`/`medium`/`low` avec date de vérification |
-| **Autorité des sources** | Résumés étiquetés `primary`, `secondary` ou `commentary` |
-| **Détection de contradictions** | Affirmations contradictoires signalées et liées automatiquement |
+| **Décroissance de rétention** | La fiabilité décroît avec le temps sauf si renforcée — chaque type de page a sa propre demi-vie |
+| **Score de qualité** | Chaque page notée de 0 à 100 sur 5 dimensions, notes A–F |
+| **Cristallisation** | Les réponses multi-sources sont automatiquement distillées en pages digest réutilisables |
+| **Audit wiki** | `/wiki-audit` trouve les liens cassés, le contenu périmé, les contradictions et les corrige |
+| **Filtre de confidentialité** | Supprime automatiquement clés API, tokens, mots de passe, données personnelles du contenu dérivé |
+| **Résolution de contradictions** | Affirmations conflictuelles évaluées par récence/autorité/preuves, résolues ou signalées |
 | **Remplacement** | Anciennes affirmations liées aux remplacements, jamais supprimées silencieusement |
 | **Requêtes orientées graphe** | `/wiki` parcourt les relations entre entités, pas seulement les mots-clés |
 | **Ingestion multi-format** | Fichiers, dossiers, URLs, motifs glob, texte collé |
@@ -149,8 +163,9 @@ Chaque commande vous indique quoi essayer ensuite.
 | `/wiki-insights` | ✨ Trouver des motifs et des connexions entre vos sources |
 | `/wiki-update` | 🔄 Synchroniser le wiki (ingérer les nouveaux fichiers dans raw/ + rafraîchir les index) |
 | `/wiki-schedule` | 📅 Planifier l'exécution automatique de /wiki-update |
+| `/wiki-audit` | 🩺 Vérifier la santé du wiki — réparer les liens cassés, détecter les contradictions, évaluer la qualité |
 
-**Ordre recommandé :** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-schedule`
+**Ordre recommandé :** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-audit` → `/wiki-schedule`
 
 ### 📥 Ajouter des documents
 
