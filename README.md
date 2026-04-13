@@ -19,6 +19,72 @@
   <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="100%" />
 </p>
 
+## Table of Contents
+
+- [Recent Updates](#-recent-updates)
+- [Features](#-features)
+- [Localizations](#-localizations)
+- [Quick Start](#-quick-start)
+- [Usage](#-usage)
+  - [Adding Documents](#-adding-documents)
+  - [Example: From Document to Knowledge](#-example-from-document-to-knowledge)
+- [Knowledge Graph](#-knowledge-graph)
+- [Confidence & Smart Tracking](#-confidence--smart-tracking)
+- [Browse with Obsidian](#-browse-your-wiki-with-obsidian)
+- [How Setup Works](#%EF%B8%8F-how-setup-works)
+- [Other Ways to Install](#-other-ways-to-install)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
+## 🆕 Recent Updates
+
+### v2.0.0 — Knowledge graph, confidence scoring, and typed relationships
+- 🧠 **Knowledge graph** — Every ingestion now extracts named entities (people, projects, technologies, decisions) and connects them with typed relationships in `.data/entities/`.
+- 🔗 **Typed relationships** — Concepts link to each other with meaning: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
+- 📊 **Confidence scoring** — Every page carries a `confidence` level (`high`/`medium`/`low`), a `verified` date, and summaries track source `authority` (`primary`/`secondary`/`commentary`).
+- 🔄 **Supersession** — When new info replaces old, pages are linked with `supersedes`/`superseded_by` — nothing is deleted, history is traceable.
+- 🕸️ **Graph-aware queries** — `/wiki` now walks entity relationships alongside keyword/semantic search to find connections that text search misses.
+- ⚡ **Contradiction detection** — When sources disagree, both sides are flagged and linked automatically.
+
+### v1.x — Foundation
+- 📅 **Scheduled updates** — `/wiki-schedule` auto-runs `/wiki-update` on a cron schedule via remote agents.
+- 🔀 **Mixed ingest** — `/wiki-ingest` accepts files + URLs in a single command.
+- 🔄 **Auto-ingest on update** — `/wiki-update` detects and ingests new files dropped into `raw/`.
+- 📝 **Simpler commands** — `/wiki-query` renamed to `/wiki`.
+- 📁 **Flat structure** — Removed `knowledge-base/` wrapper; `raw/` and `wiki/` live at project root.
+- 📥 **Batch ingestion** — Folders, multiple files, and glob patterns.
+- 🔍 **Search tiers** — Grep for small projects, qmd for medium/large.
+- 🔮 **Obsidian integration** — Auto-install and setup during `/wiki-setup`.
+- ⚙️ **Cross-platform auto-install** — Node.js, qmd, Obsidian on macOS, Linux, and Windows.
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| **Knowledge graph** | Extracts people, projects, technologies, decisions as connected entities |
+| **Typed relationships** | Concepts and entities linked with semantic meaning (`extends`, `contradicts`, `depends-on`) |
+| **Confidence tracking** | Every page rated `high`/`medium`/`low` with verified dates |
+| **Source authority** | Summaries tagged as `primary`, `secondary`, or `commentary` |
+| **Contradiction detection** | Conflicting claims flagged and linked automatically |
+| **Supersession** | Old claims linked to replacements, never silently deleted |
+| **Graph-aware queries** | `/wiki` walks entity relationships, not just keywords |
+| **Multi-format ingest** | Files, folders, URLs, glob patterns, pasted text |
+| **Auto summaries** | One-page summary per source with key takeaways |
+| **Concept extraction** | 3-10 atomic concepts per source, auto-deduplicated |
+| **Smart search** | Grep (small), qmd hybrid search (medium), qmd MCP (large) |
+| **Scheduled updates** | Cron-based auto-ingestion via remote agents |
+| **Obsidian integration** | Visual graph browsing, backlinks, live sync |
+| **100% offline** | Plain markdown files, no cloud, no database |
+| **Cross-platform** | macOS, Linux, Windows with auto-install |
+
+---
+
+## 🌐 Localizations
+
 <p align="center">
   🇬🇧 <strong>English</strong> &nbsp;·&nbsp;
   <a href="./README_VN.md">🇻🇳 Tiếng Việt</a> &nbsp;·&nbsp;
@@ -29,22 +95,6 @@
   <a href="./README_FR.md">🇫🇷 Français</a> &nbsp;·&nbsp;
   <a href="./README_RU.md">🇷🇺 Русский</a>
 </p>
-
----
-
-## 📖 What is this?
-
-A plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that turns your documents into an organized, searchable knowledge base.
-
-Give it anything — articles, notes, PDFs, a whole folder — and it will:
-
-1. 💾 **Save** your originals (they're never changed)
-2. 📝 **Summarize** each source
-3. 💡 **Extract** key ideas into their own pages
-4. 🔗 **Connect** related ideas across everything you've added
-5. 💬 **Answer** your questions with links back to the sources
-
-Everything stays on your computer as plain text files. No cloud. No database. No lock-in.
 
 ---
 
@@ -85,7 +135,7 @@ Done. Your wiki is live.
 
 ---
 
-## 🎯 What You Can Do
+## 🎯 Usage
 
 Each command tells you what to try next, so you always know the next step.
 
@@ -100,9 +150,7 @@ Each command tells you what to try next, so you always know the next step.
 
 **Recommended order:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-schedule`
 
----
-
-## 📥 Adding Documents
+### 📥 Adding Documents
 
 You can add documents in many ways:
 
@@ -127,9 +175,7 @@ You can add documents in many ways:
 
 For folders and multiple files, the plugin shows progress as it works through each one.
 
----
-
-## 🧪 Example: From Document to Knowledge
+### 🧪 Example: From Document to Knowledge
 
 Say you add an article about climate change:
 
