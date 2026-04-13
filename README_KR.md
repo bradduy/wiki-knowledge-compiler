@@ -40,7 +40,7 @@
 
 ## 🆕 최근 업데이트
 
-### v2.0.0 — 지식 그래프, 신뢰도 평가, 유형화된 관계
+### v0.2.0 — 지식 그래프, 신뢰도 평가, 유형화된 관계
 - 🧠 **지식 그래프** — 매 인제스트마다 명명된 엔티티(사람, 프로젝트, 기술, 결정)를 추출하고 `.data/entities/`에서 유형화된 관계로 연결합니다.
 - 🔗 **유형화된 관계** — 개념이 의미를 가지고 서로 연결: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
 - 📊 **신뢰도 평가** — 모든 페이지에 `confidence` 수준(`high`/`medium`/`low`), `verified` 날짜가 부여되며, 요약은 출처 `authority`(`primary`/`secondary`/`commentary`)를 추적합니다.
@@ -48,7 +48,9 @@
 - 🕸️ **그래프 인식 쿼리** — `/wiki`가 키워드/의미 검색과 함께 엔티티 관계를 탐색하여 텍스트 검색이 놓치는 연결을 찾습니다.
 - ⚡ **모순 감지** — 출처가 불일치할 때 양쪽 모두 자동으로 표시되고 연결됩니다.
 
-### v1.x — 기반
+> **v0.0.x에서 업그레이드?** `/wiki-setup`을 다시 실행하여 새로운 `.data/entities/` 디렉토리를 초기화하세요. 기존 wiki 페이지는 계속 정상 작동합니다 — 새 필드(`confidence`, `verified`, `entities`, 유형화된 `related`)는 새 문서를 인제스트하거나 `/wiki-update`를 실행할 때 점진적으로 추가됩니다. 마이그레이션이 필요 없습니다.
+
+### v0.0.x — 기반
 - 📅 **예약 업데이트** — `/wiki-schedule`가 원격 에이전트를 통해 cron 일정으로 `/wiki-update`를 자동 실행.
 - 🔀 **혼합 인제스트** — `/wiki-ingest`가 단일 명령에서 파일 + URL을 동시 수용.
 - 🔄 **업데이트 시 자동 인제스트** — `/wiki-update`가 `raw/`의 새 파일을 감지하고 인제스트.
@@ -208,7 +210,7 @@
 추가하는 모든 문서는 페이지를 만들 뿐만 아니라 **지식 그래프**를 구축합니다. 플러그인은 명명된 엔티티(사람, 프로젝트, 기술, 결정)를 추출하고 유형화된 관계로 연결합니다.
 
 ```
-Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+Redis ──uses──→ Auth Service ──maintained-by──→ Brad
   │                                              │
   └──depends-on──→ PostgreSQL           owns ←───┘
                         │                Auth Migration
@@ -221,7 +223,7 @@ Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
 
 | 엔티티 유형 | 예시 |
 |-------------|---------|
-| 사람 | "Sarah Chen", "Andrej Karpathy" |
+| 사람 | "Brad Duy", "Andrej Karpathy" |
 | 프로젝트 | "Auth Migration", "API Redesign" |
 | 기술 | "Redis", "PostgreSQL", "Kubernetes" |
 | 라이브러리 | "React", "PyTorch", "Express" |

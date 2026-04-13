@@ -12,14 +12,14 @@ This skill governs how entities are identified, typed, and connected. Entities a
 
 An entity is a named, typed thing that exists in the real world and appears in the knowledge base. Unlike concepts (which are ideas), entities are concrete: a specific person, a specific project, a specific library.
 
-**Good entities:** "Redis", "Sarah Chen", "Auth Migration Q1", "React 18", "Decision: switch to PostgreSQL"
+**Good entities:** "Redis", "Brad Duy", "Auth Migration Q1", "React 18", "Decision: switch to PostgreSQL"
 **Bad entities:** "caching" (that's a concept), "the database" (too vague, which one?), "performance" (that's a topic)
 
 ## Entity types
 
 | Type | Description | Examples |
 |------|-------------|---------|
-| `person` | A named individual | Sarah Chen, Andrej Karpathy |
+| `person` | A named individual | Brad Duy, Andrej Karpathy |
 | `project` | A named initiative or effort | Auth Migration, API Redesign |
 | `library` | A software library or framework | React, PyTorch, Express |
 | `technology` | A tool, platform, or system | Redis, PostgreSQL, Kubernetes |
@@ -73,8 +73,8 @@ Use typed relationships:
 | `uses` | A uses B | "Auth service **uses** Redis" |
 | `used-by` | A is used by B (inverse of uses) | "Redis **used-by** Auth service" |
 | `depends-on` | A cannot work without B | "API **depends-on** PostgreSQL" |
-| `maintained-by` | A is maintained/owned by B | "Auth module **maintained-by** Sarah" |
-| `owns` | A owns/is responsible for B | "Sarah **owns** Auth migration" |
+| `maintained-by` | A is maintained/owned by B | "Auth module **maintained-by** Brad" |
+| `owns` | A owns/is responsible for B | "Brad **owns** Auth migration" |
 | `created-by` | A was created by B | "Redis cache layer **created-by** Platform team" |
 | `part-of` | A is a component of B | "Auth middleware **part-of** API gateway" |
 | `replaces` | A replaces/supersedes B | "PostgreSQL **replaces** MySQL" |
@@ -98,7 +98,7 @@ Before finalizing, verify:
 ## Entity naming rules
 
 - Filename: `kebab-case.md` matching the entity name
-- Title: Original casing in frontmatter (e.g., "Redis", "Sarah Chen")
+- Title: Original casing in frontmatter (e.g., "Redis", "Brad Duy")
 - Aliases: List common alternative names (e.g., aliases for "PostgreSQL": ["Postgres", "pg"])
 - For decisions: prefix with "decision-" (e.g., `decision-switch-to-postgresql.md`)
 

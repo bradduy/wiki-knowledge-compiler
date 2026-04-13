@@ -40,7 +40,7 @@
 
 ## 🆕 最新更新
 
-### v2.0.0 — 知识图谱、可信度评分和类型化关系
+### v0.2.0 — 知识图谱、可信度评分和类型化关系
 - 🧠 **知识图谱** — 每次导入都会提取命名实体（人物、项目、技术、决策），并在 `.data/entities/` 中用类型化关系连接它们。
 - 🔗 **类型化关系** — 概念之间的链接具有语义含义：`extends`、`contradicts`、`supersedes`、`depends-on`、`generalizes`、`component-of`。
 - 📊 **可信度评分** — 每个页面都带有 `confidence` 等级（`high`/`medium`/`low`）、`verified` 日期，摘要追踪来源 `authority`（`primary`/`secondary`/`commentary`）。
@@ -48,7 +48,9 @@
 - 🕸️ **图谱感知查询** — `/wiki` 现在在关键词/语义搜索的同时遍历实体关系，发现文本搜索无法找到的联系。
 - ⚡ **矛盾检测** — 当来源不一致时，双方被自动标记和链接。
 
-### v1.x — 基础版本
+> **从 v0.0.x 升级？** 重新运行 `/wiki-setup` 以初始化新的 `.data/entities/` 目录。现有 wiki 页面将继续正常工作——新字段（`confidence`、`verified`、`entities`、类型化 `related`）会在你导入新文档或运行 `/wiki-update` 时逐步添加。无需迁移。
+
+### v0.0.x — 基础版本
 - 📅 **计划更新** — `/wiki-schedule` 通过远程代理按 cron 计划自动运行 `/wiki-update`。
 - 🔀 **混合导入** — `/wiki-ingest` 在单个命令中同时接受文件和 URL。
 - 🔄 **更新时自动导入** — `/wiki-update` 检测并导入 `raw/` 中的新文件。
@@ -208,7 +210,7 @@
 你添加的每份文档不仅创建页面——还构建**知识图谱**。插件提取命名实体（人物、项目、技术、决策）并用类型化关系连接它们。
 
 ```
-Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+Redis ──uses──→ Auth Service ──maintained-by──→ Brad
   │                                              │
   └──depends-on──→ PostgreSQL           owns ←───┘
                         │                Auth Migration
@@ -221,7 +223,7 @@ Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
 
 | 实体类型 | 示例 |
 |-------------|---------|
-| 人物 | "Sarah Chen"、"Andrej Karpathy" |
+| 人物 | "Brad Duy"、"Andrej Karpathy" |
 | 项目 | "Auth Migration"、"API Redesign" |
 | 技术 | "Redis"、"PostgreSQL"、"Kubernetes" |
 | 库 | "React"、"PyTorch"、"Express" |

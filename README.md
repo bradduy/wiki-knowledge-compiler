@@ -40,7 +40,7 @@
 
 ## 🆕 Recent Updates
 
-### v2.0.0 — Knowledge graph, confidence scoring, and typed relationships
+### v0.2.0 — Knowledge graph, confidence scoring, and typed relationships
 - 🧠 **Knowledge graph** — Every ingestion now extracts named entities (people, projects, technologies, decisions) and connects them with typed relationships in `.data/entities/`.
 - 🔗 **Typed relationships** — Concepts link to each other with meaning: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
 - 📊 **Confidence scoring** — Every page carries a `confidence` level (`high`/`medium`/`low`), a `verified` date, and summaries track source `authority` (`primary`/`secondary`/`commentary`).
@@ -48,7 +48,9 @@
 - 🕸️ **Graph-aware queries** — `/wiki` now walks entity relationships alongside keyword/semantic search to find connections that text search misses.
 - ⚡ **Contradiction detection** — When sources disagree, both sides are flagged and linked automatically.
 
-### v1.x — Foundation
+> **Upgrading from v0.0.x?** Run `/wiki-setup` again to initialize the new `.data/entities/` directory. Your existing wiki pages will continue to work — new fields (`confidence`, `verified`, `entities`, typed `related`) are added incrementally as you ingest new documents or run `/wiki-update`. No migration needed.
+
+### v0.0.x — Foundation
 - 📅 **Scheduled updates** — `/wiki-schedule` auto-runs `/wiki-update` on a cron schedule via remote agents.
 - 🔀 **Mixed ingest** — `/wiki-ingest` accepts files + URLs in a single command.
 - 🔄 **Auto-ingest on update** — `/wiki-update` detects and ingests new files dropped into `raw/`.
@@ -208,7 +210,7 @@ The plugin doesn't just search by keywords. It walks the **knowledge graph** —
 Every document you add doesn't just create pages — it builds a **knowledge graph**. The plugin extracts named entities (people, projects, technologies, decisions) and connects them with typed relationships.
 
 ```
-Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+Redis ──uses──→ Auth Service ──maintained-by──→ Brad
   │                                              │
   └──depends-on──→ PostgreSQL           owns ←───┘
                         │                Auth Migration
@@ -221,7 +223,7 @@ This means when you ask "what's the impact of upgrading Redis?", the plugin walk
 
 | Entity type | Examples |
 |-------------|---------|
-| People | "Sarah Chen", "Andrej Karpathy" |
+| People | "Brad Duy", "Andrej Karpathy" |
 | Projects | "Auth Migration", "API Redesign" |
 | Technologies | "Redis", "PostgreSQL", "Kubernetes" |
 | Libraries | "React", "PyTorch", "Express" |

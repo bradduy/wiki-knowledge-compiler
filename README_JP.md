@@ -40,7 +40,7 @@
 
 ## 🆕 最新アップデート
 
-### v2.0.0 — ナレッジグラフ、信頼度スコアリング、型付き関係
+### v0.2.0 — ナレッジグラフ、信頼度スコアリング、型付き関係
 - 🧠 **ナレッジグラフ** — インジェストごとに名前付きエンティティ（人物、プロジェクト、テクノロジー、意思決定）を抽出し、`.data/entities/` で型付き関係で接続します。
 - 🔗 **型付き関係** — コンセプト同士が意味を持ってリンク：`extends`、`contradicts`、`supersedes`、`depends-on`、`generalizes`、`component-of`。
 - 📊 **信頼度スコアリング** — 各ページに `confidence` レベル（`high`/`medium`/`low`）、`verified` 日付が付与され、サマリーはソースの `authority`（`primary`/`secondary`/`commentary`）を追跡。
@@ -48,7 +48,9 @@
 - 🕸️ **グラフ対応クエリ** — `/wiki` がキーワード/セマンティック検索と並行してエンティティ関係を辿り、テキスト検索では見つからない接続を発見。
 - ⚡ **矛盾検出** — ソースが一致しない場合、両方が自動的にフラグ付けされリンクされます。
 
-### v1.x — 基盤
+> **v0.0.x からのアップグレード？** `/wiki-setup` を再実行して新しい `.data/entities/` ディレクトリを初期化してください。既存の wiki ページはそのまま動作します — 新しいフィールド（`confidence`、`verified`、`entities`、型付き `related`）は、新しいドキュメントのインジェストや `/wiki-update` の実行時に段階的に追加されます。マイグレーション不要です。
+
+### v0.0.x — 基盤
 - 📅 **スケジュール更新** — `/wiki-schedule` がリモートエージェント経由で cron スケジュールに基づき `/wiki-update` を自動実行。
 - 🔀 **混合インジェスト** — `/wiki-ingest` が1つのコマンドでファイル + URL を受け付け。
 - 🔄 **更新時の自動インジェスト** — `/wiki-update` が `raw/` の新規ファイルを検出してインジェスト。
@@ -208,7 +210,7 @@
 追加するすべてのドキュメントはページを作成するだけでなく、**ナレッジグラフ**を構築します。プラグインは名前付きエンティティ（人物、プロジェクト、テクノロジー、意思決定）を抽出し、型付き関係で接続します。
 
 ```
-Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+Redis ──uses──→ Auth Service ──maintained-by──→ Brad
   │                                              │
   └──depends-on──→ PostgreSQL           owns ←───┘
                         │                Auth Migration
@@ -221,7 +223,7 @@ Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
 
 | エンティティ種別 | 例 |
 |-------------|---------|
-| 人物 | "Sarah Chen"、"Andrej Karpathy" |
+| 人物 | "Brad Duy"、"Andrej Karpathy" |
 | プロジェクト | "Auth Migration"、"API Redesign" |
 | テクノロジー | "Redis"、"PostgreSQL"、"Kubernetes" |
 | ライブラリ | "React"、"PyTorch"、"Express" |

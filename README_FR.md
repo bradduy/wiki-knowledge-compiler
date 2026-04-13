@@ -40,7 +40,7 @@
 
 ## 🆕 Mises à jour récentes
 
-### v2.0.0 — Graphe de connaissances, score de fiabilité et relations typées
+### v0.2.0 — Graphe de connaissances, score de fiabilité et relations typées
 - 🧠 **Graphe de connaissances** — Chaque ingestion extrait des entités nommées (personnes, projets, technologies, décisions) et les connecte avec des relations typées dans `.data/entities/`.
 - 🔗 **Relations typées** — Les concepts se lient entre eux avec du sens : `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
 - 📊 **Score de fiabilité** — Chaque page porte un niveau de `confidence` (`high`/`medium`/`low`), une date `verified`, et les résumés suivent l'`authority` de la source (`primary`/`secondary`/`commentary`).
@@ -48,7 +48,9 @@
 - 🕸️ **Requêtes orientées graphe** — `/wiki` parcourt désormais les relations entre entités en parallèle de la recherche par mots-clés/sémantique pour trouver des connexions que la recherche textuelle manque.
 - ⚡ **Détection de contradictions** — Quand les sources sont en désaccord, les deux côtés sont signalés et liés automatiquement.
 
-### v1.x — Fondation
+> **Mise à jour depuis v0.0.x ?** Relancez `/wiki-setup` pour initialiser le nouveau répertoire `.data/entities/`. Vos pages wiki existantes continueront de fonctionner — les nouveaux champs (`confidence`, `verified`, `entities`, `related` typés) sont ajoutés progressivement lors de l'ingestion de nouveaux documents ou de l'exécution de `/wiki-update`. Aucune migration nécessaire.
+
+### v0.0.x — Fondation
 - 📅 **Mises à jour planifiées** — `/wiki-schedule` exécute automatiquement `/wiki-update` selon un planning cron via des agents distants.
 - 🔀 **Ingestion mixte** — `/wiki-ingest` accepte fichiers + URLs dans une seule commande.
 - 🔄 **Auto-ingestion lors de la mise à jour** — `/wiki-update` détecte et ingère les nouveaux fichiers dans `raw/`.
@@ -208,7 +210,7 @@ Le plugin ne se contente pas de chercher par mots-clés. Il parcourt le **graphe
 Chaque document que vous ajoutez ne crée pas seulement des pages — il construit un **graphe de connaissances**. Le plugin extrait des entités nommées (personnes, projets, technologies, décisions) et les connecte avec des relations typées.
 
 ```
-Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+Redis ──uses──→ Auth Service ──maintained-by──→ Brad
   │                                              │
   └──depends-on──→ PostgreSQL           owns ←───┘
                         │                Auth Migration
@@ -221,7 +223,7 @@ Quand vous demandez « quel est l'impact de la mise à jour de Redis ? », le pl
 
 | Type d'entité | Exemples |
 |-------------|---------|
-| Personnes | "Sarah Chen", "Andrej Karpathy" |
+| Personnes | "Brad Duy", "Andrej Karpathy" |
 | Projets | "Auth Migration", "API Redesign" |
 | Technologies | "Redis", "PostgreSQL", "Kubernetes" |
 | Bibliothèques | "React", "PyTorch", "Express" |

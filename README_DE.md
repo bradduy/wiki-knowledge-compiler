@@ -40,7 +40,7 @@
 
 ## 🆕 Aktuelle Updates
 
-### v2.0.0 — Wissensgraph, Vertrauensbewertung und typisierte Beziehungen
+### v0.2.0 — Wissensgraph, Vertrauensbewertung und typisierte Beziehungen
 - 🧠 **Wissensgraph** — Jede Aufnahme extrahiert benannte Entitäten (Personen, Projekte, Technologien, Entscheidungen) und verbindet sie mit typisierten Beziehungen in `.data/entities/`.
 - 🔗 **Typisierte Beziehungen** — Konzepte verknüpfen sich mit Bedeutung: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
 - 📊 **Vertrauensbewertung** — Jede Seite trägt ein `confidence`-Level (`high`/`medium`/`low`), ein `verified`-Datum, und Zusammenfassungen verfolgen die Quell-`authority` (`primary`/`secondary`/`commentary`).
@@ -48,7 +48,9 @@
 - 🕸️ **Graphbasierte Abfragen** — `/wiki` durchläuft jetzt Entitätsbeziehungen neben Schlüsselwort-/Semantiksuche, um Verbindungen zu finden, die Textsuche übersieht.
 - ⚡ **Widerspruchserkennung** — Wenn Quellen nicht übereinstimmen, werden beide Seiten automatisch markiert und verlinkt.
 
-### v1.x — Grundlage
+> **Upgrade von v0.0.x?** Führen Sie `/wiki-setup` erneut aus, um das neue `.data/entities/`-Verzeichnis zu initialisieren. Ihre bestehenden Wiki-Seiten funktionieren weiterhin — neue Felder (`confidence`, `verified`, `entities`, typisierte `related`) werden schrittweise hinzugefügt, wenn Sie neue Dokumente aufnehmen oder `/wiki-update` ausführen. Keine Migration erforderlich.
+
+### v0.0.x — Grundlage
 - 📅 **Geplante Updates** — `/wiki-schedule` führt `/wiki-update` automatisch nach Cron-Zeitplan über Remote-Agenten aus.
 - 🔀 **Gemischte Aufnahme** — `/wiki-ingest` akzeptiert Dateien + URLs in einem einzigen Befehl.
 - 🔄 **Auto-Aufnahme bei Update** — `/wiki-update` erkennt und nimmt neue Dateien in `raw/` auf.
@@ -208,7 +210,7 @@ Das Plugin sucht nicht nur nach Schlüsselwörtern. Es durchläuft den **Wissens
 Jedes Dokument, das Sie hinzufügen, erstellt nicht nur Seiten — es baut einen **Wissensgraphen** auf. Das Plugin extrahiert benannte Entitäten (Personen, Projekte, Technologien, Entscheidungen) und verbindet sie mit typisierten Beziehungen.
 
 ```
-Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+Redis ──uses──→ Auth Service ──maintained-by──→ Brad
   │                                              │
   └──depends-on──→ PostgreSQL           owns ←───┘
                         │                Auth Migration
@@ -221,7 +223,7 @@ Wenn Sie fragen „Was sind die Auswirkungen eines Redis-Upgrades?", geht das Pl
 
 | Entitätstyp | Beispiele |
 |-------------|---------|
-| Personen | "Sarah Chen", "Andrej Karpathy" |
+| Personen | "Brad Duy", "Andrej Karpathy" |
 | Projekte | "Auth Migration", "API Redesign" |
 | Technologien | "Redis", "PostgreSQL", "Kubernetes" |
 | Bibliotheken | "React", "PyTorch", "Express" |
