@@ -142,18 +142,59 @@ Plugin sẽ tạo ra:
 
 | Nội dung | Mô tả |
 |------|------------|
-| **Tóm tắt** | Tổng quan một trang về bài viết |
+| **Tóm tắt** | Tổng quan một trang về bài viết kèm đánh giá độ tin cậy |
 | **Khái niệm** | Các trang cho ý tưởng chính như "ngân sách carbon" và "điểm tới hạn" |
+| **Thực thể** | Các nút cho những thứ cụ thể — "IPCC", "Hiệp định Paris", "TS. Smith" |
 | **Trang chủ đề** | Trang "khoa học khí hậu" liên kết mọi thứ lại với nhau |
 
-Bây giờ thêm một bài viết thứ hai về chính sách năng lượng. Plugin nhận ra cả hai nguồn đều đề cập đến ngân sách carbon và tự động liên kết chúng.
+Thêm bài viết thứ hai về chính sách năng lượng. Plugin nhận ra cả hai nguồn đều đề cập đến ngân sách carbon và tự động liên kết — các khái niệm có quan hệ phân loại (`mở rộng`, `mâu thuẫn`, `phụ thuộc`), và các thực thể kết nối xuyên nguồn.
 
 Khi bạn hỏi:
 ```
 /wiki How do carbon budgets affect energy policy?
 ```
 
-Bạn nhận được câu trả lời rút ra từ **cả hai** nguồn, kèm liên kết đến chính xác nơi mỗi thông tin được lấy ra.
+Plugin không chỉ tìm theo từ khóa. Nó đi dọc **đồ thị tri thức** — bắt đầu từ khái niệm "ngân sách carbon", theo các mối quan hệ đến thực thể và chủ đề liên quan — và tìm ra các kết nối mà tìm kiếm từ khóa bỏ lỡ.
+
+---
+
+## 🧠 Đồ thị tri thức
+
+Mỗi tài liệu bạn thêm không chỉ tạo trang — nó xây dựng một **đồ thị tri thức**. Plugin trích xuất các thực thể có tên (người, dự án, công nghệ, quyết định) và kết nối chúng bằng quan hệ phân loại.
+
+```
+Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+  │                                              │
+  └──depends-on──→ PostgreSQL           owns ←───┘
+                        │                Auth Migration
+                        └──replaces──→ MySQL
+```
+
+Khi bạn hỏi "tác động của việc nâng cấp Redis là gì?", plugin đi ra ngoài từ Redis qua các cạnh `uses`, `depends-on`, `maintained-by` — tìm mọi dịch vụ, người, và quyết định liên quan.
+
+**Những gì được tự động trích xuất:**
+
+| Loại thực thể | Ví dụ |
+|-------------|---------|
+| Người | "Sarah Chen", "Andrej Karpathy" |
+| Dự án | "Auth Migration", "API Redesign" |
+| Công nghệ | "Redis", "PostgreSQL", "Kubernetes" |
+| Thư viện | "React", "PyTorch", "Express" |
+| Quyết định | "Chuyển sang PostgreSQL", "Dùng microservices" |
+| Tổ chức | "Platform Team", "Anthropic" |
+
+---
+
+## 📊 Độ tin cậy & Theo dõi thông minh
+
+Không phải kiến thức nào cũng đáng tin như nhau. Mỗi trang trong wiki mang metadata giúp bạn đánh giá:
+
+- **Độ tin cậy** — `high`, `medium`, hoặc `low` dựa trên số nguồn hỗ trợ
+- **Ngày xác minh** — lần cuối nội dung được xác nhận chính xác
+- **Thẩm quyền** — nguồn là `primary` (nghiên cứu gốc), `secondary` (tổng hợp), hay `commentary` (ý kiến)
+- **Quan hệ phân loại** — kết nối giữa khái niệm có ý nghĩa: `extends`, `contradicts`, `supersedes`, `depends-on`
+
+Khi hai nguồn mâu thuẫn, plugin đánh dấu **mâu thuẫn** và liên kết cả hai phía. Khi thông tin mới thay thế cũ, trang cũ được đánh dấu **superseded** kèm liên kết đến nội dung thay thế.
 
 ---
 

@@ -140,18 +140,59 @@ Das Plugin erstellt:
 
 | Was | Beschreibung |
 |-----|-------------|
-| **Zusammenfassung** | Ein einseitiger Überblick über den Artikel |
+| **Zusammenfassung** | Ein einseitiger Überblick über den Artikel mit Vertrauensbewertung |
 | **Konzepte** | Seiten für Kernideen wie „Kohlenstoffbudget" und „Kipppunkte" |
+| **Entitäten** | Knoten für konkrete Dinge — „IPCC", „Pariser Abkommen", „Dr. Smith" |
 | **Themenseite** | Eine „Klimawissenschaft"-Seite, die alles verknüpft |
 
-Fügen Sie einen zweiten Artikel über Energiepolitik hinzu. Das Plugin erkennt, dass beide Quellen Kohlenstoffbudgets behandeln, und verknüpft sie automatisch.
+Fügen Sie einen zweiten Artikel über Energiepolitik hinzu. Das Plugin erkennt, dass beide Quellen Kohlenstoffbudgets behandeln, und verknüpft sie automatisch — Konzepte erhalten typisierte Beziehungen (`extends`, `contradicts`, `depends-on`), und Entitäten verbinden sich quellenübergreifend.
 
 Wenn Sie fragen:
 ```
 /wiki How do carbon budgets affect energy policy?
 ```
 
-Erhalten Sie eine Antwort aus **beiden** Quellen, mit Links zu den genauen Stellen.
+Das Plugin sucht nicht nur nach Schlüsselwörtern. Es durchläuft den **Wissensgraphen** — ausgehend vom Konzept „Kohlenstoffbudget", folgt es Beziehungen zu verbundenen Entitäten und Themen — und findet Verbindungen, die eine Schlüsselwortsuche übersehen würde.
+
+---
+
+## 🧠 Wissensgraph
+
+Jedes Dokument, das Sie hinzufügen, erstellt nicht nur Seiten — es baut einen **Wissensgraphen** auf. Das Plugin extrahiert benannte Entitäten (Personen, Projekte, Technologien, Entscheidungen) und verbindet sie mit typisierten Beziehungen.
+
+```
+Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+  │                                              │
+  └──depends-on──→ PostgreSQL           owns ←───┘
+                        │                Auth Migration
+                        └──replaces──→ MySQL
+```
+
+Wenn Sie fragen „Was sind die Auswirkungen eines Redis-Upgrades?", geht das Plugin vom Redis-Knoten aus über `uses`-, `depends-on`- und `maintained-by`-Kanten — und findet jeden verbundenen Service, jede Person und jede Entscheidung.
+
+**Was automatisch extrahiert wird:**
+
+| Entitätstyp | Beispiele |
+|-------------|---------|
+| Personen | "Sarah Chen", "Andrej Karpathy" |
+| Projekte | "Auth Migration", "API Redesign" |
+| Technologien | "Redis", "PostgreSQL", "Kubernetes" |
+| Bibliotheken | "React", "PyTorch", "Express" |
+| Entscheidungen | "Wechsel zu PostgreSQL", "Microservices nutzen" |
+| Organisationen | "Platform Team", "Anthropic" |
+
+---
+
+## 📊 Vertrauensstufen & intelligentes Tracking
+
+Nicht alles Wissen ist gleich zuverlässig. Jede Seite in Ihrem Wiki trägt Metadaten:
+
+- **Vertrauen** — `high`, `medium` oder `low`, basierend auf der Anzahl unterstützender Quellen
+- **Verifizierungsdatum** — wann der Inhalt zuletzt als korrekt bestätigt wurde
+- **Autorität** — ob eine Quelle `primary` (Originalforschung), `secondary` (Review) oder `commentary` (Meinung) ist
+- **Typisierte Beziehungen** — Verbindungen zwischen Konzepten haben Bedeutung: `extends`, `contradicts`, `supersedes`, `depends-on`
+
+Wenn zwei Quellen sich widersprechen, markiert das Plugin den **Widerspruch** und verlinkt beide Seiten. Wenn neuere Informationen ältere ersetzen, wird die alte Seite als **superseded** markiert mit einem Link zum Ersatz.
 
 ---
 

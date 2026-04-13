@@ -141,18 +141,61 @@ The plugin creates:
 
 | What | Description |
 |------|------------|
-| **Summary** | A one-page overview of the article |
+| **Summary** | A one-page overview of the article with confidence rating |
 | **Concepts** | Pages for key ideas like "carbon budget" and "tipping points" |
+| **Entities** | Nodes for real things — "IPCC", "Paris Agreement", "Dr. Smith" |
 | **Topic page** | A "climate science" page linking everything together |
 
-Now add a second article about energy policy. The plugin notices both sources discuss carbon budgets and links them automatically.
+Now add a second article about energy policy. The plugin notices both sources discuss carbon budgets and links them automatically — concepts get typed relationships (`extends`, `contradicts`, `depends-on`), and entities connect across sources.
 
 When you ask:
 ```
 /wiki How do carbon budgets affect energy policy?
 ```
 
-You get an answer that draws from **both** sources, with links to exactly where each fact came from.
+The plugin doesn't just search by keywords. It walks the **knowledge graph** — starting from the "carbon budget" concept, following its relationships to connected entities and topics — and finds connections that keyword search would miss. You get an answer that draws from **both** sources, with links to exactly where each fact came from.
+
+---
+
+## 🧠 Knowledge Graph
+
+Every document you add doesn't just create pages — it builds a **knowledge graph**. The plugin extracts named entities (people, projects, technologies, decisions) and connects them with typed relationships.
+
+```
+Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+  │                                              │
+  └──depends-on──→ PostgreSQL           owns ←───┘
+                        │                Auth Migration
+                        └──replaces──→ MySQL
+```
+
+This means when you ask "what's the impact of upgrading Redis?", the plugin walks outward from Redis through `uses`, `depends-on`, and `maintained-by` edges — finding every connected service, person, and decision. Not just pages that mention "Redis" by name.
+
+**What gets extracted automatically:**
+
+| Entity type | Examples |
+|-------------|---------|
+| People | "Sarah Chen", "Andrej Karpathy" |
+| Projects | "Auth Migration", "API Redesign" |
+| Technologies | "Redis", "PostgreSQL", "Kubernetes" |
+| Libraries | "React", "PyTorch", "Express" |
+| Decisions | "Switch to PostgreSQL", "Use microservices" |
+| Organizations | "Platform Team", "Anthropic" |
+
+---
+
+## 📊 Confidence & Smart Tracking
+
+Not all knowledge is equally reliable. Every page in your wiki carries metadata that helps you trust it:
+
+- **Confidence** — `high`, `medium`, or `low` based on how many sources support it
+- **Verified date** — when the content was last confirmed accurate
+- **Authority** — whether a source is `primary` (original research), `secondary` (review), or `commentary` (opinion)
+- **Typed relationships** — connections between concepts aren't just links, they have meaning: `extends`, `contradicts`, `supersedes`, `depends-on`
+
+When two sources disagree, the plugin flags the **contradiction** and links both sides — so you see the conflict instead of getting silently wrong answers.
+
+When newer information replaces older claims, the old page is marked as **superseded** with a link to what replaced it. Nothing is deleted — you can always trace the history.
 
 ---
 

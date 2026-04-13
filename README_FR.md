@@ -140,18 +140,59 @@ Le plugin crée :
 
 | Quoi | Description |
 |------|------------|
-| **Résumé** | Un aperçu d'une page de l'article |
+| **Résumé** | Un aperçu d'une page de l'article avec évaluation de fiabilité |
 | **Concepts** | Des pages pour les idées clés comme « budget carbone » et « points de bascule » |
+| **Entités** | Des nœuds pour les choses concrètes — « GIEC », « Accord de Paris », « Dr. Smith » |
 | **Page thématique** | Une page « science du climat » reliant tout ensemble |
 
-Ajoutez un second article sur la politique énergétique. Le plugin remarque que les deux sources traitent des budgets carbone et les relie automatiquement.
+Ajoutez un second article sur la politique énergétique. Le plugin détecte que les deux sources traitent des budgets carbone et les relie automatiquement — les concepts ont des relations typées (`extends`, `contradicts`, `depends-on`), et les entités se connectent entre les sources.
 
 Quand vous demandez :
 ```
 /wiki How do carbon budgets affect energy policy?
 ```
 
-Vous obtenez une réponse qui s'appuie sur les **deux** sources, avec des liens vers l'endroit exact d'où provient chaque fait.
+Le plugin ne se contente pas de chercher par mots-clés. Il parcourt le **graphe de connaissances** — partant du concept « budget carbone », suivant ses relations vers les entités et sujets connectés — et trouve des connexions que la recherche par mots-clés manquerait.
+
+---
+
+## 🧠 Graphe de connaissances
+
+Chaque document que vous ajoutez ne crée pas seulement des pages — il construit un **graphe de connaissances**. Le plugin extrait des entités nommées (personnes, projets, technologies, décisions) et les connecte avec des relations typées.
+
+```
+Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
+  │                                              │
+  └──depends-on──→ PostgreSQL           owns ←───┘
+                        │                Auth Migration
+                        └──replaces──→ MySQL
+```
+
+Quand vous demandez « quel est l'impact de la mise à jour de Redis ? », le plugin part du nœud Redis et suit les arêtes `uses`, `depends-on`, `maintained-by` — trouvant chaque service, personne et décision connectés.
+
+**Ce qui est extrait automatiquement :**
+
+| Type d'entité | Exemples |
+|-------------|---------|
+| Personnes | "Sarah Chen", "Andrej Karpathy" |
+| Projets | "Auth Migration", "API Redesign" |
+| Technologies | "Redis", "PostgreSQL", "Kubernetes" |
+| Bibliothèques | "React", "PyTorch", "Express" |
+| Décisions | "Passer à PostgreSQL", "Utiliser des microservices" |
+| Organisations | "Platform Team", "Anthropic" |
+
+---
+
+## 📊 Fiabilité et suivi intelligent
+
+Toutes les connaissances ne sont pas également fiables. Chaque page de votre wiki porte des métadonnées :
+
+- **Fiabilité** — `high`, `medium` ou `low` selon le nombre de sources
+- **Date de vérification** — quand le contenu a été confirmé exact pour la dernière fois
+- **Autorité** — si la source est `primary` (recherche originale), `secondary` (analyse) ou `commentary` (opinion)
+- **Relations typées** — les connexions entre concepts ont du sens : `extends`, `contradicts`, `supersedes`, `depends-on`
+
+Quand deux sources se contredisent, le plugin signale la **contradiction** et lie les deux côtés. Quand une information plus récente remplace une ancienne, l'ancienne page est marquée **superseded** avec un lien vers son remplacement.
 
 ---
 
