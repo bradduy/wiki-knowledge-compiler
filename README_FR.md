@@ -1,14 +1,3 @@
-<p align="center">
-  <a href="./README.md">🇬🇧 English</a> &nbsp;·&nbsp;
-  <a href="./README_VN.md">🇻🇳 Tiếng Việt</a> &nbsp;·&nbsp;
-  <a href="./README_CN.md">🇨🇳 简体中文</a> &nbsp;·&nbsp;
-  <a href="./README_KR.md">🇰🇷 한국어</a> &nbsp;·&nbsp;
-  <a href="./README_JP.md">🇯🇵 日本語</a> &nbsp;·&nbsp;
-  <a href="./README_DE.md">🇩🇪 Deutsch</a> &nbsp;·&nbsp;
-  🇫🇷 <strong>Français</strong> &nbsp;·&nbsp;
-  <a href="./README_RU.md">🇷🇺 Русский</a>
-</p>
-
 <h1 align="center">Wiki Knowledge Compiler</h1>
 
 <p align="center">
@@ -30,23 +19,82 @@
   <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="100%" />
 </p>
 
+## Table des matières
+
+- [Mises à jour récentes](#-mises-à-jour-récentes)
+- [Fonctionnalités](#-fonctionnalités)
+- [Localisations](#-localisations)
+- [Démarrage rapide](#-démarrage-rapide)
+- [Utilisation](#-utilisation)
+  - [Ajouter des documents](#-ajouter-des-documents)
+  - [Exemple : Du document à la connaissance](#-exemple--du-document-à-la-connaissance)
+- [Graphe de connaissances](#-graphe-de-connaissances)
+- [Fiabilité et suivi intelligent](#-fiabilité-et-suivi-intelligent)
+- [Parcourir votre wiki avec Obsidian](#-parcourir-votre-wiki-avec-obsidian)
+- [Comment fonctionne la configuration](#%EF%B8%8F-comment-fonctionne-la-configuration)
+- [Autres méthodes d'installation](#-autres-méthodes-dinstallation)
+- [Contribuer](#-contribuer)
+- [Licence](#-licence)
+
 ---
 
-# 🇫🇷 Français
+## 🆕 Mises à jour récentes
 
-## 📖 Qu'est-ce que c'est ?
+### v2.0.0 — Graphe de connaissances, score de fiabilité et relations typées
+- 🧠 **Graphe de connaissances** — Chaque ingestion extrait des entités nommées (personnes, projets, technologies, décisions) et les connecte avec des relations typées dans `.data/entities/`.
+- 🔗 **Relations typées** — Les concepts se lient entre eux avec du sens : `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
+- 📊 **Score de fiabilité** — Chaque page porte un niveau de `confidence` (`high`/`medium`/`low`), une date `verified`, et les résumés suivent l'`authority` de la source (`primary`/`secondary`/`commentary`).
+- 🔄 **Remplacement** — Quand de nouvelles informations remplacent les anciennes, les pages sont liées par `supersedes`/`superseded_by` — rien n'est supprimé, l'historique est traçable.
+- 🕸️ **Requêtes orientées graphe** — `/wiki` parcourt désormais les relations entre entités en parallèle de la recherche par mots-clés/sémantique pour trouver des connexions que la recherche textuelle manque.
+- ⚡ **Détection de contradictions** — Quand les sources sont en désaccord, les deux côtés sont signalés et liés automatiquement.
 
-Un plugin pour [Claude Code](https://docs.anthropic.com/en/docs/claude-code) qui transforme vos documents en une base de connaissances organisée et consultable.
+### v1.x — Fondation
+- 📅 **Mises à jour planifiées** — `/wiki-schedule` exécute automatiquement `/wiki-update` selon un planning cron via des agents distants.
+- 🔀 **Ingestion mixte** — `/wiki-ingest` accepte fichiers + URLs dans une seule commande.
+- 🔄 **Auto-ingestion lors de la mise à jour** — `/wiki-update` détecte et ingère les nouveaux fichiers dans `raw/`.
+- 📝 **Commandes simplifiées** — `/wiki-query` renommé en `/wiki`.
+- 📁 **Structure plate** — Suppression du dossier `knowledge-base/` ; `raw/` et `wiki/` sont à la racine du projet.
+- 📥 **Ingestion par lots** — Dossiers, fichiers multiples et motifs glob.
+- 🔍 **Niveaux de recherche** — Grep pour les petits projets, qmd pour les moyens/grands.
+- 🔮 **Intégration Obsidian** — Installation et configuration automatiques pendant `/wiki-setup`.
+- ⚙️ **Installation automatique multiplateforme** — Node.js, qmd, Obsidian sur macOS, Linux et Windows.
 
-Donnez-lui n'importe quoi — articles, notes, PDFs, un dossier entier — et il va :
+---
 
-1. **Sauvegarder** vos originaux (ils ne sont jamais modifiés)
-2. **Résumer** chaque source
-3. **Extraire** les idées clés sur des pages dédiées
-4. **Relier** les idées connexes à travers tout ce que vous avez ajouté
-5. **Répondre** à vos questions avec des liens vers les sources
+## ✨ Fonctionnalités
 
-Tout reste sur votre ordinateur sous forme de fichiers texte. Pas de cloud. Pas de base de données. Pas de verrouillage.
+| Fonctionnalité | Description |
+|----------------|-------------|
+| **Graphe de connaissances** | Extrait personnes, projets, technologies, décisions en entités connectées |
+| **Relations typées** | Concepts et entités liés avec du sens sémantique (`extends`, `contradicts`, `depends-on`) |
+| **Suivi de fiabilité** | Chaque page évaluée `high`/`medium`/`low` avec date de vérification |
+| **Autorité des sources** | Résumés étiquetés `primary`, `secondary` ou `commentary` |
+| **Détection de contradictions** | Affirmations contradictoires signalées et liées automatiquement |
+| **Remplacement** | Anciennes affirmations liées aux remplacements, jamais supprimées silencieusement |
+| **Requêtes orientées graphe** | `/wiki` parcourt les relations entre entités, pas seulement les mots-clés |
+| **Ingestion multi-format** | Fichiers, dossiers, URLs, motifs glob, texte collé |
+| **Résumés automatiques** | Un résumé par source avec les points essentiels |
+| **Extraction de concepts** | 3-10 concepts atomiques par source, dédupliqués automatiquement |
+| **Recherche intelligente** | Grep (petit), recherche hybride qmd (moyen), qmd MCP (grand) |
+| **Mises à jour planifiées** | Auto-ingestion par cron via agents distants |
+| **Intégration Obsidian** | Navigation graphique visuelle, rétroliens, synchronisation en direct |
+| **100% hors ligne** | Fichiers Markdown simples, pas de cloud, pas de base de données |
+| **Multiplateforme** | macOS, Linux, Windows avec installation automatique |
+
+---
+
+## 🌐 Localisations
+
+<p align="center">
+  <a href="./README.md">🇬🇧 English</a> &nbsp;·&nbsp;
+  <a href="./README_VN.md">🇻🇳 Tiếng Việt</a> &nbsp;·&nbsp;
+  <a href="./README_CN.md">🇨🇳 简体中文</a> &nbsp;·&nbsp;
+  <a href="./README_KR.md">🇰🇷 한국어</a> &nbsp;·&nbsp;
+  <a href="./README_JP.md">🇯🇵 日本語</a> &nbsp;·&nbsp;
+  <a href="./README_DE.md">🇩🇪 Deutsch</a> &nbsp;·&nbsp;
+  🇫🇷 <strong>Français</strong> &nbsp;·&nbsp;
+  <a href="./README_RU.md">🇷🇺 Русский</a>
+</p>
 
 ---
 
@@ -87,23 +135,24 @@ C'est fait. Votre wiki est opérationnel.
 
 ---
 
-## 🎯 Ce que vous pouvez faire
+## 🎯 Utilisation
 
 Chaque commande vous indique quoi essayer ensuite.
 
 | Commande | Ce qu'elle fait |
 |----------|----------------|
-| `/wiki-setup` | Configuration initiale (installe tout pour vous) |
-| `/wiki-ingest` | Ajouter des documents — un fichier, un dossier entier ou une URL |
-| `/wiki` | Poser une question, obtenir une réponse avec les sources |
-| `/wiki-insights` | Trouver des motifs et des connexions entre vos sources |
-| `/wiki-update` | Actualiser la table des matières |
+| `/wiki-setup` | ⚙️ Configuration initiale (installe tout pour vous) |
+| `/wiki-ingest` | 📥 Ajouter des documents — un fichier, un dossier entier ou une URL |
+| `/wiki` | 🔍 Poser une question, obtenir une réponse avec les sources |
+| `/wiki-insights` | ✨ Trouver des motifs et des connexions entre vos sources |
+| `/wiki-update` | 🔄 Synchroniser le wiki (ingérer les nouveaux fichiers dans raw/ + rafraîchir les index) |
+| `/wiki-schedule` | 📅 Planifier l'exécution automatique de /wiki-update |
 
-**Ordre recommandé :** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update`
+**Ordre recommandé :** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-schedule`
 
----
+### 📥 Ajouter des documents
 
-## 📥 Ajouter des documents
+Vous pouvez ajouter des documents de plusieurs façons :
 
 ```bash
 # Un fichier
@@ -126,9 +175,7 @@ Chaque commande vous indique quoi essayer ensuite.
 
 Pour les dossiers et fichiers multiples, le plugin affiche la progression.
 
----
-
-## 🧪 Exemple : Du document à la connaissance
+### 🧪 Exemple : Du document à la connaissance
 
 Supposons que vous ajoutiez un article sur le changement climatique :
 
@@ -152,7 +199,7 @@ Quand vous demandez :
 /wiki How do carbon budgets affect energy policy?
 ```
 
-Le plugin ne se contente pas de chercher par mots-clés. Il parcourt le **graphe de connaissances** — partant du concept « budget carbone », suivant ses relations vers les entités et sujets connectés — et trouve des connexions que la recherche par mots-clés manquerait.
+Le plugin ne se contente pas de chercher par mots-clés. Il parcourt le **graphe de connaissances** — partant du concept « budget carbone », suivant ses relations vers les entités et sujets connectés — et trouve des connexions que la recherche par mots-clés manquerait. Vous obtenez une réponse puisant dans **les deux** sources, avec des liens vers l'origine exacte de chaque fait.
 
 ---
 
@@ -168,7 +215,7 @@ Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
                         └──replaces──→ MySQL
 ```
 
-Quand vous demandez « quel est l'impact de la mise à jour de Redis ? », le plugin part du nœud Redis et suit les arêtes `uses`, `depends-on`, `maintained-by` — trouvant chaque service, personne et décision connectés.
+Quand vous demandez « quel est l'impact de la mise à jour de Redis ? », le plugin part du nœud Redis et suit les arêtes `uses`, `depends-on`, `maintained-by` — trouvant chaque service, personne et décision connectés. Pas seulement les pages qui mentionnent « Redis » par nom.
 
 **Ce qui est extrait automatiquement :**
 
@@ -200,12 +247,12 @@ Quand deux sources se contredisent, le plugin signale la **contradiction** et li
 
 Pendant la configuration, on vous demandera si vous voulez [Obsidian](https://obsidian.md) — une application gratuite pour parcourir votre wiki visuellement. Elle s'installe automatiquement si vous acceptez.
 
-Ouvrez votre dossier `knowledge-base/` dans Obsidian :
+Ouvrez votre dossier projet dans Obsidian :
 
-- **Vue graphique** — une carte visuelle de toutes vos pages et de leurs connexions
-- **Rétroliens** — cliquez sur une page pour voir tout ce qui y renvoie
-- **Recherche** — trouvez n'importe quoi dans votre wiki entier
-- **Synchronisation en direct** — les nouvelles pages de `/wiki-ingest` apparaissent immédiatement
+- 🕸️ **Vue graphique** — une carte visuelle de toutes vos pages et de leurs connexions
+- 🔙 **Rétroliens** — cliquez sur une page pour voir tout ce qui y renvoie
+- 🔍 **Recherche** — trouvez n'importe quoi dans votre wiki entier
+- ⚡ **Synchronisation en direct** — les nouvelles pages de `/wiki-ingest` apparaissent immédiatement
 
 Optionnel. Votre wiki fonctionne parfaitement avec les commandes seules.
 
@@ -214,15 +261,13 @@ Optionnel. Votre wiki fonctionne parfaitement avec les commandes seules.
 ## 📁 Ce qui est créé
 
 ```
-knowledge-base/
-  raw/           Vos documents originaux (jamais modifiés)
-  summaries/     Résumé d'une page pour chaque source
-  concepts/      Idées clés, une par page
-  topics/        Pages de synthèse regroupant les idées connexes
-  insights/      Connexions découvertes entre les sources
-  references/    Liens vers les ressources externes
-  .data/         Données internes (cachées)
+your-project/
+  📄 raw/           Vos documents originaux (jamais modifiés)
+  📚 wiki/          Toutes les pages générées (résumés, concepts, thèmes, insights)
+  .data/            Données internes (cachées)
 ```
+
+Pas de dossier englobant. `raw/` et `wiki/` sont directement dans votre projet. Si `raw/` existe déjà, la configuration ajoute simplement `wiki/` à côté.
 
 Tous les fichiers sont en Markdown. Ouvrez-les avec n'importe quel éditeur de texte, Obsidian ou VS Code.
 
@@ -230,10 +275,10 @@ Tous les fichiers sont en Markdown. Ouvrez-les avec n'importe quel éditeur de t
 
 ## 💡 Conseils
 
-- **Commencez petit.** Ajoutez 2–3 sources et essayez `/wiki` avant d'en ajouter davantage.
-- **Soyez précis.** « Que dit la source X sur Y ? » fonctionne mieux que des questions vagues.
-- **Essayez `/wiki-insights`** après avoir ajouté plusieurs sources sur un sujet — il trouve des motifs que vous pourriez manquer.
-- **Vos sources sont en sécurité.** Le plugin ne modifie jamais vos fichiers originaux.
+- 🌱 **Commencez petit.** Ajoutez 2–3 sources et essayez `/wiki` avant d'en ajouter davantage.
+- 🎯 **Soyez précis.** « Que dit la source X sur Y ? » fonctionne mieux que des questions vagues.
+- ✨ **Essayez `/wiki-insights`** après avoir ajouté plusieurs sources sur un sujet — il trouve des motifs que vous pourriez manquer.
+- 🔒 **Vos sources sont en sécurité.** Le plugin ne modifie jamais vos fichiers originaux.
 
 ---
 
@@ -296,11 +341,11 @@ Puis lancez `/wiki-setup`.
 
 ## 📌 Bon à savoir
 
-- **Fonctionne hors ligne.** Tout est sur votre ordinateur.
-- **Fichiers texte.** Pas de base de données ni de logiciel spécial nécessaire.
-- **PDFs pris en charge.** Les mises en page complexes peuvent ne pas être extraites parfaitement.
-- **Usage personnel.** Utilisateur unique.
-- **Historique des versions ?** Lancez `git init` dans votre dossier de base de connaissances.
+- 📡 **Fonctionne hors ligne.** Tout est sur votre ordinateur.
+- 📄 **Fichiers texte.** Pas de base de données ni de logiciel spécial nécessaire.
+- 📑 **PDFs pris en charge.** Les mises en page complexes peuvent ne pas être extraites parfaitement.
+- 👤 **Usage personnel.** Utilisateur unique.
+- 🕐 **Historique des versions ?** Lancez `git init` dans votre dossier de base de connaissances.
 
 ---
 
@@ -311,5 +356,3 @@ Vous souhaitez améliorer le plugin ? Consultez le [guide de contribution](.gith
 ## 📄 Licence
 
 MIT
-
----

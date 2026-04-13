@@ -1,14 +1,3 @@
-<p align="center">
-  <a href="./README.md">🇬🇧 English</a> &nbsp;·&nbsp;
-  <a href="./README_VN.md">🇻🇳 Tiếng Việt</a> &nbsp;·&nbsp;
-  <a href="./README_CN.md">🇨🇳 简体中文</a> &nbsp;·&nbsp;
-  <a href="./README_KR.md">🇰🇷 한국어</a> &nbsp;·&nbsp;
-  <a href="./README_JP.md">🇯🇵 日本語</a> &nbsp;·&nbsp;
-  🇩🇪 <strong>Deutsch</strong> &nbsp;·&nbsp;
-  <a href="./README_FR.md">🇫🇷 Français</a> &nbsp;·&nbsp;
-  <a href="./README_RU.md">🇷🇺 Русский</a>
-</p>
-
 <h1 align="center">Wiki Knowledge Compiler</h1>
 
 <p align="center">
@@ -30,23 +19,82 @@
   <img src="./assets/logo.png" alt="Wiki Knowledge Compiler Logo" width="100%" />
 </p>
 
+## Inhaltsverzeichnis
+
+- [Aktuelle Updates](#-aktuelle-updates)
+- [Funktionen](#-funktionen)
+- [Lokalisierungen](#-lokalisierungen)
+- [Schnellstart](#-schnellstart)
+- [Nutzung](#-nutzung)
+  - [Dokumente hinzufügen](#-dokumente-hinzufügen)
+  - [Beispiel: Vom Dokument zum Wissen](#-beispiel-vom-dokument-zum-wissen)
+- [Wissensgraph](#-wissensgraph)
+- [Vertrauensstufen & intelligentes Tracking](#-vertrauensstufen--intelligentes-tracking)
+- [Ihr Wiki mit Obsidian durchsuchen](#-ihr-wiki-mit-obsidian-durchsuchen)
+- [Wie die Einrichtung funktioniert](#%EF%B8%8F-wie-die-einrichtung-funktioniert)
+- [Weitere Installationsmethoden](#-weitere-installationsmethoden)
+- [Mitwirken](#-mitwirken)
+- [Lizenz](#-lizenz)
+
 ---
 
-# 🇩🇪 Deutsch
+## 🆕 Aktuelle Updates
 
-## 📖 Was ist das?
+### v2.0.0 — Wissensgraph, Vertrauensbewertung und typisierte Beziehungen
+- 🧠 **Wissensgraph** — Jede Aufnahme extrahiert benannte Entitäten (Personen, Projekte, Technologien, Entscheidungen) und verbindet sie mit typisierten Beziehungen in `.data/entities/`.
+- 🔗 **Typisierte Beziehungen** — Konzepte verknüpfen sich mit Bedeutung: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`.
+- 📊 **Vertrauensbewertung** — Jede Seite trägt ein `confidence`-Level (`high`/`medium`/`low`), ein `verified`-Datum, und Zusammenfassungen verfolgen die Quell-`authority` (`primary`/`secondary`/`commentary`).
+- 🔄 **Ablösung** — Wenn neue Informationen alte ersetzen, werden Seiten mit `supersedes`/`superseded_by` verknüpft — nichts wird gelöscht, die Historie ist nachvollziehbar.
+- 🕸️ **Graphbasierte Abfragen** — `/wiki` durchläuft jetzt Entitätsbeziehungen neben Schlüsselwort-/Semantiksuche, um Verbindungen zu finden, die Textsuche übersieht.
+- ⚡ **Widerspruchserkennung** — Wenn Quellen nicht übereinstimmen, werden beide Seiten automatisch markiert und verlinkt.
 
-Ein Plugin für [Claude Code](https://docs.anthropic.com/en/docs/claude-code), das Ihre Dokumente in eine organisierte, durchsuchbare Wissensdatenbank verwandelt.
+### v1.x — Grundlage
+- 📅 **Geplante Updates** — `/wiki-schedule` führt `/wiki-update` automatisch nach Cron-Zeitplan über Remote-Agenten aus.
+- 🔀 **Gemischte Aufnahme** — `/wiki-ingest` akzeptiert Dateien + URLs in einem einzigen Befehl.
+- 🔄 **Auto-Aufnahme bei Update** — `/wiki-update` erkennt und nimmt neue Dateien in `raw/` auf.
+- 📝 **Einfachere Befehle** — `/wiki-query` umbenannt zu `/wiki`.
+- 📁 **Flache Struktur** — `knowledge-base/`-Wrapper entfernt; `raw/` und `wiki/` liegen im Projektstamm.
+- 📥 **Batch-Aufnahme** — Ordner, mehrere Dateien und Glob-Muster.
+- 🔍 **Suchstufen** — Grep für kleine Projekte, qmd für mittlere/große.
+- 🔮 **Obsidian-Integration** — Automatische Installation und Einrichtung während `/wiki-setup`.
+- ⚙️ **Plattformübergreifende Auto-Installation** — Node.js, qmd, Obsidian auf macOS, Linux und Windows.
 
-Geben Sie ihm beliebige Inhalte — Artikel, Notizen, PDFs, einen ganzen Ordner — und es wird:
+---
 
-1. **Speichern** Ihrer Originale (sie werden nie verändert)
-2. **Zusammenfassen** jeder Quelle
-3. **Extrahieren** der Kernideen auf eigene Seiten
-4. **Verknüpfen** verwandter Ideen über alle hinzugefügten Inhalte hinweg
-5. **Beantworten** Ihrer Fragen mit Links zurück zu den Quellen
+## ✨ Funktionen
 
-Alles bleibt auf Ihrem Computer als einfache Textdateien. Keine Cloud. Keine Datenbank. Kein Lock-in.
+| Funktion | Beschreibung |
+|----------|-------------|
+| **Wissensgraph** | Extrahiert Personen, Projekte, Technologien, Entscheidungen als verbundene Entitäten |
+| **Typisierte Beziehungen** | Konzepte und Entitäten mit semantischer Bedeutung verknüpft (`extends`, `contradicts`, `depends-on`) |
+| **Vertrauens-Tracking** | Jede Seite mit `high`/`medium`/`low` bewertet, mit Verifizierungsdatum |
+| **Quellautorität** | Zusammenfassungen als `primary`, `secondary` oder `commentary` gekennzeichnet |
+| **Widerspruchserkennung** | Widersprüchliche Aussagen automatisch markiert und verlinkt |
+| **Ablösung** | Alte Aussagen mit Ersatz verlinkt, nie stillschweigend gelöscht |
+| **Graphbasierte Abfragen** | `/wiki` durchläuft Entitätsbeziehungen, nicht nur Schlüsselwörter |
+| **Multi-Format-Aufnahme** | Dateien, Ordner, URLs, Glob-Muster, eingefügter Text |
+| **Auto-Zusammenfassungen** | Eine Seite pro Quelle mit Kernaussagen |
+| **Konzeptextraktion** | 3-10 atomare Konzepte pro Quelle, automatisch dedupliziert |
+| **Intelligente Suche** | Grep (klein), qmd Hybridsuche (mittel), qmd MCP (groß) |
+| **Geplante Updates** | Cron-basierte Auto-Aufnahme über Remote-Agenten |
+| **Obsidian-Integration** | Visuelles Graph-Browsing, Backlinks, Live-Sync |
+| **100% offline** | Einfache Markdown-Dateien, keine Cloud, keine Datenbank |
+| **Plattformübergreifend** | macOS, Linux, Windows mit Auto-Installation |
+
+---
+
+## 🌐 Lokalisierungen
+
+<p align="center">
+  <a href="./README.md">🇬🇧 English</a> &nbsp;·&nbsp;
+  <a href="./README_VN.md">🇻🇳 Tiếng Việt</a> &nbsp;·&nbsp;
+  <a href="./README_CN.md">🇨🇳 简体中文</a> &nbsp;·&nbsp;
+  <a href="./README_KR.md">🇰🇷 한국어</a> &nbsp;·&nbsp;
+  <a href="./README_JP.md">🇯🇵 日本語</a> &nbsp;·&nbsp;
+  🇩🇪 <strong>Deutsch</strong> &nbsp;·&nbsp;
+  <a href="./README_FR.md">🇫🇷 Français</a> &nbsp;·&nbsp;
+  <a href="./README_RU.md">🇷🇺 Русский</a>
+</p>
 
 ---
 
@@ -87,23 +135,24 @@ Fertig. Ihr Wiki ist einsatzbereit.
 
 ---
 
-## 🎯 Was Sie tun können
+## 🎯 Nutzung
 
 Jeder Befehl zeigt Ihnen, was als Nächstes zu tun ist.
 
 | Befehl | Was er macht |
 |--------|-------------|
-| `/wiki-setup` | Einmalige Einrichtung (installiert alles für Sie) |
-| `/wiki-ingest` | Dokumente hinzufügen — eine Datei, einen ganzen Ordner oder eine URL |
-| `/wiki` | Eine Frage stellen, Antwort mit Quellen erhalten |
-| `/wiki-insights` | Muster und Verbindungen über Ihre Quellen hinweg finden |
-| `/wiki-update` | Inhaltsverzeichnis aktualisieren |
+| `/wiki-setup` | ⚙️ Einmalige Einrichtung (installiert alles für Sie) |
+| `/wiki-ingest` | 📥 Dokumente hinzufügen — eine Datei, einen ganzen Ordner oder eine URL |
+| `/wiki` | 🔍 Eine Frage stellen, Antwort mit Quellen erhalten |
+| `/wiki-insights` | ✨ Muster und Verbindungen über Ihre Quellen hinweg finden |
+| `/wiki-update` | 🔄 Wiki synchronisieren (neue Dateien in raw/ aufnehmen + Indizes aktualisieren) |
+| `/wiki-schedule` | 📅 /wiki-update automatisch nach Zeitplan ausführen |
 
-**Empfohlene Reihenfolge:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update`
+**Empfohlene Reihenfolge:** `/wiki-setup` → `/wiki-ingest` → `/wiki` → `/wiki-insights` → `/wiki-update` → `/wiki-schedule`
 
----
+### 📥 Dokumente hinzufügen
 
-## 📥 Dokumente hinzufügen
+Sie können Dokumente auf verschiedene Weisen hinzufügen:
 
 ```bash
 # Eine Datei
@@ -126,9 +175,7 @@ Jeder Befehl zeigt Ihnen, was als Nächstes zu tun ist.
 
 Bei Ordnern und mehreren Dateien zeigt das Plugin den Fortschritt an.
 
----
-
-## 🧪 Beispiel: Vom Dokument zum Wissen
+### 🧪 Beispiel: Vom Dokument zum Wissen
 
 Angenommen, Sie fügen einen Artikel über den Klimawandel hinzu:
 
@@ -152,7 +199,7 @@ Wenn Sie fragen:
 /wiki How do carbon budgets affect energy policy?
 ```
 
-Das Plugin sucht nicht nur nach Schlüsselwörtern. Es durchläuft den **Wissensgraphen** — ausgehend vom Konzept „Kohlenstoffbudget", folgt es Beziehungen zu verbundenen Entitäten und Themen — und findet Verbindungen, die eine Schlüsselwortsuche übersehen würde.
+Das Plugin sucht nicht nur nach Schlüsselwörtern. Es durchläuft den **Wissensgraphen** — ausgehend vom Konzept „Kohlenstoffbudget", folgt es Beziehungen zu verbundenen Entitäten und Themen — und findet Verbindungen, die eine Schlüsselwortsuche übersehen würde. Sie erhalten eine Antwort aus **beiden** Quellen, mit Links zu den genauen Ursprüngen jeder Aussage.
 
 ---
 
@@ -168,7 +215,7 @@ Redis ──uses──→ Auth Service ──maintained-by──→ Sarah
                         └──replaces──→ MySQL
 ```
 
-Wenn Sie fragen „Was sind die Auswirkungen eines Redis-Upgrades?", geht das Plugin vom Redis-Knoten aus über `uses`-, `depends-on`- und `maintained-by`-Kanten — und findet jeden verbundenen Service, jede Person und jede Entscheidung.
+Wenn Sie fragen „Was sind die Auswirkungen eines Redis-Upgrades?", geht das Plugin vom Redis-Knoten aus über `uses`-, `depends-on`- und `maintained-by`-Kanten — und findet jeden verbundenen Service, jede Person und jede Entscheidung. Nicht nur Seiten, die „Redis" namentlich erwähnen.
 
 **Was automatisch extrahiert wird:**
 
@@ -200,12 +247,12 @@ Wenn zwei Quellen sich widersprechen, markiert das Plugin den **Widerspruch** un
 
 Während der Einrichtung werden Sie gefragt, ob Sie [Obsidian](https://obsidian.md) möchten — eine kostenlose App zum visuellen Durchsuchen Ihres Wikis. Sie wird automatisch installiert, wenn Sie zustimmen.
 
-Öffnen Sie Ihren `knowledge-base/`-Ordner in Obsidian:
+Öffnen Sie Ihren Projektordner in Obsidian:
 
-- **Graph-Ansicht** — eine visuelle Karte aller Seiten und ihrer Verbindungen
-- **Backlinks** — klicken Sie auf eine Seite, um alles zu sehen, was darauf verlinkt
-- **Suche** — finden Sie alles in Ihrem gesamten Wiki
-- **Live-Synchronisierung** — neue Seiten von `/wiki-ingest` erscheinen sofort in Obsidian
+- 🕸️ **Graph-Ansicht** — eine visuelle Karte aller Seiten und ihrer Verbindungen
+- 🔙 **Backlinks** — klicken Sie auf eine Seite, um alles zu sehen, was darauf verlinkt
+- 🔍 **Suche** — finden Sie alles in Ihrem gesamten Wiki
+- ⚡ **Live-Synchronisierung** — neue Seiten von `/wiki-ingest` erscheinen sofort in Obsidian
 
 Optional. Ihr Wiki funktioniert einwandfrei nur mit den Befehlen.
 
@@ -214,15 +261,13 @@ Optional. Ihr Wiki funktioniert einwandfrei nur mit den Befehlen.
 ## 📁 Was erstellt wird
 
 ```
-knowledge-base/
-  raw/           Ihre Originaldokumente (werden nie verändert)
-  summaries/     Einseitige Zusammenfassung jeder Quelle
-  concepts/      Kernideen, eine pro Seite
-  topics/        Übergeordnete Seiten, die verwandte Ideen gruppieren
-  insights/      Entdeckte Verbindungen über Quellen hinweg
-  references/    Links zu externen Ressourcen
-  .data/         Interne Arbeitsdaten (versteckt)
+your-project/
+  📄 raw/           Ihre Originaldokumente (werden nie verändert)
+  📚 wiki/          Alle generierten Seiten (Zusammenfassungen, Konzepte, Themen, Insights)
+  .data/            Interne Arbeitsdaten (versteckt)
 ```
+
+Kein Wrapper-Ordner. `raw/` und `wiki/` liegen direkt in Ihrem Projekt. Wenn `raw/` bereits existiert, fügt das Setup nur `wiki/` daneben hinzu.
 
 Alle Dateien sind einfaches Markdown. Öffnen Sie sie mit jedem Texteditor, Obsidian oder VS Code.
 
@@ -230,10 +275,10 @@ Alle Dateien sind einfaches Markdown. Öffnen Sie sie mit jedem Texteditor, Obsi
 
 ## 💡 Tipps
 
-- **Klein anfangen.** Fügen Sie 2–3 Quellen hinzu und probieren Sie `/wiki` aus.
-- **Seien Sie spezifisch.** „Was sagt Quelle X über Y?" funktioniert besser als vage Fragen.
-- **Probieren Sie `/wiki-insights`** nach mehreren Quellen zu einem Thema — es findet Muster, die Sie übersehen könnten.
-- **Ihre Quellen sind sicher.** Das Plugin verändert Ihre Originaldateien nie.
+- 🌱 **Klein anfangen.** Fügen Sie 2–3 Quellen hinzu und probieren Sie `/wiki` aus.
+- 🎯 **Seien Sie spezifisch.** „Was sagt Quelle X über Y?" funktioniert besser als vage Fragen.
+- ✨ **Probieren Sie `/wiki-insights`** nach mehreren Quellen zu einem Thema — es findet Muster, die Sie übersehen könnten.
+- 🔒 **Ihre Quellen sind sicher.** Das Plugin verändert Ihre Originaldateien nie.
 
 ---
 
@@ -296,11 +341,11 @@ Dann `/wiki-setup` ausführen.
 
 ## 📌 Gut zu wissen
 
-- **Funktioniert offline.** Alles befindet sich auf Ihrem Computer.
-- **Einfache Textdateien.** Keine Datenbank oder spezielle Software nötig.
-- **PDFs werden unterstützt.** Komplexe Layouts werden möglicherweise nicht perfekt extrahiert.
-- **Für den persönlichen Gebrauch.** Einzelnutzer.
-- **Versionsverlauf gewünscht?** Führen Sie `git init` in Ihrem Knowledge-Base-Ordner aus.
+- 📡 **Funktioniert offline.** Alles befindet sich auf Ihrem Computer.
+- 📄 **Einfache Textdateien.** Keine Datenbank oder spezielle Software nötig.
+- 📑 **PDFs werden unterstützt.** Komplexe Layouts werden möglicherweise nicht perfekt extrahiert.
+- 👤 **Für den persönlichen Gebrauch.** Einzelnutzer.
+- 🕐 **Versionsverlauf gewünscht?** Führen Sie `git init` in Ihrem Knowledge-Base-Ordner aus.
 
 ---
 
@@ -311,5 +356,3 @@ Möchten Sie das Plugin verbessern? Lesen Sie die [Mitwirkungsrichtlinien](.gith
 ## 📄 Lizenz
 
 MIT
-
----
