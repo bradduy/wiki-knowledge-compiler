@@ -41,20 +41,20 @@
 ## 🆕 Recent Updates
 
 ### v0.2.0 — Knowledge graph, lifecycle management, and wiki health
-Added knowledge graph that extracts named entities (people, projects, technologies, decisions) during ingestion and connects them with typed relationships in `.data/entities/`
-Added typed relationships between concepts with semantic meaning: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`
-Added confidence scoring to every page (`high`/`medium`/`low`) with `verified` dates and source `authority` tracking (`primary`/`secondary`/`commentary`)
-Added supersession — when new info replaces old, pages are linked with `supersedes`/`superseded_by` instead of being silently overwritten
-Added graph-aware queries to `/wiki` — walks entity relationships alongside keyword/semantic search to find connections that text search misses
-Added `/wiki-audit` command to check wiki health: broken links, orphan pages, stale content, missing frontmatter, citation mismatches, contradictions, entity graph issues — auto-fixes what it can, reports the rest
-Added privacy filter that auto-strips API keys, tokens, passwords, and PII from derived content during ingestion (raw sources are never modified). Pages tagged with `visibility: public/private/internal`
-Added contradiction resolution — when sources disagree, both sides are scored by recency, authority, and evidence count. Stronger claims supersede weaker ones; close calls flagged for human review
-Added retention decay — confidence decays over time unless pages are accessed or reinforced. Each page type has its own half-life (concepts: 180 days, insights: 60 days, drafts: 30 days)
-Added crystallization — when `/wiki` synthesizes 3+ sources, it auto-generates a digest page capturing the question, answer, sources, key connections, and lessons
-Added quality scoring — every page scored 0–100 across 5 dimensions (frontmatter, citations, freshness, relationships, content). Grades A–F. Pages below 60 flagged during `/wiki-update` and `/wiki-audit`
-Improved `/wiki-ingest` to extract entities, apply privacy filtering, and set confidence/authority on summaries
-Improved `/wiki-update` to apply retention decay and compute quality scores after rebuilding indexes
-Improved `/wiki-insights` to read entity graph for structural connections alongside topic and concept pages
+- Added knowledge graph that extracts named entities (people, projects, technologies, decisions) during ingestion and connects them with typed relationships in `.data/entities/`
+- Added typed relationships between concepts with semantic meaning: `extends`, `contradicts`, `supersedes`, `depends-on`, `generalizes`, `component-of`
+- Added confidence scoring to every page (`high`/`medium`/`low`) with `verified` dates and source `authority` tracking (`primary`/`secondary`/`commentary`)
+- Added supersession — when new info replaces old, pages are linked with `supersedes`/`superseded_by` instead of being silently overwritten
+- Added graph-aware queries to `/wiki` — walks entity relationships alongside keyword/semantic search to find connections that text search misses
+- Added `/wiki-audit` command to check wiki health: broken links, orphan pages, stale content, missing frontmatter, citation mismatches, contradictions, entity graph issues — auto-fixes what it can, reports the rest
+- Added privacy filter that auto-strips API keys, tokens, passwords, and PII from derived content during ingestion (raw sources are never modified). Pages tagged with `visibility: public/private/internal`
+- Added contradiction resolution — when sources disagree, both sides are scored by recency, authority, and evidence count. Stronger claims supersede weaker ones; close calls flagged for human review
+- Added retention decay — confidence decays over time unless pages are accessed or reinforced. Each page type has its own half-life (concepts: 180 days, insights: 60 days, drafts: 30 days)
+- Added crystallization — when `/wiki` synthesizes 3+ sources, it auto-generates a digest page capturing the question, answer, sources, key connections, and lessons
+- Added quality scoring — every page scored 0–100 across 5 dimensions (frontmatter, citations, freshness, relationships, content). Grades A–F. Pages below 60 flagged during `/wiki-update` and `/wiki-audit`
+- Improved `/wiki-ingest` to extract entities, apply privacy filtering, and set confidence/authority on summaries
+- Improved `/wiki-update` to apply retention decay and compute quality scores after rebuilding indexes
+- Improved `/wiki-insights` to read entity graph for structural connections alongside topic and concept pages
 
 > **Upgrading from v0.0.x?** Run `/wiki-setup` again to initialize the new `.data/entities/` directory. Your existing wiki pages will continue to work — new fields (`confidence`, `verified`, `entities`, typed `related`) are added incrementally as you ingest new documents or run `/wiki-update`. No migration needed.
 
