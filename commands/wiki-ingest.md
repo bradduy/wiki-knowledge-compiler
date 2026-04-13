@@ -108,11 +108,17 @@ This is safe to run every time — `mkdir -p` does nothing if the folder already
 3. If it's pasted content, save it as a new `.md` file in `raw/` with an appropriate name.
 4. Record the source metadata: filename, date ingested, original location.
 
-### Step 3: Read and understand the source
+### Step 3: Read and filter the source
 
 1. Read the full source content.
-2. Identify the key claims, concepts, arguments, and structure.
-3. Note any uncertainty, caveats, or limitations stated by the author.
+2. **Apply the privacy filter** — follow `skills/privacy-filter.md`:
+   - Scan for API keys, tokens, passwords, private keys, connection strings (Tier 1 — always strip).
+   - Scan for emails, internal IPs, file paths with usernames, phone numbers (Tier 2 — strip by default).
+   - Scan for internal URLs, potential PII (Tier 3 — flag only).
+   - All derived content (summaries, concepts, entities) uses the **filtered** version. The raw source in `raw/` is never modified.
+   - If secrets were found, set `visibility: private` on all derived pages.
+3. Identify the key claims, concepts, arguments, and structure.
+4. Note any uncertainty, caveats, or limitations stated by the author.
 
 ### Step 4: Create or update the summary
 

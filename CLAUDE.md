@@ -55,6 +55,23 @@ Every page carries lifecycle metadata:
 - `/wiki-insights` — Discover connections across your sources
 - `/wiki-update` — Sync your wiki (ingest new raw files + refresh indexes)
 - `/wiki-schedule` — Schedule /wiki-update to run automatically
+- `/wiki-audit` — Check wiki health, fix broken links, detect contradictions
+
+## Privacy & Filtering
+
+Content is automatically filtered during ingestion to prevent secrets from leaking into derived pages:
+
+- **Always stripped:** API keys, tokens, passwords, private keys, connection strings
+- **Stripped by default:** emails, internal IPs, file paths with usernames, phone numbers
+- **Flagged only:** internal URLs, potential PII context
+
+The privacy filter (see `skills/privacy-filter.md`) runs after reading the source but before writing any derived content. Raw sources in `raw/` are never modified.
+
+Pages carry a `visibility` field: `public` (default), `private` (contains redacted content), or `internal` (references internal systems).
+
+## Contradiction Resolution
+
+When sources disagree, the wiki doesn't silently pick one side. The contradiction resolution skill (`skills/contradiction-resolution.md`) evaluates both claims based on source recency, authority, evidence count, and confidence. It either proposes a resolution (marking the weaker claim as superseded) or flags the conflict for human review with `contradicts` relationships on both pages.
 
 ## File Conventions
 

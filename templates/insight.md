@@ -5,6 +5,7 @@ created: "[YYYY-MM-DD]"
 updated: "[YYYY-MM-DD]"
 verified: "[YYYY-MM-DD]"
 confidence: "[high/medium/low]"
+visibility: "public"
 sources:
   - "summaries/[source1].md"
   - "concepts/[concept1].md"

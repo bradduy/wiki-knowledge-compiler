@@ -6,6 +6,7 @@ created: "[YYYY-MM-DD]"
 updated: "[YYYY-MM-DD]"
 verified: "[YYYY-MM-DD]"
 confidence: "[high/medium/low]"
+visibility: "public"
 sources:
   - "raw/[source-file]"
 aliases:
